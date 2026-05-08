@@ -1,0 +1,56 @@
+name: Generate files index
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/files.json"
+      - "**/files.html"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate files.json and files.html
+        run: |
+          python python/gen_files_json.py --outputs json,html .
+
+      - name: Show generated files
+        run: |
+          echo "Generated files:"
+          find . \( -name "files.json" -o -name "files.html" \) -print
+
+      - name: Commit generated index files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          find . \
+            \( -name "files.json" -o -name "files.html" \) \
+            ! -path "./.github/*" \
+            -print0 | xargs -0 git add
+
+          if git diff --cached --quiet; then
+            echo "No generated file changes to commit."
+          else
+            git commit -m "Update generated file indexes"
+            git push
+          fi

@@ -1,0 +1,367 @@
+{
+  "schema_version": 2,
+  "index_type": "directory-manifest",
+  "summary": {
+    "root": "/home/runner/work/plant1/plant1",
+    "path": ".",
+    "generated_at": "2026-05-08T11:01:30+00:00",
+    "file_count": 52,
+    "directory_count": 8,
+    "direct_file_count": 9,
+    "direct_directory_count": 2,
+    "total_size": 75616715,
+    "total_size_human": "72.1 MB"
+  },
+  "tree": {
+    "type": "directory",
+    "name": "plant1",
+    "path": ".",
+    "index": "files.json",
+    "modified": "2026-05-08T11:01:29+00:00",
+    "children": [
+      {
+        "type": "directory",
+        "name": "교육신청",
+        "path": "교육신청",
+        "index": "교육신청/files.json",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "file_count": 18,
+        "directory_count": 3,
+        "total_size": 19361872,
+        "total_size_human": "18.5 MB",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "directory",
+        "name": "구매로그",
+        "path": "구매로그",
+        "index": "구매로그/files.json",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "file_count": 25,
+        "directory_count": 3,
+        "total_size": 56143917,
+        "total_size_human": "53.5 MB",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": ".gitignore",
+        "path": ".gitignore",
+        "extension": "no-extension",
+        "group": "other",
+        "mime_type": null,
+        "size": 246,
+        "size_human": "246 B",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "admin.html",
+        "path": "admin.html",
+        "extension": "html",
+        "group": "text",
+        "mime_type": "text/html",
+        "size": 5512,
+        "size_human": "5.4 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "AGENTS.md",
+        "path": "AGENTS.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 330,
+        "size_human": "330 B",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "attach.js",
+        "path": "attach.js",
+        "extension": "js",
+        "group": "text",
+        "mime_type": "text/javascript",
+        "size": 1309,
+        "size_human": "1.3 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "dataroom.html",
+        "path": "dataroom.html",
+        "extension": "html",
+        "group": "text",
+        "mime_type": "text/html",
+        "size": 36281,
+        "size_human": "35.4 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "index.html",
+        "path": "index.html",
+        "extension": "html",
+        "group": "text",
+        "mime_type": "text/html",
+        "size": 59493,
+        "size_human": "58.1 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "play.md",
+        "path": "play.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 167,
+        "size_human": "167 B",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "wordcloud.html",
+        "path": "wordcloud.html",
+        "extension": "html",
+        "group": "text",
+        "mime_type": "text/html",
+        "size": 5608,
+        "size_human": "5.5 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "work.md",
+        "path": "work.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 1980,
+        "size_human": "1.9 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      }
+    ],
+    "file_count": 52,
+    "directory_count": 8,
+    "total_size": 75616715,
+    "total_size_human": "72.1 MB",
+    "security": {
+      "private": false,
+      "source": "public"
+    }
+  },
+  "files": [
+    {
+      "type": "file",
+      "name": ".gitignore",
+      "path": ".gitignore",
+      "extension": "no-extension",
+      "group": "other",
+      "mime_type": null,
+      "size": 246,
+      "size_human": "246 B",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "admin.html",
+      "path": "admin.html",
+      "extension": "html",
+      "group": "text",
+      "mime_type": "text/html",
+      "size": 5512,
+      "size_human": "5.4 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "AGENTS.md",
+      "path": "AGENTS.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 330,
+      "size_human": "330 B",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "attach.js",
+      "path": "attach.js",
+      "extension": "js",
+      "group": "text",
+      "mime_type": "text/javascript",
+      "size": 1309,
+      "size_human": "1.3 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "dataroom.html",
+      "path": "dataroom.html",
+      "extension": "html",
+      "group": "text",
+      "mime_type": "text/html",
+      "size": 36281,
+      "size_human": "35.4 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "index.html",
+      "path": "index.html",
+      "extension": "html",
+      "group": "text",
+      "mime_type": "text/html",
+      "size": 59493,
+      "size_human": "58.1 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "play.md",
+      "path": "play.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 167,
+      "size_human": "167 B",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "wordcloud.html",
+      "path": "wordcloud.html",
+      "extension": "html",
+      "group": "text",
+      "mime_type": "text/html",
+      "size": 5608,
+      "size_human": "5.5 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "work.md",
+      "path": "work.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 1980,
+      "size_human": "1.9 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    }
+  ],
+  "child_indexes": [
+    {
+      "type": "directory",
+      "name": "교육신청",
+      "path": "교육신청",
+      "index": "교육신청/files.json",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "file_count": 18,
+      "directory_count": 3,
+      "total_size": 19361872,
+      "total_size_human": "18.5 MB",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "directory",
+      "name": "구매로그",
+      "path": "구매로그",
+      "index": "구매로그/files.json",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "file_count": 25,
+      "directory_count": 3,
+      "total_size": 56143917,
+      "total_size_human": "53.5 MB",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "users": [
+    {
+      "id": "admin",
+      "password": "admin",
+      "role": "admin"
+    }
+  ]
+}

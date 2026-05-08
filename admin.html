@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자</title>
+    <style>
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f6f8fb; }
+        nav { position: sticky; top: 0; z-index: 2; display: flex; gap: 16px; padding: 12px 20px; border-bottom: 1px solid #d8dee8; background: #fff; }
+        nav a { color: #0b63d1; font-weight: 700; text-decoration: none; }
+        main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+        .panel { border: 1px solid #dde4ef; border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06); }
+        .login-panel { max-width: 420px; margin: 8vh auto; padding: 24px; }
+        h1 { margin: 0 0 8px; font-size: 24px; }
+        h2 { margin: 0; font-size: 18px; }
+        .muted { color: #667085; font-size: 0.92em; }
+        label { display: grid; gap: 6px; margin: 14px 0; font-weight: 700; }
+        input { height: 40px; border: 1px solid #ccd6e3; border-radius: 8px; padding: 0 10px; font: inherit; }
+        button { border: 1px solid #cbd7e6; border-radius: 8px; background: #fff; color: #1f2937; cursor: pointer; font: inherit; font-weight: 700; min-height: 38px; padding: 0 12px; }
+        button.primary { background: #0b63d1; border-color: #0b63d1; color: #fff; }
+        button.danger { border-color: #f1b8b8; color: #b42318; }
+        .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid #e5ebf3; }
+        .toolbar-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; min-height: 620px; }
+        .table-wrap { overflow: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th, td { padding: 10px 12px; border-bottom: 1px solid #eef2f7; text-align: left; vertical-align: top; }
+        th { position: sticky; top: 0; background: #f8fafc; color: #475467; z-index: 1; }
+        tr.is-private { background: #fff7ed; }
+        .path { font-weight: 700; word-break: break-all; }
+        .badge { display: inline-flex; border-radius: 999px; padding: 2px 8px; background: #eef4ff; color: #0b63d1; font-size: 12px; font-weight: 800; }
+        .side { border-left: 1px solid #e5ebf3; padding: 16px; background: #fbfcff; }
+        .stack { display: grid; gap: 10px; }
+        .status { min-height: 22px; color: #475467; font-size: 0.92em; }
+        .hidden { display: none !important; }
+        @media (max-width: 860px) { .content-grid { grid-template-columns: 1fr; } .side { border-left: 0; border-top: 1px solid #e5ebf3; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">메인</a>
+        <a href="dataroom.html">자료실</a>
+        <a href="wordcloud.html">워드클라우드</a>
+    </nav>
+    <main>
+        <section id="loginPanel" class="panel login-panel">
+            <h1>관리자 로그인</h1>
+            <p class="muted">기본 계정은 admin / admin 입니다.</p>
+            <label>아이디 <input id="adminId" autocomplete="username" value="admin"></label>
+            <label>비밀번호 <input id="adminPassword" type="password" autocomplete="current-password"></label>
+            <button type="button" id="loginButton" class="primary">로그인</button>
+            <p id="loginStatus" class="status"></p>
+        </section>
+
+        <section id="adminPanel" class="panel hidden">
+            <div class="toolbar">
+                <div>
+                    <h1>보안 접근 관리</h1>
+                    <div class="muted">grant.json에 비공개 경로를 등록하고, -private 후보를 검출합니다.</div>
+                </div>
+                <div class="toolbar-actions">
+                    <button type="button" id="detectButton">후보 검출</button>
+                    <button type="button" id="saveButton" class="primary">grant.json 저장</button>
+                    <button type="button" id="logoutButton">로그아웃</button>
+                </div>
+            </div>
+            <div class="content-grid">
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>경로</th><th>종류</th><th>상태</th><th>작업</th></tr></thead>
+                        <tbody id="securityRows"></tbody>
+                    </table>
+                </div>
+                <aside class="side">
+                    <div class="stack">
+                        <h2>수동 추가</h2>
+                        <input id="manualPath" placeholder="예: 교육/자료-private">
+                        <button type="button" id="addManualButton" class="primary">추가</button>
+                        <h2>조회</h2>
+                        <input id="adminSearch" placeholder="경로 검색">
+                        <p id="adminStatus" class="status"></p>
+                        <p class="muted">브라우저 보안상 서버 파일을 조용히 덮어쓸 수 없습니다. 지원 브라우저에서는 파일 저장 창을 사용하고, 아니면 grant.json 다운로드로 저장합니다.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <script src="lib/files-index-utils.js"></script>
+    <script src="lib/admin-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료실</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.6; margin: 0; }
+        nav {
+            background-color: #f8f9fa;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 5;
+        }
+        nav a { margin-right: 15px; text-decoration: none; color: #0366d6; font-weight: bold; }
+        .container { padding: 20px; }
+        #searchInput {
+            width: 100%;
+            padding: 10px 12px;
+            box-sizing: border-box;
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        .list-header {
+            position: sticky;
+            top: 50px;
+            z-index: 2;
+            background-color: #fff;
+            padding: 20px 0 16px;
+        }
+        .list-header h1 {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        .search-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto auto auto;
+            gap: 8px;
+            align-items: center;
+        }
+        .search-command-button,
+        .search-icon-button,
+        .search-reset-button {
+            border: 1px solid #d0d7de;
+            border-radius: 8px;
+            background: #fff;
+            color: #24292f;
+            cursor: pointer;
+            font-weight: 600;
+            min-height: 40px;
+            padding: 0 14px;
+        }
+        .search-icon-button {
+            min-width: 40px;
+            padding: 0 12px;
+        }
+        .search-command-button {
+            background: #0969da;
+            border-color: #0969da;
+            color: #fff;
+        }
+        .filter-toggle-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            min-width: 86px;
+            justify-content: center;
+        }
+        .filter-toggle-button[aria-expanded="true"] {
+            background: #f0f6ff;
+            border-color: #0969da;
+            color: #0969da;
+        }
+        .filter-count-badge {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            min-width: 19px;
+            height: 19px;
+            padding: 0 6px;
+            border-radius: 999px;
+            background: #0969da;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1;
+        }
+        .filter-count-badge.is-visible {
+            display: inline-flex;
+        }
+        .search-status {
+            min-height: 20px;
+            color: #57606a;
+            font-size: 0.9em;
+        }
+        .search-options-panel {
+            border: 1px solid #d8dee4;
+            border-radius: 14px;
+            background: #f6f8fa;
+            padding: 14px;
+            box-shadow: 0 10px 28px rgba(27, 31, 36, 0.08);
+        }
+        .search-option-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .search-option-group:last-child { margin-bottom: 0; }
+        .search-option-title {
+            flex: 0 0 82px;
+            color: #24292f;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        .search-option { font-size: 0.9em; color: #555; display: inline-flex; align-items: center; gap: 4px; }
+        .search-option input { margin: 0; }
+        .filter-select {
+            min-width: 180px;
+            min-height: 36px;
+            border: 1px solid #d0d7de;
+            border-radius: 10px;
+            background: #fff;
+            color: #24292f;
+            font: inherit;
+            padding: 0 10px;
+        }
+        .segmented-filter {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 4px;
+            border: 1px solid #d8dee4;
+            border-radius: 999px;
+            background: #fff;
+        }
+        .segmented-filter .search-option,
+        .filter-chip {
+            min-height: 32px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            padding: 0 12px;
+            background: transparent;
+            color: #57606a;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .segmented-filter input,
+        .filter-chip input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .segmented-filter .search-option:has(input:checked),
+        .filter-chip:has(input:checked) {
+            background: #0969da;
+            border-color: #0969da;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(9, 105, 218, 0.2);
+        }
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #fff;
+            border-color: #d8dee4;
+        }
+        .search-option-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+        #attachment-filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .filter-option {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: flex-start;
+        }
+        .extension-options {
+            display: none;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding-left: 2px;
+            max-width: 100%;
+        }
+        .extension-option {
+            font-size: 0.8em;
+            color: #555;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            min-height: 26px;
+            padding: 0 8px;
+            border: 1px solid #d8dee4;
+            border-radius: 999px;
+            background: #fff;
+        }
+        @media (max-width: 720px) {
+            .search-bar {
+                grid-template-columns: minmax(0, 1fr) auto auto;
+            }
+            .search-command-button {
+                grid-column: 1 / -1;
+            }
+            .search-option-title {
+                flex-basis: 100%;
+            }
+        }
+        .dataroom-workspace {
+            display: grid;
+            grid-template-columns: minmax(260px, 34%) minmax(0, 1fr);
+            gap: 14px;
+            min-height: 560px;
+        }
+        #file-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+            min-height: 0;
+            max-height: calc(100vh - 250px);
+            overflow: auto;
+            border: 1px solid #d8dee4;
+            border-radius: 10px;
+            background: #fff;
+        }
+        #file-list li {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+            padding: 12px;
+            cursor: pointer;
+        }
+        #file-list li:hover,
+        #file-list li.is-selected {
+            background: #eef4ff;
+        }
+        #file-list li.is-selected {
+            box-shadow: inset 3px 0 0 #0969da;
+        }
+        #file-list img, #file-list .file-badge, #file-list .attachment-preview .attachment-thumb, #file-list .attachment-row .attachment-badge { width: 80px; height: 80px; margin-right: 15px; flex-shrink: 0; }
+        .attachment-preview { display: inline-flex; align-items: center; gap: 12px; margin-right: 15px; text-decoration: none; color: inherit; cursor: pointer; }
+        .attachment-preview .attachment-thumb { display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 12px; overflow: hidden; background: #f2f2f2; }
+        .attachment-preview img { width: 100%; height: 100%; object-fit: cover; }
+        .attachment-preview.video .attachment-thumb { background: #ffe8ea; }
+        .attachment-preview .attachment-name { font-weight: 600; }
+        .attachment-row { display: flex; align-items: center; gap: 12px; }
+        .attachment-row .attachment-badge { display: inline-flex; align-items: center; justify-content: center; border-radius: 16px; background: #f0f0f0; }
+        .file-info { display: flex; flex-direction: column; }
+        .file-info .html-file { font-size: 0.9em; color: #586069; }
+        .file-info .attach-file { font-weight: bold; }
+        .dataroom-directory-link {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            color: inherit;
+            cursor: pointer;
+            font: inherit;
+            text-align: left;
+        }
+        .dataroom-explorer {
+            min-width: 0;
+            min-height: 560px;
+            border: 1px solid #d8dee4;
+            border-radius: 10px;
+            background: #f8fafc;
+            overflow: hidden;
+        }
+        .dataroom-explorer-empty {
+            height: 100%;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667085;
+            padding: 24px;
+            text-align: center;
+        }
+        .dataroom-file-preview {
+            display: grid;
+            grid-template-rows: minmax(0, 1fr) auto;
+            min-height: 560px;
+            height: calc(100vh - 250px);
+        }
+        .dataroom-file-preview-pane {
+            min-height: 0;
+            overflow: hidden;
+            background: #fff;
+        }
+        .dataroom-file-preview-pane .directory-viewer-pane {
+            min-height: 0;
+        }
+        .dataroom-file-preview-meta {
+            border-top: 1px solid #d8dee4;
+            padding: 16px 18px;
+            background: #fff;
+        }
+        .dataroom-file-preview-meta strong {
+            display: block;
+            font-size: 1.05em;
+            word-break: break-word;
+        }
+        .dataroom-file-preview-meta span {
+            display: block;
+            margin-top: 4px;
+            color: #667085;
+            font-size: 0.9em;
+        }
+        .dataroom-directory-browser {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 36%);
+            min-height: 560px;
+            height: calc(100vh - 250px);
+        }
+        .dataroom-directory-columns {
+            display: flex;
+            min-width: 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            background: #fff;
+        }
+        .dataroom-directory-column {
+            flex: 0 0 280px;
+            min-width: 0;
+            overflow: auto;
+            border-right: 1px solid #d8dee4;
+            padding: 8px;
+        }
+        .dataroom-column-item {
+            width: 100%;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: #1f2937;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 32px minmax(0, 1fr) 18px;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            text-align: left;
+            font: inherit;
+        }
+        .dataroom-column-item:hover,
+        .dataroom-column-item.is-selected {
+            background: #eef4ff;
+        }
+        .dataroom-column-name {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+        .dataroom-column-chevron {
+            color: #8a95a6;
+            text-align: right;
+        }
+        .dataroom-mini-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 7px;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #e6ecfa;
+            color: #1c3a71;
+            font-size: 0.7em;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+        .dataroom-mini-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .dataroom-mini-folder {
+            background: transparent;
+        }
+        .dataroom-mini-folder svg {
+            width: 30px;
+            height: 24px;
+        }
+        .dataroom-directory-preview {
+            min-width: 0;
+            overflow: auto;
+            border-left: 1px solid #d8dee4;
+            background: #f8fafc;
+        }
+        #document-preview { margin-top: 30px; }
+        #document-preview h2 { margin: 0 0 16px; font-size: 1.1em; }
+        #document-viewer {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            min-height: 320px;
+            background: #fafafa;
+            position: relative;
+            overflow: hidden;
+        }
+        #document-viewer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+        #document-viewer-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 0.95em;
+            text-align: center;
+            padding: 24px;
+        }
+        .document-view-link { font-weight: 600; margin-top: 6px; display: inline-block; }
+        .document-view-link.active { color: #003d99; }
+        .document-download-link { font-size: 0.85em; color: #666; margin-top: 4px; display: inline-block; }
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #0366d6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .modal-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            min-width: 0;
+        }
+        .modal-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .modal-meta {
+            font-size: 0.85em;
+            color: #5a6b87;
+        }
+        .modal-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .modal-nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid #c6d4eb;
+            background: #eef4ff;
+            color: #1b3b78;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .modal-nav-button:hover:not(:disabled) {
+            background: #deebff;
+            transform: translateY(-1px);
+        }
+        .modal-nav-button:disabled {
+            background: #f0f2f5;
+            color: #9ca9c2;
+            cursor: not-allowed;
+        }
+        .modal-body {
+            flex-grow: 1;
+            padding-top: 10px;
+            overflow: auto;
+        }
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+        .modal-info {
+            font-size: 0.9em;
+            color: #4a4a4a;
+            margin-bottom: 16px;
+        }
+        .modal-info a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        .modal-info a:hover {
+            text-decoration: underline;
+        }
+        .modal-media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+        .modal-media img,
+        .modal-media video,
+        .modal-media iframe {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            border: 1px solid #dfe5f2;
+            background: #000;
+        }
+        .modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .modal-actions a {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: #eef4ff;
+            color: #1b3b78;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #c6d4eb;
+        }
+        .modal-actions a:hover {
+            background: #deebff;
+        }
+        .modal-note {
+            font-size: 0.85em;
+            color: #5f6b7c;
+            margin-top: 8px;
+        }
+        pre.modal-note {
+            background: #f5f7fb;
+            border-radius: 8px;
+            padding: 12px;
+            overflow-x: auto;
+            color: #2f3c54;
+        }
+        .markdown-viewer {
+            width: 100%;
+            min-height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 24px;
+            background: #fff;
+            overflow: auto;
+            font-size: 16px;
+            line-height: 1.72;
+        }
+        .markdown-viewer h1,
+        .markdown-viewer h2,
+        .markdown-viewer h3 {
+            margin: 1.2em 0 0.55em;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.25em;
+        }
+        .markdown-viewer h1:first-child,
+        .markdown-viewer h2:first-child,
+        .markdown-viewer h3:first-child {
+            margin-top: 0;
+        }
+        .markdown-viewer p { margin: 0.7em 0; }
+        .markdown-viewer ul,
+        .markdown-viewer ol {
+            margin: 0.7em 0;
+            padding-left: 1.5em;
+            list-style: revert;
+        }
+        .markdown-viewer pre {
+            overflow: auto;
+            padding: 12px;
+            border-radius: 8px;
+            background: #f5f7fa;
+            border: 1px solid #e1e6ef;
+        }
+        .markdown-viewer code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            background: #f5f7fa;
+            border-radius: 4px;
+            padding: 0.1em 0.3em;
+        }
+        .markdown-viewer pre code {
+            padding: 0;
+            background: transparent;
+        }
+        .markdown-viewer blockquote {
+            margin: 0.8em 0;
+            padding-left: 1em;
+            color: #59636e;
+            border-left: 4px solid #d6deea;
+        }
+        .markdown-viewer img {
+            max-width: 100%;
+            height: auto;
+        }
+        .directory-viewer {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 180px;
+            gap: 14px;
+            height: 100%;
+            min-height: 0;
+        }
+        .directory-viewer-main {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            min-height: 0;
+        }
+        .directory-viewer-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding-bottom: 10px;
+        }
+        .directory-viewer-nav button {
+            border: 1px solid #ccd3df;
+            border-radius: 999px;
+            background: #f3f6fb;
+            color: #1f2937;
+            cursor: pointer;
+            padding: 6px 12px;
+            font: inherit;
+        }
+        .directory-viewer-nav button:disabled {
+            opacity: 0.45;
+            cursor: default;
+        }
+        .directory-viewer-counter {
+            min-width: 64px;
+            text-align: center;
+            color: #667085;
+            font-size: 0.9em;
+        }
+        .directory-viewer-content {
+            flex: 1 1 auto;
+            min-height: 0;
+            border: 1px solid #dde3ed;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f8fafc;
+        }
+        .directory-viewer-pane {
+            width: 100%;
+            height: 100%;
+            min-height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+        .directory-viewer-pane img,
+        .directory-viewer-pane video {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .directory-viewer-pane audio {
+            width: min(520px, 90%);
+        }
+        .directory-viewer-pane iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            border: 0;
+            background: #fff;
+        }
+        .directory-viewer-pane--markdown {
+            align-items: stretch;
+            justify-content: stretch;
+        }
+        .markdown-source-viewer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            background: #fff;
+        }
+        .markdown-source-toolbar {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            padding: 10px;
+            border-bottom: 1px solid #dde3ed;
+            background: #f7f9fc;
+        }
+        .markdown-source-toolbar button {
+            border: 1px solid #ccd3df;
+            border-radius: 999px;
+            background: #fff;
+            color: #1f2937;
+            cursor: pointer;
+            padding: 6px 12px;
+            font: inherit;
+            font-size: 0.9em;
+        }
+        .markdown-source-toolbar button[aria-pressed="true"] {
+            background: #4b5563;
+            border-color: #4b5563;
+            color: #fff;
+        }
+        .markdown-source-preview {
+            flex: 1 1 auto;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+        }
+        .markdown-source-code {
+            flex: 1 1 auto;
+            min-height: 0;
+            margin: 0;
+            padding: 18px;
+            overflow: auto;
+            background: #0f172a;
+            color: #e5e7eb;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .directory-viewer-fallback {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+        .directory-viewer-rail {
+            min-height: 0;
+            overflow-y: auto;
+            border: 1px solid #dde3ed;
+            border-radius: 8px;
+            background: #fff;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .directory-viewer-thumb {
+            border: 1px solid transparent;
+            border-radius: 8px;
+            background: #fff;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #1f2937;
+            font: inherit;
+            text-align: left;
+        }
+        .directory-viewer-thumb:hover,
+        .directory-viewer-thumb.is-selected {
+            border-color: #0b63d1;
+            background: #eef4ff;
+        }
+        .directory-viewer-thumb .file-badge,
+        .directory-viewer-thumb img {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .directory-viewer-thumb span:last-child {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-size: 0.84em;
+        }
+        .file-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background-color: #e6ecfa;
+            color: #1c3a71;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        .file-badge[data-type="video"] {
+            background-color: #ffe8ea;
+            color: #831f2f;
+        }
+        .file-badge[data-type="audio"] {
+            background-color: #f3e6ff;
+            color: #5b238b;
+        }
+        .file-badge[data-type="document"] {
+            background-color: #e6f7f0;
+            color: #186947;
+        }
+        .file-badge[data-type="other"] {
+            background-color: #f0f0f0;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            nav {
+                justify-content: center;
+            }
+            #file-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            #file-list img, #file-list .file-badge, #file-list .attachment-preview .attachment-thumb, #file-list .attachment-row .attachment-badge {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 10px;
+            }
+            .file-info {
+                width: 100%;
+            }
+            #file-list {
+                max-height: 50vh;
+                overflow-y: auto;
+            }
+            .dataroom-workspace,
+            .dataroom-directory-browser {
+                grid-template-columns: 1fr;
+            }
+            #file-list,
+            .dataroom-file-preview,
+            .dataroom-directory-browser {
+                height: auto;
+                max-height: none;
+            }
+            .container {
+                padding: 15px;
+            }
+            #document-viewer {
+                min-height: 260px;
+            }
+            .lg-current img,
+            .lg-current video {
+                max-width: 100vw !important;
+                max-height: 100vh !important;
+                width: auto !important;
+                height: auto !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lg-video.min.css">
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="navigateWithSearch(event, 'index.html')">메인</a>
+        <a href="#" onclick="navigateWithSearch(event, 'dataroom.html')">자료실</a>
+        <a href="#" onclick="navigateWithSearch(event, 'wordcloud.html')">워드클라우드</a>
+        <a href="admin.html">관리자</a>
+    </nav>
+    <div class="container">
+        <div class="list-header">
+            <h1>자료실</h1>
+            <div class="search-controls">
+                <div class="search-bar">
+                    <input type="search" id="searchInput" placeholder="디렉토리, 파일명 검색..." autocomplete="off">
+                    <button type="button" id="searchButton" class="search-command-button">검색</button>
+                    <button type="button" id="clearSearchButton" class="search-icon-button" aria-label="검색어 지우기" title="검색어 지우기">×</button>
+                    <button type="button" id="searchOptionsToggle" class="search-icon-button filter-toggle-button" aria-expanded="false" aria-controls="searchOptionsPanel">
+                        <span>필터</span>
+                        <span id="activeFilterBadge" class="filter-count-badge" aria-hidden="true">0</span>
+                    </button>
+                </div>
+                <div id="searchStatus" class="search-status" aria-live="polite"></div>
+                <div id="searchOptionsPanel" class="search-options-panel" hidden>
+                    <div class="search-option-group">
+                        <span class="search-option-title">검색 범위</span>
+                        <div class="segmented-filter" role="radiogroup" aria-label="검색 범위">
+                        <label class="search-option">
+                            <input type="radio" name="searchScope" value="all" checked>
+                            전체
+                        </label>
+                        <label class="search-option">
+                            <input type="radio" name="searchScope" value="title">
+                            디렉토리
+                        </label>
+                        <label class="search-option">
+                            <input type="radio" name="searchScope" value="file">
+                            파일명
+                        </label>
+                        </div>
+                        <input type="checkbox" id="titleOnlyCheckbox" hidden>
+                    </div>
+                    <div class="search-option-group">
+                        <span class="search-option-title">결과 유형</span>
+                        <select id="loadedTypeFilter" class="filter-select" aria-label="결과 유형">
+                            <option value="all">전체</option>
+                        </select>
+                    </div>
+                    <div class="search-option-group">
+                        <span class="search-option-title">파일 종류</span>
+                        <div id="attachment-filter-options">
+                            <div class="filter-option">
+                                <label class="search-option filter-chip">
+                                    <input type="checkbox" id="imageFilter" onchange="handleAttachmentFilterToggle('image')">
+                                    이미지
+                                </label>
+                                <div class="extension-options" id="imageExtensions"></div>
+                            </div>
+                            <div class="filter-option">
+                                <label class="search-option filter-chip">
+                                    <input type="checkbox" id="videoFilter" onchange="handleAttachmentFilterToggle('video')">
+                                    동영상
+                                </label>
+                                <div class="extension-options" id="videoExtensions"></div>
+                            </div>
+                            <div class="filter-option">
+                                <label class="search-option filter-chip">
+                                    <input type="checkbox" id="audioFilter" onchange="handleAttachmentFilterToggle('audio')">
+                                    음성
+                                </label>
+                                <div class="extension-options" id="audioExtensions"></div>
+                            </div>
+                            <div class="filter-option">
+                                <label class="search-option filter-chip">
+                                    <input type="checkbox" id="documentFilter" onchange="handleAttachmentFilterToggle('document')">
+                                    문서
+                                </label>
+                                <div class="extension-options" id="documentExtensions"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-option-actions">
+                        <button type="button" id="resetSearchButton" class="search-reset-button">검색 초기화</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dataroom-workspace">
+            <ul id="file-list"></ul>
+            <section id="dataroom-explorer" class="dataroom-explorer" aria-label="자료실 탐색기">
+                <div class="dataroom-explorer-empty">자료실 목록에서 파일 또는 디렉토리를 선택하세요.</div>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+            <div class="modal-title-group">
+                <span class="modal-title">File Viewer</span>
+                <span class="modal-meta" id="modalAttachmentMeta"></span>
+            </div>
+            <div class="modal-controls">
+                <button type="button" class="modal-nav-button" id="modalPrevBtn" aria-label="이전 첨부">&#8249;</button>
+                <button type="button" class="modal-nav-button" id="modalNextBtn" aria-label="다음 첨부">&#8250;</button>
+                <span class="close" role="button" tabindex="0" aria-label="닫기">&times;</span>
+            </div>
+        </div>
+        <div class="modal-body" id="modalBody">
+        </div>
+      </div>
+    </div>
+    <script src="lib/attachment-utils.js"></script>
+    <script src="lib/files-index-utils.js"></script>
+    <script src="lib/dataroom-page.js"></script>
+    <script>
+        function navigateWithSearch(event, target) {
+            event.preventDefault();
+            const searchInput = document.getElementById('searchInput');
+            const checkedScope = document.querySelector('input[name="searchScope"]:checked');
+            const filterTypes = ['image', 'video', 'audio', 'document'];
+
+            const params = new URLSearchParams();
+            if (searchInput && searchInput.value.trim()) {
+                params.set('search', searchInput.value.trim());
+            }
+
+            if (checkedScope) {
+                params.set('scope', checkedScope.value);
+                params.set('titleOnly', checkedScope.value === 'title' ? '1' : '0');
+            }
+
+            filterTypes.forEach(type => {
+                const filterCheckbox = document.getElementById(`${type}Filter`);
+                if (filterCheckbox) {
+                    params.set(type, filterCheckbox.checked ? '1' : '0');
+
+                    if (filterCheckbox.checked) {
+                        const extensionContainer = document.getElementById(`${type}Extensions`);
+                        if (extensionContainer) {
+                            const checkedExtensions = Array.from(extensionContainer.querySelectorAll('input[type="checkbox"]:checked'))
+                                .map(input => input.value);
+                            if (checkedExtensions.length > 0) {
+                                params.set(`${type}_ext`, checkedExtensions.join(','));
+                            }
+                        }
+                    }
+                }
+            });
+
+            const query = params.toString();
+            const url = query ? `${target}?${query}` : target;
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
