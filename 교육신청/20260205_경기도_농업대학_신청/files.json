@@ -1,0 +1,306 @@
+{
+  "schema_version": 2,
+  "index_type": "directory-manifest",
+  "summary": {
+    "root": "/home/runner/work/plant1/plant1/교육신청/20260205_경기도_농업대학_신청",
+    "path": "교육신청/20260205_경기도_농업대학_신청",
+    "generated_at": "2026-05-08T11:01:30+00:00",
+    "file_count": 9,
+    "directory_count": 0,
+    "direct_file_count": 9,
+    "direct_directory_count": 0,
+    "total_size": 17775195,
+    "total_size_human": "17.0 MB"
+  },
+  "tree": {
+    "type": "directory",
+    "name": "20260205_경기도_농업대학_신청",
+    "path": "교육신청/20260205_경기도_농업대학_신청",
+    "index": "교육신청/20260205_경기도_농업대학_신청/files.json",
+    "modified": "2026-05-08T11:01:29+00:00",
+    "children": [
+      {
+        "type": "file",
+        "name": "2023_평택농업기술센터_농업교육이수확인서.pdf",
+        "path": "교육신청/20260205_경기도_농업대학_신청/2023_평택농업기술센터_농업교육이수확인서.pdf",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 82510,
+        "size_human": "80.6 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "2025_경기도농업학교_스마트농업반_수료증.jpeg",
+        "path": "교육신청/20260205_경기도_농업대학_신청/2025_경기도농업학교_스마트농업반_수료증.jpeg",
+        "extension": "jpeg",
+        "group": "image",
+        "mime_type": "image/jpeg",
+        "size": 1453553,
+        "size_human": "1.4 MB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "2026020601306900653_김지훈_농업경영체증명서.PDF",
+        "path": "교육신청/20260205_경기도_농업대학_신청/2026020601306900653_김지훈_농업경영체증명서.PDF",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 127919,
+        "size_human": "124.9 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "edu_2026_ari_응시원서_1.hwpx",
+        "path": "교육신청/20260205_경기도_농업대학_신청/edu_2026_ari_응시원서_1.hwpx",
+        "extension": "hwpx",
+        "group": "other",
+        "mime_type": null,
+        "size": 82742,
+        "size_human": "80.8 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "edu_2026_ariU_가이드_수정.pdf",
+        "path": "교육신청/20260205_경기도_농업대학_신청/edu_2026_ariU_가이드_수정.pdf",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 12672535,
+        "size_human": "12.1 MB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "김지훈_edu_2026_ari_응시원서_1.hwpx",
+        "path": "교육신청/20260205_경기도_농업대학_신청/김지훈_edu_2026_ari_응시원서_1.hwpx",
+        "extension": "hwpx",
+        "group": "other",
+        "mime_type": null,
+        "size": 1377435,
+        "size_human": "1.3 MB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "김지훈_농업경영체 증명서.pdf",
+        "path": "교육신청/20260205_경기도_농업대학_신청/김지훈_농업경영체 증명서.pdf",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 490433,
+        "size_human": "478.9 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "농업교육 이력증빙서류.zip",
+        "path": "교육신청/20260205_경기도_농업대학_신청/농업교육 이력증빙서류.zip",
+        "extension": "zip",
+        "group": "application",
+        "mime_type": "application/zip",
+        "size": 1487674,
+        "size_human": "1.4 MB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "농업교육_이수.md",
+        "path": "교육신청/20260205_경기도_농업대학_신청/농업교육_이수.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 394,
+        "size_human": "394 B",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      }
+    ],
+    "file_count": 9,
+    "directory_count": 0,
+    "total_size": 17775195,
+    "total_size_human": "17.0 MB",
+    "security": {
+      "private": false,
+      "source": "public"
+    }
+  },
+  "files": [
+    {
+      "type": "file",
+      "name": "2023_평택농업기술센터_농업교육이수확인서.pdf",
+      "path": "교육신청/20260205_경기도_농업대학_신청/2023_평택농업기술센터_농업교육이수확인서.pdf",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 82510,
+      "size_human": "80.6 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "2025_경기도농업학교_스마트농업반_수료증.jpeg",
+      "path": "교육신청/20260205_경기도_농업대학_신청/2025_경기도농업학교_스마트농업반_수료증.jpeg",
+      "extension": "jpeg",
+      "group": "image",
+      "mime_type": "image/jpeg",
+      "size": 1453553,
+      "size_human": "1.4 MB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "2026020601306900653_김지훈_농업경영체증명서.PDF",
+      "path": "교육신청/20260205_경기도_농업대학_신청/2026020601306900653_김지훈_농업경영체증명서.PDF",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 127919,
+      "size_human": "124.9 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "edu_2026_ari_응시원서_1.hwpx",
+      "path": "교육신청/20260205_경기도_농업대학_신청/edu_2026_ari_응시원서_1.hwpx",
+      "extension": "hwpx",
+      "group": "other",
+      "mime_type": null,
+      "size": 82742,
+      "size_human": "80.8 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "edu_2026_ariU_가이드_수정.pdf",
+      "path": "교육신청/20260205_경기도_농업대학_신청/edu_2026_ariU_가이드_수정.pdf",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 12672535,
+      "size_human": "12.1 MB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "김지훈_edu_2026_ari_응시원서_1.hwpx",
+      "path": "교육신청/20260205_경기도_농업대학_신청/김지훈_edu_2026_ari_응시원서_1.hwpx",
+      "extension": "hwpx",
+      "group": "other",
+      "mime_type": null,
+      "size": 1377435,
+      "size_human": "1.3 MB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "김지훈_농업경영체 증명서.pdf",
+      "path": "교육신청/20260205_경기도_농업대학_신청/김지훈_농업경영체 증명서.pdf",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 490433,
+      "size_human": "478.9 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "농업교육 이력증빙서류.zip",
+      "path": "교육신청/20260205_경기도_농업대학_신청/농업교육 이력증빙서류.zip",
+      "extension": "zip",
+      "group": "application",
+      "mime_type": "application/zip",
+      "size": 1487674,
+      "size_human": "1.4 MB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "농업교육_이수.md",
+      "path": "교육신청/20260205_경기도_농업대학_신청/농업교육_이수.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 394,
+      "size_human": "394 B",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    }
+  ],
+  "child_indexes": [],
+  "errors": []
+}

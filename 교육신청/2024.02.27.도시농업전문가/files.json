@@ -1,0 +1,186 @@
+{
+  "schema_version": 2,
+  "index_type": "directory-manifest",
+  "summary": {
+    "root": "/home/runner/work/plant1/plant1/교육신청/2024.02.27.도시농업전문가",
+    "path": "교육신청/2024.02.27.도시농업전문가",
+    "generated_at": "2026-05-08T11:01:30+00:00",
+    "file_count": 5,
+    "directory_count": 0,
+    "direct_file_count": 5,
+    "direct_directory_count": 0,
+    "total_size": 1050210,
+    "total_size_human": "1.0 MB"
+  },
+  "tree": {
+    "type": "directory",
+    "name": "2024.02.27.도시농업전문가",
+    "path": "교육신청/2024.02.27.도시농업전문가",
+    "index": "교육신청/2024.02.27.도시농업전문가/files.json",
+    "modified": "2026-05-08T11:01:29+00:00",
+    "children": [
+      {
+        "type": "file",
+        "name": "서류접수.md",
+        "path": "교육신청/2024.02.27.도시농업전문가/서류접수.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 631,
+        "size_human": "631 B",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서.hwp",
+        "path": "교육신청/2024.02.27.도시농업전문가/제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서.hwp",
+        "extension": "hwp",
+        "group": "application",
+        "mime_type": "application/x-hwp",
+        "size": 62976,
+        "size_human": "61.5 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서_김지훈.hwp",
+        "path": "교육신청/2024.02.27.도시농업전문가/제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서_김지훈.hwp",
+        "extension": "hwp",
+        "group": "application",
+        "mime_type": "application/x-hwp",
+        "size": 451072,
+        "size_human": "440.5 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "제23기_도시농업전문가양성교육_신청서_김지훈.pdf",
+        "path": "교육신청/2024.02.27.도시농업전문가/제23기_도시농업전문가양성교육_신청서_김지훈.pdf",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 453021,
+        "size_human": "442.4 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "평택농업기술센터_2023_농업교육이수확인서.pdf",
+        "path": "교육신청/2024.02.27.도시농업전문가/평택농업기술센터_2023_농업교육이수확인서.pdf",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 82510,
+        "size_human": "80.6 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      }
+    ],
+    "file_count": 5,
+    "directory_count": 0,
+    "total_size": 1050210,
+    "total_size_human": "1.0 MB",
+    "security": {
+      "private": false,
+      "source": "public"
+    }
+  },
+  "files": [
+    {
+      "type": "file",
+      "name": "서류접수.md",
+      "path": "교육신청/2024.02.27.도시농업전문가/서류접수.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 631,
+      "size_human": "631 B",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서.hwp",
+      "path": "교육신청/2024.02.27.도시농업전문가/제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서.hwp",
+      "extension": "hwp",
+      "group": "application",
+      "mime_type": "application/x-hwp",
+      "size": 62976,
+      "size_human": "61.5 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서_김지훈.hwp",
+      "path": "교육신청/2024.02.27.도시농업전문가/제23기 도시농업전문가양성교육 신청서 및 개인정보 제공 동의서_김지훈.hwp",
+      "extension": "hwp",
+      "group": "application",
+      "mime_type": "application/x-hwp",
+      "size": 451072,
+      "size_human": "440.5 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "제23기_도시농업전문가양성교육_신청서_김지훈.pdf",
+      "path": "교육신청/2024.02.27.도시농업전문가/제23기_도시농업전문가양성교육_신청서_김지훈.pdf",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 453021,
+      "size_human": "442.4 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "평택농업기술센터_2023_농업교육이수확인서.pdf",
+      "path": "교육신청/2024.02.27.도시농업전문가/평택농업기술센터_2023_농업교육이수확인서.pdf",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 82510,
+      "size_human": "80.6 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    }
+  ],
+  "child_indexes": [],
+  "errors": []
+}

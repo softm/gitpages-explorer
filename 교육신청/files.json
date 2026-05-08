@@ -1,0 +1,126 @@
+{
+  "schema_version": 2,
+  "index_type": "directory-manifest",
+  "summary": {
+    "root": "/home/runner/work/plant1/plant1/교육신청",
+    "path": "교육신청",
+    "generated_at": "2026-05-08T11:01:30+00:00",
+    "file_count": 18,
+    "directory_count": 3,
+    "direct_file_count": 0,
+    "direct_directory_count": 3,
+    "total_size": 19361872,
+    "total_size_human": "18.5 MB"
+  },
+  "tree": {
+    "type": "directory",
+    "name": "교육신청",
+    "path": "교육신청",
+    "index": "교육신청/files.json",
+    "modified": "2026-05-08T11:01:29+00:00",
+    "children": [
+      {
+        "type": "directory",
+        "name": "2024.02.27.도시농업전문가",
+        "path": "교육신청/2024.02.27.도시농업전문가",
+        "index": "교육신청/2024.02.27.도시농업전문가/files.json",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "file_count": 5,
+        "directory_count": 0,
+        "total_size": 1050210,
+        "total_size_human": "1.0 MB",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "directory",
+        "name": "20260205_경기도_농업대학_신청",
+        "path": "교육신청/20260205_경기도_농업대학_신청",
+        "index": "교육신청/20260205_경기도_농업대학_신청/files.json",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "file_count": 9,
+        "directory_count": 0,
+        "total_size": 17775195,
+        "total_size_human": "17.0 MB",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "directory",
+        "name": "230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+        "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+        "index": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/files.json",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "file_count": 4,
+        "directory_count": 0,
+        "total_size": 536467,
+        "total_size_human": "523.9 KB",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      }
+    ],
+    "file_count": 18,
+    "directory_count": 3,
+    "total_size": 19361872,
+    "total_size_human": "18.5 MB",
+    "security": {
+      "private": false,
+      "source": "public"
+    }
+  },
+  "files": [],
+  "child_indexes": [
+    {
+      "type": "directory",
+      "name": "2024.02.27.도시농업전문가",
+      "path": "교육신청/2024.02.27.도시농업전문가",
+      "index": "교육신청/2024.02.27.도시농업전문가/files.json",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "file_count": 5,
+      "directory_count": 0,
+      "total_size": 1050210,
+      "total_size_human": "1.0 MB",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "directory",
+      "name": "20260205_경기도_농업대학_신청",
+      "path": "교육신청/20260205_경기도_농업대학_신청",
+      "index": "교육신청/20260205_경기도_농업대학_신청/files.json",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "file_count": 9,
+      "directory_count": 0,
+      "total_size": 17775195,
+      "total_size_human": "17.0 MB",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "directory",
+      "name": "230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+      "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+      "index": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/files.json",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "file_count": 4,
+      "directory_count": 0,
+      "total_size": 536467,
+      "total_size_human": "523.9 KB",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    }
+  ],
+  "errors": []
+}

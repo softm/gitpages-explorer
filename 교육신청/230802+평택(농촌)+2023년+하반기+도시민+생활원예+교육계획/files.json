@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "index_type": "directory-manifest",
+  "summary": {
+    "root": "/home/runner/work/plant1/plant1/교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+    "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+    "generated_at": "2026-05-08T11:01:30+00:00",
+    "file_count": 4,
+    "directory_count": 0,
+    "direct_file_count": 4,
+    "direct_directory_count": 0,
+    "total_size": 536467,
+    "total_size_human": "523.9 KB"
+  },
+  "tree": {
+    "type": "directory",
+    "name": "230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+    "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획",
+    "index": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/files.json",
+    "modified": "2026-05-08T11:01:29+00:00",
+    "children": [
+      {
+        "type": "file",
+        "name": "2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.hwp",
+        "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.hwp",
+        "extension": "hwp",
+        "group": "application",
+        "mime_type": "application/x-hwp",
+        "size": 284672,
+        "size_human": "278.0 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.pdf",
+        "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.pdf",
+        "extension": "pdf",
+        "group": "application",
+        "mime_type": "application/pdf",
+        "size": 197946,
+        "size_human": "193.3 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획.hwp",
+        "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획.hwp",
+        "extension": "hwp",
+        "group": "application",
+        "mime_type": "application/x-hwp",
+        "size": 52736,
+        "size_human": "51.5 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "readme.md",
+        "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/readme.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 1113,
+        "size_human": "1.1 KB",
+        "modified": "2026-05-08T11:01:29+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      }
+    ],
+    "file_count": 4,
+    "directory_count": 0,
+    "total_size": 536467,
+    "total_size_human": "523.9 KB",
+    "security": {
+      "private": false,
+      "source": "public"
+    }
+  },
+  "files": [
+    {
+      "type": "file",
+      "name": "2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.hwp",
+      "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.hwp",
+      "extension": "hwp",
+      "group": "application",
+      "mime_type": "application/x-hwp",
+      "size": 284672,
+      "size_human": "278.0 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.pdf",
+      "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/2023년 하반기 도시민 생활원예 교육.수강신청_김지훈.pdf",
+      "extension": "pdf",
+      "group": "application",
+      "mime_type": "application/pdf",
+      "size": 197946,
+      "size_human": "193.3 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획.hwp",
+      "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획.hwp",
+      "extension": "hwp",
+      "group": "application",
+      "mime_type": "application/x-hwp",
+      "size": 52736,
+      "size_human": "51.5 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "readme.md",
+      "path": "교육신청/230802+평택(농촌)+2023년+하반기+도시민+생활원예+교육계획/readme.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 1113,
+      "size_human": "1.1 KB",
+      "modified": "2026-05-08T11:01:29+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    }
+  ],
+  "child_indexes": [],
+  "errors": []
+}
