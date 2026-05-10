@@ -5,13 +5,19 @@ from __future__ import annotations
 
 import html
 import argparse
+import hashlib
 import json
 import mimetypes
 import os
+import re
+import shutil
+import subprocess
+import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
+import xml.etree.ElementTree as ET
 
 
 ROOT = Path.cwd()
@@ -20,13 +26,15 @@ SELF = Path(__file__).resolve()
 HTML_OUTPUT = ROOT / "files.html"
 OLD_HTML_OUTPUT = ROOT / "index.html"
 WORDCLOUD_HTML_OUTPUT = ROOT / "wordcloud.html"
+PREVIEW_DIRNAME = ".viewer-previews"
 GENERATED_NAMES = {"files.json", "files_info.json", "attach_files.json", "wordcloud.json", "files.html", "grant.json", "admin.json"}
 EXCLUDED_NAMES = {".DS_Store", ".git", ".github", "__pycache__", *GENERATED_NAMES}
-EXCLUDED_PATHS = {"lib", "lib/baguetteBox", "python"}
+EXCLUDED_PATHS = {"lib", "lib/baguetteBox", "python", PREVIEW_DIRNAME}
 OUTPUT_ALIASES = ("json", "html")
 GRANT_FILENAME = "grant.json"
 GRANT_OUTPUT = ROOT / GRANT_FILENAME
 GRANT_RULES: dict[str, Any] = {"private_paths": []}
+PREVIEWABLE_EXTENSIONS = {"hwp", "hwpx", "pptx"}
 
 
 def iso_time(timestamp: float) -> str:
@@ -55,6 +63,102 @@ def classify(path: Path) -> tuple[str, str]:
     else:
         group = "other"
     return ext, group
+
+
+def clean_extracted_text(text: str) -> str:
+    return re.sub(r"\n{3,}", "\n\n", re.sub(r"[ \t]+\n", "\n", text.replace("\r\n", "\n").replace("\r", "\n"))).strip()
+
+
+def xml_text_values(xml_bytes: bytes, tag_names: set[str]) -> list[str]:
+    try:
+        root = ET.fromstring(xml_bytes)
+    except ET.ParseError:
+        return []
+    values: list[str] = []
+    for elem in root.iter():
+        local_name = elem.tag.rsplit("}", 1)[-1].lower()
+        if local_name in tag_names and elem.text and elem.text.strip():
+            values.append(elem.text.strip())
+    return values
+
+
+def extract_pptx_text(path: Path) -> str:
+    parts: list[str] = []
+    with zipfile.ZipFile(path) as archive:
+        slide_names = sorted(
+            (name for name in archive.namelist() if re.match(r"ppt/slides/slide\d+\.xml$", name, re.I)),
+            key=lambda name: int(re.search(r"slide(\d+)\.xml", name, re.I).group(1)),
+        )
+        for index, name in enumerate(slide_names, start=1):
+            values = xml_text_values(archive.read(name), {"t"})
+            if values:
+                parts.append(f"[Slide {index}]\n" + "\n".join(values))
+    return clean_extracted_text("\n\n".join(parts))
+
+
+def extract_hwpx_text(path: Path) -> str:
+    parts: list[str] = []
+    with zipfile.ZipFile(path) as archive:
+        names = sorted(
+            name for name in archive.namelist()
+            if name.lower().endswith(".xml") and re.match(r"contents?/", name, re.I)
+        )
+        for name in names:
+            values = xml_text_values(archive.read(name), {"t", "text"})
+            if values:
+                parts.append("\n".join(values))
+    return clean_extracted_text("\n\n".join(parts))
+
+
+def extract_hwp_text(path: Path) -> str:
+    hwp5txt = shutil.which("hwp5txt")
+    if not hwp5txt:
+        return ""
+    try:
+        result = subprocess.run(
+            [hwp5txt, str(path)],
+            check=False,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.DEVNULL,
+            text=True,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return ""
+    return clean_extracted_text(result.stdout if result.returncode == 0 else result.stdout)
+
+
+def preview_path_for(rel_path: str, ext: str) -> Path:
+    digest = hashlib.sha1(rel_path.encode("utf-8")).hexdigest()[:16]
+    return ROOT / PREVIEW_DIRNAME / f"{digest}.{ext}.txt"
+
+
+def build_text_preview(path: Path, rel_path: str, ext: str) -> dict[str, Any] | None:
+    if ext not in PREVIEWABLE_EXTENSIONS:
+        return None
+    extractors = {
+        "hwp": extract_hwp_text,
+        "hwpx": extract_hwpx_text,
+        "pptx": extract_pptx_text,
+    }
+    try:
+        text = extractors[ext](path)
+    except (OSError, zipfile.BadZipFile, RuntimeError):
+        text = ""
+    if not text:
+        return {"available": False, "kind": "text", "error": "no-text-extracted"}
+
+    output_path = preview_path_for(rel_path, ext)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(text, encoding="utf-8")
+    preview_rel = output_path.relative_to(ROOT).as_posix()
+    return {
+        "available": True,
+        "kind": "text",
+        "path": preview_rel,
+        "size": output_path.stat().st_size,
+        "size_human": human_size(output_path.stat().st_size),
+    }
 
 
 def is_private_name(name: str) -> bool:
@@ -169,6 +273,9 @@ def scan_directory(path: Path, root: Path, errors: list[dict[str, str]]) -> dict
                 "modified": iso_time(stat_result.st_mtime),
                 "security": security_meta(child_rel),
             }
+            preview = build_text_preview(entry, child_rel, ext)
+            if preview:
+                file_node["preview"] = preview
             node["children"].append(file_node)
             node["file_count"] += 1
             node["total_size"] += stat_result.st_size
