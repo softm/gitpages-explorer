@@ -4,7 +4,7 @@
   "summary": {
     "root": "/home/runner/work/gitpages-explorer/gitpages-explorer/교육신청/2024.02.27.도시농업전문가",
     "path": "교육신청/2024.02.27.도시농업전문가",
-    "generated_at": "2026-05-08T12:26:09+00:00",
+    "generated_at": "2026-05-10T11:00:17+00:00",
     "file_count": 5,
     "directory_count": 0,
     "direct_file_count": 5,
@@ -17,7 +17,7 @@
     "name": "2024.02.27.도시농업전문가",
     "path": "교육신청/2024.02.27.도시농업전문가",
     "index": "교육신청/2024.02.27.도시농업전문가/files.json",
-    "modified": "2026-05-08T12:26:09+00:00",
+    "modified": "2026-05-10T11:00:16+00:00",
     "children": [
       {
         "type": "file",
@@ -28,7 +28,7 @@
         "mime_type": "text/markdown",
         "size": 631,
         "size_human": "631 B",
-        "modified": "2026-05-08T12:26:09+00:00",
+        "modified": "2026-05-10T11:00:16+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -43,10 +43,15 @@
         "mime_type": "application/x-hwp",
         "size": 62976,
         "size_human": "61.5 KB",
-        "modified": "2026-05-08T12:26:09+00:00",
+        "modified": "2026-05-10T11:00:16+00:00",
         "security": {
           "private": false,
           "source": "public"
+        },
+        "preview": {
+          "available": false,
+          "kind": "text",
+          "error": "no-text-extracted"
         }
       },
       {
@@ -58,10 +63,15 @@
         "mime_type": "application/x-hwp",
         "size": 451072,
         "size_human": "440.5 KB",
-        "modified": "2026-05-08T12:26:09+00:00",
+        "modified": "2026-05-10T11:00:16+00:00",
         "security": {
           "private": false,
           "source": "public"
+        },
+        "preview": {
+          "available": false,
+          "kind": "text",
+          "error": "no-text-extracted"
         }
       },
       {
@@ -73,7 +83,7 @@
         "mime_type": "application/pdf",
         "size": 453021,
         "size_human": "442.4 KB",
-        "modified": "2026-05-08T12:26:09+00:00",
+        "modified": "2026-05-10T11:00:16+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -88,7 +98,7 @@
         "mime_type": "application/pdf",
         "size": 82510,
         "size_human": "80.6 KB",
-        "modified": "2026-05-08T12:26:09+00:00",
+        "modified": "2026-05-10T11:00:16+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -114,7 +124,7 @@
       "mime_type": "text/markdown",
       "size": 631,
       "size_human": "631 B",
-      "modified": "2026-05-08T12:26:09+00:00",
+      "modified": "2026-05-10T11:00:16+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -129,10 +139,15 @@
       "mime_type": "application/x-hwp",
       "size": 62976,
       "size_human": "61.5 KB",
-      "modified": "2026-05-08T12:26:09+00:00",
+      "modified": "2026-05-10T11:00:16+00:00",
       "security": {
         "private": false,
         "source": "public"
+      },
+      "preview": {
+        "available": false,
+        "kind": "text",
+        "error": "no-text-extracted"
       }
     },
     {
@@ -144,10 +159,15 @@
       "mime_type": "application/x-hwp",
       "size": 451072,
       "size_human": "440.5 KB",
-      "modified": "2026-05-08T12:26:09+00:00",
+      "modified": "2026-05-10T11:00:16+00:00",
       "security": {
         "private": false,
         "source": "public"
+      },
+      "preview": {
+        "available": false,
+        "kind": "text",
+        "error": "no-text-extracted"
       }
     },
     {
@@ -159,7 +179,7 @@
       "mime_type": "application/pdf",
       "size": 453021,
       "size_human": "442.4 KB",
-      "modified": "2026-05-08T12:26:09+00:00",
+      "modified": "2026-05-10T11:00:16+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -174,7 +194,7 @@
       "mime_type": "application/pdf",
       "size": 82510,
       "size_human": "80.6 KB",
-      "modified": "2026-05-08T12:26:09+00:00",
+      "modified": "2026-05-10T11:00:16+00:00",
       "security": {
         "private": false,
         "source": "public"
