@@ -4,27 +4,27 @@
   "summary": {
     "root": "/home/runner/work/gitpages-explorer/gitpages-explorer/교육",
     "path": "교육",
-    "generated_at": "2026-05-11T13:22:01+00:00",
-    "file_count": 1,
+    "generated_at": "2026-05-11T14:11:15+00:00",
+    "file_count": 3,
     "directory_count": 2,
-    "direct_file_count": 0,
+    "direct_file_count": 2,
     "direct_directory_count": 1,
-    "total_size": 1576699,
-    "total_size_human": "1.5 MB"
+    "total_size": 4730097,
+    "total_size_human": "4.5 MB"
   },
   "tree": {
     "type": "directory",
     "name": "교육",
     "path": "교육",
     "index": "교육/files.json",
-    "modified": "2026-05-11T13:21:59+00:00",
+    "modified": "2026-05-11T14:11:14+00:00",
     "children": [
       {
         "type": "directory",
         "name": "2023 2기 귀농귀촌교육.0823.매주.수요일.",
         "path": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일.",
         "index": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일./files.json",
-        "modified": "2026-05-11T13:21:59+00:00",
+        "modified": "2026-05-11T14:11:14+00:00",
         "file_count": 1,
         "directory_count": 1,
         "total_size": 1576699,
@@ -33,25 +33,114 @@
           "private": false,
           "source": "public"
         }
+      },
+      {
+        "type": "file",
+        "name": "1.pptx",
+        "path": "교육/1.pptx",
+        "extension": "pptx",
+        "group": "application",
+        "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 1576699,
+        "size_human": "1.5 MB",
+        "modified": "2026-05-11T14:11:14+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        },
+        "preview": {
+          "available": true,
+          "kind": "text",
+          "path": ".viewer-previews/cfe757325198ffec.pptx.txt",
+          "size": 25094,
+          "size_human": "24.5 KB"
+        }
+      },
+      {
+        "type": "file",
+        "name": "230830_평택농기센터귀농창업및_주택구입지원사업신청.pptx",
+        "path": "교육/230830_평택농기센터귀농창업및_주택구입지원사업신청.pptx",
+        "extension": "pptx",
+        "group": "application",
+        "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 1576699,
+        "size_human": "1.5 MB",
+        "modified": "2026-05-11T14:11:14+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        },
+        "preview": {
+          "available": true,
+          "kind": "text",
+          "path": ".viewer-previews/e2c44b97bc7a1c39.pptx.txt",
+          "size": 25094,
+          "size_human": "24.5 KB"
+        }
       }
     ],
-    "file_count": 1,
+    "file_count": 3,
     "directory_count": 2,
-    "total_size": 1576699,
-    "total_size_human": "1.5 MB",
+    "total_size": 4730097,
+    "total_size_human": "4.5 MB",
     "security": {
       "private": false,
       "source": "public"
     }
   },
-  "files": [],
+  "files": [
+    {
+      "type": "file",
+      "name": "1.pptx",
+      "path": "교육/1.pptx",
+      "extension": "pptx",
+      "group": "application",
+      "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "size": 1576699,
+      "size_human": "1.5 MB",
+      "modified": "2026-05-11T14:11:14+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      },
+      "preview": {
+        "available": true,
+        "kind": "text",
+        "path": ".viewer-previews/cfe757325198ffec.pptx.txt",
+        "size": 25094,
+        "size_human": "24.5 KB"
+      }
+    },
+    {
+      "type": "file",
+      "name": "230830_평택농기센터귀농창업및_주택구입지원사업신청.pptx",
+      "path": "교육/230830_평택농기센터귀농창업및_주택구입지원사업신청.pptx",
+      "extension": "pptx",
+      "group": "application",
+      "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+      "size": 1576699,
+      "size_human": "1.5 MB",
+      "modified": "2026-05-11T14:11:14+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      },
+      "preview": {
+        "available": true,
+        "kind": "text",
+        "path": ".viewer-previews/e2c44b97bc7a1c39.pptx.txt",
+        "size": 25094,
+        "size_human": "24.5 KB"
+      }
+    }
+  ],
   "child_indexes": [
     {
       "type": "directory",
       "name": "2023 2기 귀농귀촌교육.0823.매주.수요일.",
       "path": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일.",
       "index": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일./files.json",
-      "modified": "2026-05-11T13:21:59+00:00",
+      "modified": "2026-05-11T14:11:14+00:00",
       "file_count": 1,
       "directory_count": 1,
       "total_size": 1576699,
