@@ -2,33 +2,33 @@
   "schema_version": 2,
   "index_type": "directory-manifest",
   "summary": {
-    "root": "/home/runner/work/gitpages-explorer/gitpages-explorer",
+    "root": "/Users/softm/Work/gitpages-explorer",
     "path": ".",
-    "generated_at": "2026-05-11T06:28:29+00:00",
-    "file_count": 30,
-    "directory_count": 7,
+    "generated_at": "2026-05-11T18:09:39+09:00",
+    "file_count": 1052,
+    "directory_count": 50,
     "direct_file_count": 11,
     "direct_directory_count": 2,
-    "total_size": 21063443,
-    "total_size_human": "20.1 MB"
+    "total_size": 7572099543,
+    "total_size_human": "7.1 GB"
   },
   "tree": {
     "type": "directory",
     "name": "gitpages-explorer",
     "path": ".",
     "index": "files.json",
-    "modified": "2026-05-11T06:28:28+00:00",
+    "modified": "2026-05-11T18:09:27+09:00",
     "children": [
       {
         "type": "directory",
-        "name": "교육",
-        "path": "교육",
-        "index": "교육/files.json",
-        "modified": "2026-05-11T06:28:28+00:00",
-        "file_count": 1,
-        "directory_count": 2,
-        "total_size": 1576699,
-        "total_size_human": "1.5 MB",
+        "name": "교육신청",
+        "path": "교육신청",
+        "index": "교육신청/files.json",
+        "modified": "2026-05-11T15:10:25+09:00",
+        "file_count": 18,
+        "directory_count": 3,
+        "total_size": 19361872,
+        "total_size_human": "18.5 MB",
         "security": {
           "private": false,
           "source": "public"
@@ -36,14 +36,14 @@
       },
       {
         "type": "directory",
-        "name": "교육신청",
-        "path": "교육신청",
-        "index": "교육신청/files.json",
-        "modified": "2026-05-11T06:28:28+00:00",
-        "file_count": 18,
-        "directory_count": 3,
-        "total_size": 19361872,
-        "total_size_human": "18.5 MB",
+        "name": "교육",
+        "path": "교육",
+        "index": "교육/files.json",
+        "modified": "2026-05-11T15:10:25+09:00",
+        "file_count": 1023,
+        "directory_count": 45,
+        "total_size": 7552612815,
+        "total_size_human": "7.0 GB",
         "security": {
           "private": false,
           "source": "public"
@@ -58,7 +58,7 @@
         "mime_type": null,
         "size": 246,
         "size_human": "246 B",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-08T20:00:44+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -73,7 +73,7 @@
         "mime_type": "text/html",
         "size": 5512,
         "size_human": "5.4 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-08T10:25:58+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -85,10 +85,10 @@
         "path": "AGENTS.md",
         "extension": "md",
         "group": "text",
-        "mime_type": "text/markdown",
+        "mime_type": null,
         "size": 330,
         "size_human": "330 B",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-06T11:55:38+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -103,7 +103,7 @@
         "mime_type": "text/javascript",
         "size": 1309,
         "size_human": "1.3 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-06T10:21:12+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -116,9 +116,9 @@
         "extension": "html",
         "group": "text",
         "mime_type": "text/html",
-        "size": 36440,
+        "size": 36432,
         "size_human": "35.6 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-11T15:32:53+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -130,10 +130,10 @@
         "path": "IMPLEMENTATION_SUMMARY.md",
         "extension": "md",
         "group": "text",
-        "mime_type": "text/markdown",
+        "mime_type": null,
         "size": 9020,
         "size_human": "8.8 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-08T20:54:17+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -146,9 +146,9 @@
         "extension": "html",
         "group": "text",
         "mime_type": "text/html",
-        "size": 59644,
+        "size": 59636,
         "size_human": "58.2 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-11T15:32:46+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -160,10 +160,10 @@
         "path": "play.md",
         "extension": "md",
         "group": "text",
-        "mime_type": "text/markdown",
+        "mime_type": null,
         "size": 167,
         "size_human": "167 B",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-03-03T14:06:55+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -178,7 +178,7 @@
         "mime_type": "text/html",
         "size": 5608,
         "size_human": "5.5 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-06T12:21:53+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -190,10 +190,10 @@
         "path": "work.md",
         "extension": "md",
         "group": "text",
-        "mime_type": "text/markdown",
+        "mime_type": null,
         "size": 1980,
         "size_human": "1.9 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-08T10:19:37+09:00",
         "security": {
           "private": false,
           "source": "public"
@@ -201,24 +201,24 @@
       },
       {
         "type": "file",
-        "name": "프롬프트-웹디자인.md",
-        "path": "프롬프트-웹디자인.md",
+        "name": "프롬프트-웹디자인.md",
+        "path": "프롬프트-웹디자인.md",
         "extension": "md",
         "group": "text",
-        "mime_type": "text/markdown",
+        "mime_type": null,
         "size": 4616,
         "size_human": "4.5 KB",
-        "modified": "2026-05-11T06:28:28+00:00",
+        "modified": "2026-05-06T13:04:30+09:00",
         "security": {
           "private": false,
           "source": "public"
         }
       }
     ],
-    "file_count": 30,
-    "directory_count": 7,
-    "total_size": 21063443,
-    "total_size_human": "20.1 MB",
+    "file_count": 1052,
+    "directory_count": 50,
+    "total_size": 7572099543,
+    "total_size_human": "7.1 GB",
     "security": {
       "private": false,
       "source": "public"
@@ -234,7 +234,7 @@
       "mime_type": null,
       "size": 246,
       "size_human": "246 B",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-08T20:00:44+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -249,7 +249,7 @@
       "mime_type": "text/html",
       "size": 5512,
       "size_human": "5.4 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-08T10:25:58+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -261,10 +261,10 @@
       "path": "AGENTS.md",
       "extension": "md",
       "group": "text",
-      "mime_type": "text/markdown",
+      "mime_type": null,
       "size": 330,
       "size_human": "330 B",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-06T11:55:38+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -279,7 +279,7 @@
       "mime_type": "text/javascript",
       "size": 1309,
       "size_human": "1.3 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-06T10:21:12+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -292,9 +292,9 @@
       "extension": "html",
       "group": "text",
       "mime_type": "text/html",
-      "size": 36440,
+      "size": 36432,
       "size_human": "35.6 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-11T15:32:53+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -306,10 +306,10 @@
       "path": "IMPLEMENTATION_SUMMARY.md",
       "extension": "md",
       "group": "text",
-      "mime_type": "text/markdown",
+      "mime_type": null,
       "size": 9020,
       "size_human": "8.8 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-08T20:54:17+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -322,9 +322,9 @@
       "extension": "html",
       "group": "text",
       "mime_type": "text/html",
-      "size": 59644,
+      "size": 59636,
       "size_human": "58.2 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-11T15:32:46+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -336,10 +336,10 @@
       "path": "play.md",
       "extension": "md",
       "group": "text",
-      "mime_type": "text/markdown",
+      "mime_type": null,
       "size": 167,
       "size_human": "167 B",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-03-03T14:06:55+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -354,7 +354,7 @@
       "mime_type": "text/html",
       "size": 5608,
       "size_human": "5.5 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-06T12:21:53+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -366,10 +366,10 @@
       "path": "work.md",
       "extension": "md",
       "group": "text",
-      "mime_type": "text/markdown",
+      "mime_type": null,
       "size": 1980,
       "size_human": "1.9 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-08T10:19:37+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -377,14 +377,14 @@
     },
     {
       "type": "file",
-      "name": "프롬프트-웹디자인.md",
-      "path": "프롬프트-웹디자인.md",
+      "name": "프롬프트-웹디자인.md",
+      "path": "프롬프트-웹디자인.md",
       "extension": "md",
       "group": "text",
-      "mime_type": "text/markdown",
+      "mime_type": null,
       "size": 4616,
       "size_human": "4.5 KB",
-      "modified": "2026-05-11T06:28:28+00:00",
+      "modified": "2026-05-06T13:04:30+09:00",
       "security": {
         "private": false,
         "source": "public"
@@ -394,14 +394,14 @@
   "child_indexes": [
     {
       "type": "directory",
-      "name": "교육",
-      "path": "교육",
-      "index": "교육/files.json",
-      "modified": "2026-05-11T06:28:28+00:00",
-      "file_count": 1,
-      "directory_count": 2,
-      "total_size": 1576699,
-      "total_size_human": "1.5 MB",
+      "name": "교육신청",
+      "path": "교육신청",
+      "index": "교육신청/files.json",
+      "modified": "2026-05-11T15:10:25+09:00",
+      "file_count": 18,
+      "directory_count": 3,
+      "total_size": 19361872,
+      "total_size_human": "18.5 MB",
       "security": {
         "private": false,
         "source": "public"
@@ -409,14 +409,14 @@
     },
     {
       "type": "directory",
-      "name": "교육신청",
-      "path": "교육신청",
-      "index": "교육신청/files.json",
-      "modified": "2026-05-11T06:28:28+00:00",
-      "file_count": 18,
-      "directory_count": 3,
-      "total_size": 19361872,
-      "total_size_human": "18.5 MB",
+      "name": "교육",
+      "path": "교육",
+      "index": "교육/files.json",
+      "modified": "2026-05-11T15:10:25+09:00",
+      "file_count": 1023,
+      "directory_count": 45,
+      "total_size": 7552612815,
+      "total_size_human": "7.0 GB",
       "security": {
         "private": false,
         "source": "public"
