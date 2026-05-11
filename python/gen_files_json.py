@@ -27,16 +27,14 @@ HTML_OUTPUT = ROOT / "files.html"
 OLD_HTML_OUTPUT = ROOT / "index.html"
 WORDCLOUD_HTML_OUTPUT = ROOT / "wordcloud.html"
 PREVIEW_DIRNAME = ".viewer-previews"
-OFFICE_VIEWER_DIRNAME = "viewer-office"
 GENERATED_NAMES = {"files.json", "files_info.json", "attach_files.json", "wordcloud.json", "files.html", "grant.json", "admin.json"}
 EXCLUDED_NAMES = {".DS_Store", ".git", ".github", "__pycache__", *GENERATED_NAMES}
-EXCLUDED_PATHS = {"lib", "lib/baguetteBox", "python", PREVIEW_DIRNAME, OFFICE_VIEWER_DIRNAME}
+EXCLUDED_PATHS = {"lib", "lib/baguetteBox", "python", PREVIEW_DIRNAME}
 OUTPUT_ALIASES = ("json", "html")
 GRANT_FILENAME = "grant.json"
 GRANT_OUTPUT = ROOT / GRANT_FILENAME
 GRANT_RULES: dict[str, Any] = {"private_paths": []}
 PREVIEWABLE_EXTENSIONS = {"hwp", "hwpx", "pptx"}
-OFFICE_VIEWER_EXTENSIONS = {"doc", "docx", "ppt", "pptx", "xls", "xlsx"}
 
 
 def iso_time(timestamp: float) -> str:
@@ -163,39 +161,6 @@ def build_text_preview(path: Path, rel_path: str, ext: str) -> dict[str, Any] | 
     }
 
 
-def office_viewer_path_for(rel_path: str, ext: str) -> Path:
-    digest = hashlib.sha1(rel_path.encode("utf-8")).hexdigest()[:16]
-    return ROOT / OFFICE_VIEWER_DIRNAME / f"{digest}.{ext}"
-
-
-def build_office_viewer_copy(path: Path, rel_path: str, ext: str) -> dict[str, Any] | None:
-    if ext not in OFFICE_VIEWER_EXTENSIONS:
-        return None
-
-    output_path = office_viewer_path_for(rel_path, ext)
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    try:
-        source_stat = path.stat()
-        should_copy = (
-            not output_path.exists()
-            or output_path.stat().st_size != source_stat.st_size
-            or output_path.stat().st_mtime < source_stat.st_mtime
-        )
-        if should_copy:
-            shutil.copy2(path, output_path)
-    except OSError:
-        return {"available": False, "kind": "office-copy", "error": "copy-failed"}
-
-    viewer_rel = output_path.relative_to(ROOT).as_posix()
-    return {
-        "available": True,
-        "kind": "office-copy",
-        "path": viewer_rel,
-        "size": output_path.stat().st_size,
-        "size_human": human_size(output_path.stat().st_size),
-    }
-
-
 def is_private_name(name: str) -> bool:
     stem = Path(name).stem if "." in name else name
     return stem.endswith("-private")
@@ -311,9 +276,6 @@ def scan_directory(path: Path, root: Path, errors: list[dict[str, str]]) -> dict
             preview = build_text_preview(entry, child_rel, ext)
             if preview:
                 file_node["preview"] = preview
-            office_viewer = build_office_viewer_copy(entry, child_rel, ext)
-            if office_viewer:
-                file_node["office_viewer"] = office_viewer
             node["children"].append(file_node)
             node["file_count"] += 1
             node["total_size"] += stat_result.st_size
