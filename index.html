@@ -1609,13 +1609,15 @@
                 height: auto;
                 min-height: 100dvh;
                 overflow-x: hidden;
+                line-height: 1.42;
+                font-size: 14px;
             }
             nav {
                 flex-wrap: nowrap;
                 justify-content: flex-start;
-                gap: 18px;
+                gap: 12px;
                 overflow-x: auto;
-                padding: 10px 14px;
+                padding: 7px 10px;
                 scrollbar-width: none;
             }
             nav::-webkit-scrollbar {
@@ -1624,7 +1626,7 @@
             nav a {
                 margin-right: 0;
                 flex: 0 0 auto;
-                font-size: 0.95em;
+                font-size: 0.9em;
             }
             .container {
                 display: block;
@@ -1635,42 +1637,76 @@
                 width: 100%;
                 border-right: none;
                 border-bottom: 1px solid #d8dee9;
-                padding: 0 14px 14px;
+                padding: 0 8px 8px;
                 overflow: visible;
                 height: auto;
                 max-height: none;
                 background: #fff;
             }
             .container.mobile-content-visible #file-list {
-                max-height: 42dvh;
+                max-height: 34dvh;
                 overflow-y: auto;
                 overscroll-behavior: contain;
             }
             .container.mobile-content-visible.mobile-sidebar-collapsed #file-list {
-                max-height: 74px;
+                max-height: 46px;
                 overflow: hidden;
                 padding-bottom: 0;
             }
             .list-header {
-                padding: 12px 0 10px;
+                padding: 7px 0 6px;
             }
             .list-header-top {
                 position: sticky;
                 top: 0;
                 z-index: 4;
                 background: #fff;
-                padding-bottom: 8px;
+                padding-bottom: 5px;
             }
             .list-header h1 {
                 margin-bottom: 0;
                 border-bottom: 0;
-                font-size: 1.35rem;
+                font-size: 1.05rem;
                 line-height: 1.25;
             }
             .mobile-panel-toggle {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
+                min-height: 30px;
+                padding: 4px 9px;
+                font-size: 0.82em;
+            }
+            .left-menu-tabs {
+                gap: 3px;
+                margin-bottom: 7px;
+                padding: 3px;
+                border-radius: 10px;
+            }
+            .left-menu-tab {
+                min-height: 32px;
+                padding: 5px 8px;
+                font-size: 0.9em;
+            }
+            #searchInput,
+            #mainDirectorySearchInput {
+                min-height: 36px;
+                padding: 7px 9px;
+                border-radius: 9px;
+            }
+            .search-controls {
+                gap: 7px;
+            }
+            .search-option {
+                font-size: 0.84em;
+            }
+            #attachment-filter-options,
+            .extension-options {
+                gap: 5px;
+            }
+            .extension-option {
+                min-height: 24px;
+                padding: 0 7px;
             }
             .container.mobile-sidebar-collapsed .left-menu-tabs,
             .container.mobile-sidebar-collapsed .left-tab-panel,
@@ -1679,29 +1715,33 @@
             }
             #file-content {
                 display: none;
-                padding: 12px;
+                padding: 6px;
                 max-height: none;
                 overflow: visible;
                 min-height: 0;
             }
             .loaded-filter-panel {
-                margin-bottom: 10px;
-                padding: 10px;
+                margin-bottom: 6px;
+                padding: 6px;
+                border-radius: 8px;
             }
             .loaded-filter-chips {
                 flex-wrap: nowrap;
                 overflow-x: auto;
                 overflow-y: hidden;
                 max-height: none;
+                gap: 5px;
             }
             .container.mobile-content-visible #file-content {
                 display: flex;
             }
             .share-buttons {
                 justify-content: flex-start;
+                gap: 6px;
             }
             .share-button {
-                width: 44px;
+                width: 38px;
+                min-height: 34px;
             }
             .directory-browser-toolbar {
                 position: sticky;
@@ -1709,32 +1749,48 @@
                 z-index: 3;
                 align-items: stretch;
                 flex-direction: column;
-                gap: 10px;
-                padding: 10px;
+                gap: 6px;
+                padding: 7px;
             }
             .directory-browser-title span {
-                font-size: 0.98em;
+                font-size: 0.9em;
                 white-space: normal;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
+            .directory-browser-title strong {
+                font-size: 0.82em;
+            }
             .directory-browser-actions {
                 width: 100%;
                 justify-content: space-between;
-                gap: 8px;
+                gap: 5px;
             }
             .view-mode-control {
                 flex: 1 1 auto;
                 min-width: 0;
                 justify-content: space-between;
+                padding: 2px;
             }
             .view-mode-button {
                 flex: 1 1 auto;
-                min-width: 36px;
+                min-width: 30px;
+                height: 28px;
+            }
+            .view-mode-button svg,
+            .preview-toggle-button svg {
+                width: 18px;
+                height: 18px;
+            }
+            .preview-toggle-button {
+                width: 32px;
+                height: 28px;
             }
             .directory-browser[data-view-mode="list"] .directory-item {
-                grid-template-columns: 40px minmax(0, 1fr);
+                grid-template-columns: 34px minmax(0, 1fr);
+                gap: 8px;
+                padding: 6px 7px;
             }
             .directory-browser[data-view-mode="list"] .directory-item-meta {
                 grid-column: 2;
@@ -1750,35 +1806,58 @@
                 display: none;
             }
             .directory-browser {
-                margin-top: 12px;
-                min-height: 70dvh;
+                margin-top: 6px;
+                min-height: 76dvh;
                 overflow: visible;
+                border-radius: 7px;
             }
             .directory-items {
                 max-height: none;
                 overflow: visible;
-                padding: 10px;
+                padding: 6px;
             }
             .directory-browser[data-view-mode="grid"] .directory-items {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 10px;
+                gap: 6px;
             }
             .directory-browser[data-view-mode="grid"] .directory-item {
-                min-height: 132px;
-                padding: 12px 8px;
+                min-height: 104px;
+                gap: 6px;
+                padding: 8px 5px;
             }
             .directory-browser[data-view-mode="grid"] .directory-item-icon {
-                width: 58px;
-                height: 58px;
-                border-radius: 12px;
+                width: 46px;
+                height: 46px;
+                border-radius: 10px;
             }
             .directory-browser[data-view-mode="grid"] .directory-folder-icon svg {
-                width: 58px;
-                height: 44px;
+                width: 46px;
+                height: 36px;
+            }
+            .directory-item-name {
+                font-size: 0.88em;
+            }
+            .directory-item-meta {
+                margin-top: 2px;
+                font-size: 0.74em;
             }
             .directory-browser[data-view-mode="columns"] .directory-items {
                 min-height: 0;
                 overflow-x: auto;
+            }
+            .directory-column {
+                flex-basis: 236px;
+                min-width: 220px;
+                padding: 5px;
+            }
+            .directory-column .directory-item {
+                grid-template-columns: 30px minmax(0, 1fr) 16px;
+                gap: 7px;
+                padding: 6px;
+            }
+            .directory-column .directory-item-icon {
+                width: 28px;
+                height: 28px;
             }
             .directory-preview-mount,
             .directory-browser[data-view-mode="gallery"] .directory-preview-mount {
@@ -1788,10 +1867,10 @@
                 overflow: visible;
             }
             .directory-preview {
-                padding: 10px;
+                padding: 6px;
             }
             .directory-preview-visual {
-                min-height: 220px;
+                min-height: 180px;
             }
             .directory-browser[data-view-mode="gallery"] .directory-preview {
                 height: auto;
@@ -1799,35 +1878,75 @@
                 flex-direction: column;
             }
             .directory-browser[data-view-mode="gallery"] .directory-preview-visual {
-                min-height: 240px;
+                min-height: 190px;
             }
             .directory-browser[data-view-mode="gallery"] .directory-items {
                 order: 2;
+                padding: 6px;
+                gap: 6px;
             }
             .directory-viewer {
                 grid-template-columns: 1fr;
+                gap: 6px;
             }
             .directory-viewer-rail {
                 max-height: none;
                 display: flex;
                 overflow-x: auto;
                 overflow-y: hidden;
-                gap: 8px;
-                padding: 10px;
+                gap: 6px;
+                padding: 6px;
             }
             .directory-viewer-thumb {
-                flex: 0 0 132px;
+                flex: 0 0 112px;
+                padding: 6px;
+            }
+            .directory-viewer-thumb .file-badge,
+            .directory-viewer-thumb img {
+                width: 34px;
+                height: 34px;
+                border-radius: 7px;
+            }
+            .directory-viewer-nav {
+                gap: 8px;
+                padding-bottom: 6px;
+            }
+            .directory-viewer-nav button {
+                padding: 4px 9px;
+                font-size: 0.9em;
+            }
+            .directory-viewer-content {
+                border-radius: 7px;
             }
             #document-viewer {
-                min-height: 260px;
+                min-height: 220px;
+            }
+            .markdown-viewer {
+                padding: 12px;
+                font-size: 14px;
+                line-height: 1.55;
+            }
+            .markdown-source-toolbar {
+                padding: 6px;
+                gap: 5px;
+            }
+            .markdown-source-toolbar button {
+                padding: 4px 8px;
+                font-size: 0.82em;
+            }
+            .markdown-source-code {
+                padding: 10px;
+                font-size: 12px;
+                line-height: 1.5;
             }
             #scrollTopBtn {
-                right: 18px;
-                bottom: 18px;
-                width: 56px;
-                height: 56px;
-                border-radius: 14px;
-                font-size: 0.9em;
+                right: 10px;
+                bottom: 10px;
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                font-size: 0.78em;
+                padding: 0;
             }
             .lg-current img,
             .lg-current video {
@@ -1835,6 +1954,36 @@
                 max-height: 100vh !important;
                 width: auto !important;
                 height: auto !important;
+            }
+        }
+        @media (max-width: 420px) {
+            body {
+                font-size: 13px;
+            }
+            nav {
+                gap: 10px;
+                padding: 6px 8px;
+            }
+            #file-list {
+                padding-left: 6px;
+                padding-right: 6px;
+            }
+            #file-content {
+                padding: 4px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-items {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .directory-browser[data-view-mode="grid"] .directory-item {
+                min-height: 96px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-item-icon {
+                width: 42px;
+                height: 42px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-folder-icon svg {
+                width: 42px;
+                height: 32px;
             }
         }
     </style>
