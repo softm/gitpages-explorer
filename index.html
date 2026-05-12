@@ -145,9 +145,33 @@
             background-color: #fff;
             padding: 20px 0 12px;
         }
+        .list-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
         .list-header h1 {
             margin-top: 0;
             margin-bottom: 12px;
+        }
+        .mobile-panel-toggle {
+            display: none;
+            border: 1px solid #d8e0ec;
+            border-radius: 999px;
+            background: #fff;
+            color: #0b63d1;
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.86em;
+            font-weight: 800;
+            min-height: 36px;
+            padding: 6px 12px;
+            white-space: nowrap;
+        }
+        .mobile-panel-toggle:focus-visible {
+            outline: 3px solid rgba(11, 99, 209, 0.28);
+            outline-offset: 2px;
         }
         .left-menu-tabs {
             display: grid;
@@ -1578,27 +1602,91 @@
         }
 
         @media (max-width: 768px) {
+            html {
+                height: auto;
+            }
+            body {
+                height: auto;
+                min-height: 100dvh;
+                overflow-x: hidden;
+            }
+            nav {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: 18px;
+                overflow-x: auto;
+                padding: 10px 14px;
+                scrollbar-width: none;
+            }
+            nav::-webkit-scrollbar {
+                display: none;
+            }
+            nav a {
+                margin-right: 0;
+                flex: 0 0 auto;
+                font-size: 0.95em;
+            }
             .container {
-                flex-direction: column;
+                display: block;
+                overflow: visible;
+                min-height: 0;
             }
             #file-list {
                 width: 100%;
                 border-right: none;
-                border-bottom: 1px solid #ccc;
-                overflow-y: auto; /* Ensure scrollability */
-                height: 100%; /* Fill the container height */
+                border-bottom: 1px solid #d8dee9;
+                padding: 0 14px 14px;
+                overflow: visible;
+                height: auto;
+                max-height: none;
+                background: #fff;
             }
             .container.mobile-content-visible #file-list {
-                height: 50vh; /* Occupy top half when content is visible */
+                max-height: 42dvh;
+                overflow-y: auto;
+                overscroll-behavior: contain;
+            }
+            .container.mobile-content-visible.mobile-sidebar-collapsed #file-list {
+                max-height: 74px;
+                overflow: hidden;
+                padding-bottom: 0;
+            }
+            .list-header {
+                padding: 12px 0 10px;
+            }
+            .list-header-top {
+                position: sticky;
+                top: 0;
+                z-index: 4;
+                background: #fff;
+                padding-bottom: 8px;
+            }
+            .list-header h1 {
+                margin-bottom: 0;
+                border-bottom: 0;
+                font-size: 1.35rem;
+                line-height: 1.25;
+            }
+            .mobile-panel-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .container.mobile-sidebar-collapsed .left-menu-tabs,
+            .container.mobile-sidebar-collapsed .left-tab-panel,
+            .container.mobile-sidebar-collapsed .left-result-list {
+                display: none !important;
             }
             #file-content {
-                display: none; /* Hide by default on mobile */
-                padding: 15px;
-                max-height: 50vh;
-                overflow: hidden;
+                display: none;
+                padding: 12px;
+                max-height: none;
+                overflow: visible;
+                min-height: 0;
             }
             .loaded-filter-panel {
                 margin-bottom: 10px;
+                padding: 10px;
             }
             .loaded-filter-chips {
                 flex-wrap: nowrap;
@@ -1607,10 +1695,7 @@
                 max-height: none;
             }
             .container.mobile-content-visible #file-content {
-                display: flex; /* Show when a file is selected */
-            }
-            nav {
-                justify-content: center;
+                display: flex;
             }
             .share-buttons {
                 justify-content: flex-start;
@@ -1619,15 +1704,34 @@
                 width: 44px;
             }
             .directory-browser-toolbar {
-                align-items: flex-start;
+                position: sticky;
+                top: 0;
+                z-index: 3;
+                align-items: stretch;
                 flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            .directory-browser-title span {
+                font-size: 0.98em;
+                white-space: normal;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .directory-browser-actions {
+                width: 100%;
+                justify-content: space-between;
+                gap: 8px;
             }
             .view-mode-control {
-                width: 100%;
+                flex: 1 1 auto;
+                min-width: 0;
                 justify-content: space-between;
             }
             .view-mode-button {
                 flex: 1 1 auto;
+                min-width: 36px;
             }
             .directory-browser[data-view-mode="list"] .directory-item {
                 grid-template-columns: 40px minmax(0, 1fr);
@@ -1638,24 +1742,92 @@
             }
             .directory-browser-layout,
             .directory-browser[data-view-mode="gallery"] .directory-browser-layout {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+                overflow: visible;
             }
             .directory-splitter {
                 display: none;
+            }
+            .directory-browser {
+                margin-top: 12px;
+                min-height: 70dvh;
+                overflow: visible;
+            }
+            .directory-items {
+                max-height: none;
+                overflow: visible;
+                padding: 10px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-items {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-item {
+                min-height: 132px;
+                padding: 12px 8px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-item-icon {
+                width: 58px;
+                height: 58px;
+                border-radius: 12px;
+            }
+            .directory-browser[data-view-mode="grid"] .directory-folder-icon svg {
+                width: 58px;
+                height: 44px;
+            }
+            .directory-browser[data-view-mode="columns"] .directory-items {
+                min-height: 0;
+                overflow-x: auto;
             }
             .directory-preview-mount,
             .directory-browser[data-view-mode="gallery"] .directory-preview-mount {
                 border-left: 0;
                 border-top: 1px solid #e5e9f0;
+                max-height: none;
+                overflow: visible;
+            }
+            .directory-preview {
+                padding: 10px;
+            }
+            .directory-preview-visual {
+                min-height: 220px;
+            }
+            .directory-browser[data-view-mode="gallery"] .directory-preview {
+                height: auto;
+                display: flex;
+                flex-direction: column;
+            }
+            .directory-browser[data-view-mode="gallery"] .directory-preview-visual {
+                min-height: 240px;
+            }
+            .directory-browser[data-view-mode="gallery"] .directory-items {
+                order: 2;
             }
             .directory-viewer {
                 grid-template-columns: 1fr;
             }
             .directory-viewer-rail {
-                max-height: 180px;
+                max-height: none;
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 8px;
+                padding: 10px;
+            }
+            .directory-viewer-thumb {
+                flex: 0 0 132px;
             }
             #document-viewer {
                 min-height: 260px;
+            }
+            #scrollTopBtn {
+                right: 18px;
+                bottom: 18px;
+                width: 56px;
+                height: 56px;
+                border-radius: 14px;
+                font-size: 0.9em;
             }
             .lg-current img,
             .lg-current video {
@@ -1679,7 +1851,10 @@
     <div class="container">
         <div id="file-list">
             <div class="list-header">
-                <h1>메인</h1>
+                <div class="list-header-top">
+                    <h1>메인</h1>
+                    <button type="button" id="mobilePanelToggle" class="mobile-panel-toggle" aria-expanded="true" aria-controls="mainDirectoryPanel searchPanel mainDirectories files">탐색 접기</button>
+                </div>
                 <div class="left-menu-tabs" role="tablist" aria-label="왼쪽 메뉴">
                     <button type="button" class="left-menu-tab is-active" data-left-tab="main" role="tab" aria-selected="true" aria-controls="mainDirectoryPanel">메인</button>
                     <button type="button" class="left-menu-tab" data-left-tab="search" role="tab" aria-selected="false" aria-controls="searchPanel">검색</button>
