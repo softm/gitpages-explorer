@@ -1332,7 +1332,7 @@
         .directory-browser[data-view-mode="gallery"] .directory-browser-layout {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: minmax(300px, var(--directory-gallery-preview-height, 1fr)) 6px auto;
+            grid-template-rows: minmax(220px, 1fr) 6px var(--directory-gallery-list-height, 92px);
         }
         .directory-browser[data-view-mode="gallery"] .directory-splitter {
             display: block;
@@ -1463,7 +1463,7 @@
         .directory-browser[data-view-mode="gallery"] .directory-items {
             grid-row: 3;
             grid-column: 1;
-            min-height: 86px;
+            min-height: 0;
             background: #fff;
         }
         .directory-browser[data-preview-visible="false"]:not([data-view-mode="gallery"]) .directory-browser-layout {
@@ -2389,7 +2389,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-viewer-share"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-zip-filename"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-gallery-list-split"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
