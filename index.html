@@ -25,7 +25,7 @@
             flex-grow: 1;
             min-width: 0;
             min-height: 0;
-            padding: 12px;
+            padding: 6px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -34,20 +34,20 @@
         .loaded-filter-panel {
             flex-shrink: 0;
             border: 1px solid #e4e9f2;
-            border-radius: 12px;
+            border-radius: 8px;
             background: rgba(248, 250, 252, 0.92);
-            padding: 12px;
-            margin-bottom: 14px;
-            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+            padding: 6px;
+            margin-bottom: 6px;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
         }
         .loaded-filter-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 6px;
+            margin-bottom: 5px;
             color: #1f2937;
-            font-size: 0.92em;
+            font-size: 0.86em;
             font-weight: 800;
         }
         .loaded-filter-actions {
@@ -66,24 +66,24 @@
             font: inherit;
         }
         .loaded-filter-head button {
-            padding: 5px 10px;
-            font-size: 0.82em;
+            padding: 3px 8px;
+            font-size: 0.78em;
             font-weight: 700;
         }
         .loaded-filter-chips {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            max-height: 82px;
+            gap: 5px;
+            max-height: 64px;
             overflow: auto;
         }
         .loaded-filter-chip {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            min-height: 30px;
-            padding: 5px 10px;
-            font-size: 0.84em;
+            gap: 5px;
+            min-height: 24px;
+            padding: 2px 7px;
+            font-size: 0.78em;
             white-space: nowrap;
         }
         .loaded-filter-chip:hover,
@@ -102,7 +102,7 @@
             color: inherit;
         }
         .loaded-filter-panel.is-collapsed {
-            padding-bottom: 10px;
+            padding-bottom: 6px;
         }
         .loaded-filter-panel.is-collapsed .loaded-filter-head {
             margin-bottom: 0;
@@ -437,8 +437,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 42px;
-            height: 42px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
@@ -447,7 +447,7 @@
         .share-toggle-button {
             background-color: #1f2937;
             color: #fff;
-            box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+            box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16);
         }
         .share-toggle-button:hover,
         .share-section.is-open .share-toggle-button {
@@ -455,8 +455,8 @@
             transform: translateY(-1px);
         }
         .share-toggle-button svg {
-            width: 21px;
-            height: 21px;
+            width: 17px;
+            height: 17px;
         }
         .share-panel {
             position: fixed;
@@ -509,8 +509,8 @@
             color: #1d3b70;
         }
         .share-button svg {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
         }
         .share-toggle-button:focus-visible,
         .share-button:focus-visible {
@@ -702,7 +702,7 @@
             height: auto;
         }
         .directory-browser {
-            margin-top: 10px;
+            margin-top: 4px;
             border: 1px solid #dde3ed;
             border-radius: 8px;
             background: #fff;
@@ -716,8 +716,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 8px;
-            padding: 8px 10px;
+            gap: 5px;
+            padding: 5px 6px;
             border-bottom: 1px solid #e5e9f0;
             background: #f7f9fc;
             flex-shrink: 0;
@@ -732,7 +732,7 @@
             color: #1f2937;
         }
         .directory-browser-title span {
-            font-size: 1.06em;
+            font-size: 0.96em;
             font-weight: 700;
             color: #667085;
             white-space: nowrap;
@@ -793,22 +793,22 @@
         .directory-browser-actions {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             flex-shrink: 0;
         }
         .view-mode-control {
             display: inline-flex;
             align-items: center;
             gap: 2px;
-            padding: 3px;
+            padding: 2px;
             border: 1px solid #ccd3df;
             border-radius: 999px;
             background: #eef2f7;
             flex-shrink: 0;
         }
         .view-mode-button {
-            width: 30px;
-            height: 28px;
+            width: 26px;
+            height: 25px;
             border: 0;
             border-radius: 999px;
             background: transparent;
@@ -820,8 +820,8 @@
             padding: 0;
         }
         .view-mode-button svg {
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             display: block;
         }
         .view-mode-button[aria-pressed="true"] {
@@ -829,8 +829,8 @@
             color: #fff;
         }
         .preview-toggle-button {
-            width: 30px;
-            height: 28px;
+            width: 26px;
+            height: 25px;
             border: 0;
             border-radius: 999px;
             background: transparent;
@@ -842,8 +842,8 @@
             padding: 0;
         }
         .preview-toggle-button svg {
-            width: 18px;
-            height: 18px;
+            width: 15px;
+            height: 15px;
             display: block;
         }
         .preview-toggle-button[aria-pressed="true"] {
@@ -851,7 +851,7 @@
             color: #fff;
         }
         .directory-viewer-open-button {
-            min-height: 28px;
+            min-height: 25px;
             border: 1px solid #ccd3df;
             border-radius: 999px;
             background: #fff;
@@ -860,7 +860,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0 10px;
+            padding: 0 7px;
             font: inherit;
             font-weight: 800;
             line-height: 1;
@@ -884,7 +884,7 @@
             overflow: hidden;
         }
         .directory-items {
-            padding: 10px;
+            padding: 5px;
             min-height: 0;
             overflow-y: auto;
             overscroll-behavior: contain;
@@ -2021,11 +2021,11 @@
             }
             .share-buttons {
                 justify-content: flex-start;
-                gap: 6px;
+                gap: 5px;
             }
             .share-button {
-                width: 38px;
-                min-height: 34px;
+                width: 32px;
+                min-height: 30px;
             }
             .directory-browser-toolbar {
                 position: sticky;
@@ -2033,8 +2033,8 @@
                 z-index: 3;
                 align-items: stretch;
                 flex-direction: column;
-                gap: 6px;
-                padding: 7px;
+                gap: 3px;
+                padding: 4px;
             }
             .directory-browser-title span {
                 font-size: 0.9em;
@@ -2049,7 +2049,7 @@
             .directory-browser-actions {
                 width: 100%;
                 justify-content: space-between;
-                gap: 5px;
+                gap: 4px;
             }
             .view-mode-control {
                 flex: 1 1 auto;
@@ -2059,22 +2059,22 @@
             }
             .view-mode-button {
                 flex: 1 1 auto;
-                min-width: 30px;
-                height: 28px;
+                min-width: 26px;
+                height: 25px;
             }
             .view-mode-button svg,
             .preview-toggle-button svg {
-                width: 18px;
-                height: 18px;
+                width: 15px;
+                height: 15px;
             }
             .preview-toggle-button {
-                width: 32px;
-                height: 28px;
+                width: 28px;
+                height: 25px;
             }
             .directory-viewer-open-button {
-                min-height: 28px;
-                padding: 0 8px;
-                font-size: 0.82em;
+                min-height: 25px;
+                padding: 0 6px;
+                font-size: 0.78em;
             }
             .directory-browser[data-view-mode="list"] .directory-item {
                 grid-template-columns: 34px minmax(0, 1fr);
@@ -2384,7 +2384,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-viewer-share"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-filter-collapse"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-compact-spacing"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
