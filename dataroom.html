@@ -813,6 +813,8 @@
             flex-shrink: 0;
             display: flex;
             justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 8px;
             padding: 10px;
             border-bottom: 1px solid #dde3ed;
@@ -840,6 +842,17 @@
             cursor: default;
             opacity: 1;
         }
+        .source-language-label {
+            margin-right: auto;
+            border: 1px solid #d8e0ec;
+            border-radius: 999px;
+            padding: 4px 9px;
+            background: #eef4ff;
+            color: #344054;
+            font-size: 0.76em;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
         .markdown-source-preview {
             flex: 1 1 auto;
             min-height: 0;
@@ -864,7 +877,59 @@
             font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
             font-size: 13px;
             line-height: 1.6;
+            white-space: pre;
+        }
+        .source-code-block {
+            tab-size: 4;
+        }
+        .source-code-block.is-wrapped {
             white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+        .source-line {
+            display: grid;
+            grid-template-columns: 3.4em minmax(0, 1fr);
+            min-width: max-content;
+        }
+        .source-code-block.is-wrapped .source-line {
+            min-width: 0;
+        }
+        .source-line-number {
+            user-select: none;
+            padding-right: 14px;
+            color: #64748b;
+            text-align: right;
+        }
+        .source-code-block:not(.has-line-numbers) .source-line {
+            display: block;
+        }
+        .source-code-block:not(.has-line-numbers) .source-line-number {
+            display: none;
+        }
+        .source-line-code {
+            min-width: 0;
+        }
+        .syntax-keyword { color: #93c5fd; font-weight: 700; }
+        .syntax-string { color: #86efac; }
+        .syntax-number { color: #fbbf24; }
+        .syntax-comment { color: #94a3b8; font-style: italic; }
+        .syntax-function { color: #c4b5fd; }
+        .syntax-constant { color: #fca5a5; }
+        .syntax-property,
+        .syntax-attribute { color: #67e8f9; }
+        .syntax-tag { color: #f0abfc; }
+        @media (max-width: 700px) {
+            .source-language-label {
+                width: 100%;
+                margin-right: 0;
+                box-sizing: border-box;
+            }
+            .source-line {
+                grid-template-columns: 2.8em minmax(0, 1fr);
+            }
+            .source-line-number {
+                padding-right: 10px;
+            }
         }
         .directory-viewer-fallback {
             display: flex;
@@ -1373,7 +1438,8 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-generic-source"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-generic-source"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-generic-source"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-source-highlight"></script>
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
