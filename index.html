@@ -1392,6 +1392,7 @@
             font-weight: 700;
         }
         .directory-viewer:fullscreen,
+        .directory-viewer.is-pseudo-fullscreen,
         .directory-viewer-pane:fullscreen {
             width: 100vw;
             height: 100vh;
@@ -1399,11 +1400,18 @@
             box-sizing: border-box;
             background: #fff;
         }
-        .directory-viewer:fullscreen {
+        .directory-viewer.is-pseudo-fullscreen {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+        }
+        .directory-viewer:fullscreen,
+        .directory-viewer.is-pseudo-fullscreen {
             grid-template-columns: minmax(0, 1fr) 160px;
             gap: 10px;
         }
         .directory-viewer:fullscreen .directory-viewer-content,
+        .directory-viewer.is-pseudo-fullscreen .directory-viewer-content,
         .directory-viewer-pane:fullscreen {
             border-radius: 0;
         }
@@ -1916,7 +1924,12 @@
                 grid-template-columns: 1fr;
                 padding: 6px;
             }
-            .directory-viewer:fullscreen .directory-viewer-rail {
+            .directory-viewer.is-pseudo-fullscreen {
+                grid-template-columns: 1fr;
+                padding: 6px;
+            }
+            .directory-viewer:fullscreen .directory-viewer-rail,
+            .directory-viewer.is-pseudo-fullscreen .directory-viewer-rail {
                 display: none;
             }
             .directory-viewer-rail {
