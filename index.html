@@ -830,6 +830,33 @@
             background: #4b5563;
             color: #fff;
         }
+        .directory-viewer-open-button {
+            min-height: 28px;
+            border: 1px solid #ccd3df;
+            border-radius: 999px;
+            background: #fff;
+            color: #344054;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            font: inherit;
+            font-weight: 800;
+            line-height: 1;
+            white-space: nowrap;
+        }
+        .directory-viewer-open-button:not(:disabled):hover,
+        .directory-viewer-open-button:not(:disabled):focus-visible {
+            background: #eef4ff;
+            border-color: #9db7dc;
+            color: #0b63ce;
+            outline: none;
+        }
+        .directory-viewer-open-button:disabled {
+            opacity: 0.45;
+            cursor: default;
+        }
         .directory-browser-layout {
             min-width: 0;
             flex: 1 1 auto;
@@ -2024,6 +2051,11 @@
                 width: 32px;
                 height: 28px;
             }
+            .directory-viewer-open-button {
+                min-height: 28px;
+                padding: 0 8px;
+                font-size: 0.82em;
+            }
             .directory-browser[data-view-mode="list"] .directory-item {
                 grid-template-columns: 34px minmax(0, 1fr);
                 gap: 8px;
@@ -2329,7 +2361,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-viewer-share"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-multi-download"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-viewer-open"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
