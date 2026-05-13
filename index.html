@@ -461,6 +461,27 @@
             justify-content: flex-end;
             margin-bottom: 8px;
         }
+        .share-variant-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .share-variant-button {
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            background: #f8fafc;
+            color: #1f2937;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 700;
+            padding: 8px 10px;
+            text-align: center;
+        }
+        .share-variant-button:hover {
+            background: #eaf2ff;
+            border-color: #8ab8f6;
+        }
         .share-button {
             background-color: #e6edf8;
             color: #1d3b70;
@@ -541,6 +562,17 @@
         }
         .share-feedback.share-feedback--error {
             color: #a11;
+        }
+        .directory-viewer-nav .share-section--viewer .share-toggle-button,
+        .directory-viewer-nav .share-section--viewer .share-button {
+            width: 38px;
+            height: 38px;
+            padding: 0;
+            border: 0;
+        }
+        .directory-viewer-nav .share-section--viewer .share-variant-button {
+            border-radius: 10px;
+            padding: 8px 10px;
         }
         #content {
             flex: 1 1 auto;
@@ -2292,9 +2324,9 @@
 
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-parent-folder-up"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-parent-folder-up"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-parent-folder-up"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-viewer-share"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-file-actions2"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-viewer-share"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
