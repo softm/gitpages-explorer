@@ -50,6 +50,12 @@
             font-size: 0.92em;
             font-weight: 800;
         }
+        .loaded-filter-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
         .loaded-filter-head button,
         .loaded-filter-chip {
             border: 1px solid #d8e0ec;
@@ -94,6 +100,15 @@
         }
         .loaded-filter-chip[aria-pressed="true"] .loaded-filter-count {
             color: inherit;
+        }
+        .loaded-filter-panel.is-collapsed {
+            padding-bottom: 10px;
+        }
+        .loaded-filter-panel.is-collapsed .loaded-filter-head {
+            margin-bottom: 0;
+        }
+        .loaded-filter-panel.is-collapsed .loaded-filter-chips {
+            display: none;
         }
         h1, h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
         ul { list-style-type: none; padding-left: 0; }
@@ -2353,7 +2368,10 @@
                 <input type="hidden" id="loadedListFilter" value="all">
                 <div class="loaded-filter-head">
                     <span>검색 필터</span>
-                    <button type="button" id="loadedFilterReset">전체</button>
+                    <div class="loaded-filter-actions">
+                        <button type="button" id="loadedFilterCollapse" aria-expanded="true" aria-controls="loadedFilterChips">접기</button>
+                        <button type="button" id="loadedFilterReset">전체</button>
+                    </div>
                 </div>
                 <div id="loadedFilterChips" class="loaded-filter-chips"></div>
             </section>
@@ -2366,7 +2384,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-viewer-share"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-share-toggle"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-filter-collapse"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
