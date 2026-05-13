@@ -610,15 +610,27 @@
         }
         .markdown-viewer h1,
         .markdown-viewer h2,
-        .markdown-viewer h3 {
+        .markdown-viewer h3,
+        .markdown-viewer h4,
+        .markdown-viewer h5,
+        .markdown-viewer h6 {
             margin: 1.2em 0 0.55em;
             border-bottom: 1px solid #e5e7eb;
             padding-bottom: 0.25em;
         }
         .markdown-viewer h1:first-child,
         .markdown-viewer h2:first-child,
-        .markdown-viewer h3:first-child {
+        .markdown-viewer h3:first-child,
+        .markdown-viewer h4:first-child,
+        .markdown-viewer h5:first-child,
+        .markdown-viewer h6:first-child {
             margin-top: 0;
+        }
+        .markdown-viewer h4,
+        .markdown-viewer h5,
+        .markdown-viewer h6 {
+            border-bottom: 0;
+            padding-bottom: 0;
         }
         .markdown-viewer p { margin: 0.7em 0; }
         .markdown-viewer ul,
@@ -626,6 +638,9 @@
             margin: 0.7em 0;
             padding-left: 1.5em;
             list-style: revert;
+        }
+        .markdown-viewer li input[type="checkbox"] {
+            margin-right: 0.4em;
         }
         .markdown-viewer pre {
             overflow: auto;
@@ -1348,10 +1363,10 @@
         </div>
       </div>
     </div>
-    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-search-shortcut"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-search-shortcut"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-search-shortcut"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-search-shortcut"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-md-preview"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-md-preview"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-md-preview"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-md-preview"></script>
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
