@@ -818,7 +818,8 @@
             border-bottom: 1px solid #dde3ed;
             background: #f7f9fc;
         }
-        .markdown-source-toolbar button {
+        .markdown-source-toolbar button,
+        .markdown-source-toolbar a {
             border: 1px solid #ccd3df;
             border-radius: 999px;
             background: #fff;
@@ -827,11 +828,17 @@
             padding: 6px 12px;
             font: inherit;
             font-size: 0.9em;
+            text-decoration: none;
         }
-        .markdown-source-toolbar button[aria-pressed="true"] {
+        .markdown-source-toolbar button[aria-pressed="true"],
+        .markdown-source-toolbar a[aria-pressed="true"] {
             background: #4b5563;
             border-color: #4b5563;
             color: #fff;
+        }
+        .markdown-source-toolbar button:disabled {
+            cursor: default;
+            opacity: 1;
         }
         .markdown-source-preview {
             flex: 1 1 auto;
@@ -1363,10 +1370,10 @@
         </div>
       </div>
     </div>
-    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-tree-menu"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-tree-menu"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-tree-menu"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-tree-menu"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-generic-source"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-generic-source"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-generic-source"></script>
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
