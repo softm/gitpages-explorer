@@ -904,8 +904,15 @@
             height: 22px;
             filter: drop-shadow(0 4px 10px rgba(15, 23, 42, 0.28));
         }
-        .directory-item[data-kind="directory"] .directory-item-icon {
+        .directory-item[data-kind="directory"] .directory-item-icon,
+        .directory-item[data-kind="parent"] .directory-item-icon {
             color: #064f7a;
+        }
+        .directory-item[data-kind="parent"] {
+            color: #344054;
+        }
+        .directory-item[data-kind="parent"] .directory-item-name {
+            font-weight: 800;
         }
         .directory-item-main {
             min-width: 0;
@@ -2210,10 +2217,10 @@
         </div>
     </div>
 
-    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-generic-source"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-generic-source"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-generic-source"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-parent-folder"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-parent-folder"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-parent-folder"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-parent-folder"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
