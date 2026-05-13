@@ -231,26 +231,6 @@
             overflow-wrap: anywhere;
             line-height: 1.45;
         }
-        .note-list-section {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 14px 0 6px;
-            color: #64748b;
-            font-size: 0.78em;
-            font-weight: 900;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
-        .note-list-section:first-child {
-            margin-top: 0;
-        }
-        .note-list-section::after {
-            content: "";
-            flex: 1 1 auto;
-            height: 1px;
-            background: #e2e8f0;
-        }
         .note-list-item--root {
             border: 1px solid #cfe0f7;
             background: #f8fbff;
@@ -260,9 +240,34 @@
             color: #0b63d1;
         }
         .note-list-item--child {
-            margin-left: 10px;
-            padding-left: 10px;
-            border-left: 3px solid #e2e8f0;
+            position: relative;
+            margin: 4px 0 0 30px;
+            padding-left: 18px;
+        }
+        #mainDirectories.note-list-tree .note-list-item--root {
+            margin-bottom: 6px;
+        }
+        #mainDirectories.note-list-tree .note-list-item--child::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -10px;
+            bottom: 50%;
+            width: 13px;
+            border-left: 2px solid #d9e2ef;
+            border-bottom: 2px solid #d9e2ef;
+            border-bottom-left-radius: 10px;
+        }
+        #mainDirectories.note-list-tree .note-list-item--child::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            bottom: -10px;
+            border-left: 2px solid #d9e2ef;
+        }
+        #mainDirectories.note-list-tree .note-list-item--child:last-child::after {
+            display: none;
         }
         #mainDirectories li.selected-note,
         #mainDirectories li.selected-note:hover {
@@ -2198,10 +2203,10 @@
         </div>
     </div>
 
-    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-root-menu"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-root-menu"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-root-menu"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-root-menu"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-tree-menu"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-tree-menu"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-tree-menu"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-tree-menu"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
