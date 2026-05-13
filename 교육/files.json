@@ -4,7 +4,7 @@
   "summary": {
     "root": "/home/runner/work/gitpages-explorer/gitpages-explorer/교육",
     "path": "교육",
-    "generated_at": "2026-05-13T08:23:19+00:00",
+    "generated_at": "2026-05-13T08:29:12+00:00",
     "file_count": 3,
     "directory_count": 2,
     "direct_file_count": 2,
@@ -17,14 +17,14 @@
     "name": "교육",
     "path": "교육",
     "index": "교육/files.json",
-    "modified": "2026-05-13T08:23:18+00:00",
+    "modified": "2026-05-13T08:29:11+00:00",
     "children": [
       {
         "type": "directory",
         "name": "2023 2기 귀농귀촌교육.0823.매주.수요일.",
         "path": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일.",
         "index": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일./files.json",
-        "modified": "2026-05-13T08:23:18+00:00",
+        "modified": "2026-05-13T08:29:11+00:00",
         "file_count": 1,
         "directory_count": 1,
         "total_size": 1576699,
@@ -43,7 +43,7 @@
         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
         "size": 1576699,
         "size_human": "1.5 MB",
-        "modified": "2026-05-13T08:23:18+00:00",
+        "modified": "2026-05-13T08:29:11+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -65,7 +65,7 @@
         "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
         "size": 1576699,
         "size_human": "1.5 MB",
-        "modified": "2026-05-13T08:23:18+00:00",
+        "modified": "2026-05-13T08:29:11+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -98,7 +98,7 @@
       "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "size": 1576699,
       "size_human": "1.5 MB",
-      "modified": "2026-05-13T08:23:18+00:00",
+      "modified": "2026-05-13T08:29:11+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -120,7 +120,7 @@
       "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
       "size": 1576699,
       "size_human": "1.5 MB",
-      "modified": "2026-05-13T08:23:18+00:00",
+      "modified": "2026-05-13T08:29:11+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -140,7 +140,7 @@
       "name": "2023 2기 귀농귀촌교육.0823.매주.수요일.",
       "path": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일.",
       "index": "교육/2023 2기 귀농귀촌교육.0823.매주.수요일./files.json",
-      "modified": "2026-05-13T08:23:18+00:00",
+      "modified": "2026-05-13T08:29:11+00:00",
       "file_count": 1,
       "directory_count": 1,
       "total_size": 1576699,
