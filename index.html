@@ -565,6 +565,31 @@
             color: #59636e;
             border-left: 4px solid #d6deea;
         }
+        .markdown-viewer hr {
+            border: 0;
+            border-top: 1px solid #d8dee4;
+            margin: 1.1em 0;
+        }
+        .markdown-viewer table {
+            width: 100%;
+            margin: 0.9em 0;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+        .markdown-viewer th,
+        .markdown-viewer td {
+            border: 1px solid #d8dee4;
+            padding: 8px 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .markdown-viewer th {
+            background: #f6f8fa;
+            font-weight: 700;
+        }
+        .markdown-viewer tr:nth-child(even) td {
+            background: #fbfcfe;
+        }
         .markdown-viewer img {
             max-width: 100%;
             height: auto;
@@ -1969,6 +1994,16 @@
                 font-size: 14px;
                 line-height: 1.55;
             }
+            .markdown-viewer table {
+                font-size: 0.9em;
+            }
+            .markdown-viewer th,
+            .markdown-viewer td {
+                padding: 6px 7px;
+            }
+            .markdown-viewer hr {
+                margin: 0.8em 0;
+            }
             .markdown-source-toolbar {
                 padding: 6px;
                 gap: 5px;
@@ -2108,10 +2143,10 @@
         </div>
     </div>
 
-    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-mobile-fullscreen2"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-mobile-fullscreen2"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-mobile-fullscreen2"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-mobile-fullscreen2"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-md-table"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-md-table"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-md-table"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-md-table"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
