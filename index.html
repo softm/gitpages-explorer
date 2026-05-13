@@ -807,6 +807,7 @@
             min-height: 0;
             overflow-y: auto;
             overscroll-behavior: contain;
+            user-select: none;
         }
         .directory-item {
             color: #1f2937;
@@ -1414,12 +1415,19 @@
         .directory-action-menu {
             position: fixed;
             z-index: 2000;
-            min-width: 116px;
+            min-width: 168px;
             padding: 6px;
             border: 1px solid #cfd6e2;
             border-radius: 10px;
             background: #fff;
             box-shadow: 0 14px 36px rgba(15, 23, 42, 0.18);
+        }
+        .directory-action-menu-title {
+            padding: 7px 10px 8px;
+            border-bottom: 1px solid #edf1f7;
+            color: #667085;
+            font-size: 0.82em;
+            font-weight: 700;
         }
         .directory-action-menu button {
             display: block;
@@ -2285,8 +2293,8 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-parent-folder-up"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-parent-folder-up"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-parent-folder-up"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-source-highlight"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-file-actions"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
