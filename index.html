@@ -1595,7 +1595,7 @@
         }
         .directory-viewer-nav {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            grid-template-columns: auto minmax(0, 1fr) auto;
             align-items: center;
             justify-content: stretch;
             gap: 8px;
@@ -1612,11 +1612,12 @@
             min-width: 0;
         }
         .directory-viewer-nav-controls {
-            justify-content: center;
+            justify-content: flex-start;
         }
         .directory-viewer-nav-actions {
             justify-content: flex-end;
         }
+        /* SOFTM-viewer-nav-align 2026-05-16: 이전/다음은 왼쪽, 목록/공유/전체화면은 오른쪽 끝으로 정렬 */
         .directory-viewer-nav button {
             border: 1px solid #ccd3df;
             border-radius: 999px;
@@ -2422,16 +2423,22 @@
                 border-radius: 7px;
             }
             .directory-viewer-nav {
-                grid-template-columns: 1fr;
+                grid-template-columns: auto minmax(0, 1fr) auto;
                 gap: 5px;
                 padding-bottom: 5px;
             }
             .directory-viewer-nav-spacer {
-                display: none;
+                display: block;
             }
             .directory-viewer-nav-controls,
             .directory-viewer-nav-actions {
-                justify-content: center;
+                min-width: 0;
+            }
+            .directory-viewer-nav-controls {
+                justify-content: flex-start;
+            }
+            .directory-viewer-nav-actions {
+                justify-content: flex-end;
             }
             .directory-viewer-nav button {
                 min-height: 30px;
@@ -2452,17 +2459,24 @@
                 flex-wrap: wrap;
                 gap: 4px;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
                 padding-bottom: 4px;
             }
             .modal.modal--mobile-viewer-sheet .directory-viewer-nav-spacer {
-                display: none;
+                display: block;
+                flex: 1 1 auto;
+                min-width: 0;
             }
             .modal.modal--mobile-viewer-sheet .directory-viewer-nav-controls,
             .modal.modal--mobile-viewer-sheet .directory-viewer-nav-actions {
                 gap: 4px;
                 flex-wrap: nowrap;
-                justify-content: center;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav-controls {
+                justify-content: flex-start;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav-actions {
+                justify-content: flex-end;
             }
             .modal.modal--mobile-viewer-sheet .directory-viewer-rail-toggle {
                 display: inline-flex;
@@ -2690,7 +2704,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260516-compact-viewer-toolbar"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260516-viewer-nav-align"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
