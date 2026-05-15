@@ -1631,6 +1631,9 @@
             opacity: 0.45;
             cursor: default;
         }
+        .directory-viewer-rail-toggle {
+            display: none;
+        }
         .directory-viewer-fullscreen-button,
         .document-viewer-fullscreen-button {
             font-weight: 700;
@@ -2415,6 +2418,47 @@
                 padding: 3px 8px;
                 font-size: 0.9em;
             }
+            .modal.modal--mobile-viewer-sheet .directory-viewer {
+                position: relative;
+                height: 100%;
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-main {
+                min-height: 0;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav {
+                grid-template-columns: 1fr;
+                gap: 4px;
+                padding-bottom: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav-controls,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav-actions {
+                gap: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-rail-toggle {
+                display: inline-flex;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-rail {
+                display: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 6;
+                max-height: min(34dvh, 260px);
+                overflow-x: auto;
+                overflow-y: hidden;
+                border-radius: 10px 10px 0 0;
+                box-shadow: 0 -12px 26px rgba(15, 23, 42, 0.24);
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer.is-rail-open .directory-viewer-rail {
+                display: flex;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-content {
+                min-height: 0;
+            }
+            /* SOFTM-mobile-viewer-rail-toggle 2026-05-15: 모바일 뷰어 목록은 기본 접고 오버레이로 열어 본문 영역을 확보 */
             .directory-viewer-content {
                 border-radius: 7px;
             }
@@ -2583,7 +2627,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-pdf-inline-viewer"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-viewer-modal-sheet"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-viewer-rail-toggle"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
