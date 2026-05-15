@@ -2245,7 +2245,8 @@
                 background: rgba(15, 23, 42, 0.42);
             }
             .directory-browser.is-mobile-preview-sheet-open .directory-preview-mount {
-                display: block;
+                display: flex;
+                flex-direction: column;
                 position: fixed;
                 left: 0;
                 right: 0;
@@ -2262,13 +2263,14 @@
             }
             .directory-mobile-sheet-bar {
                 display: grid;
-                grid-template-columns: minmax(0, 1fr) auto;
-                align-items: center;
-                gap: 8px;
-                min-height: 42px;
-                padding: 7px 10px;
+                grid-template-columns: 1fr;
+                align-items: start;
+                gap: 6px;
+                min-height: 46px;
+                padding: 6px 8px;
                 border-bottom: 1px solid #e5e9f0;
                 background: #f8fafc;
+                flex: 0 0 auto;
             }
             .directory-mobile-sheet-bar strong {
                 overflow: hidden;
@@ -2278,20 +2280,25 @@
             }
             .directory-mobile-sheet-actions {
                 display: inline-flex;
-                gap: 5px;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 4px;
             }
             .directory-mobile-sheet-actions button {
-                min-height: 28px;
-                padding: 0 9px;
+                min-height: 27px;
+                padding: 0 8px;
                 border: 1px solid #cbd5e1;
                 border-radius: 999px;
                 background: #fff;
                 color: #1f2a44;
                 font-weight: 700;
-                font-size: 0.78em;
+                font-size: 0.76em;
             }
+            /* SOFTM-mobile-sheet-actions 2026-05-15: 모바일 시트 액션을 여러 개 배치해도 좁은 화면에서 줄바꿈되도록 조정 */
             .directory-preview {
-                height: calc(100% - 42px);
+                flex: 1 1 auto;
+                min-height: 0;
+                height: auto;
                 overflow: auto;
                 padding: 6px;
             }
@@ -2530,7 +2537,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-hwp-hwpx-restore"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-sheet"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-sheet-actions"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
