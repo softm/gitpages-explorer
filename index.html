@@ -2523,12 +2523,30 @@
                 right: 0;
                 bottom: 0;
                 z-index: 6;
-                max-height: min(34dvh, 260px);
-                overflow-x: auto;
-                overflow-y: hidden;
+                max-height: min(24dvh, 150px);
+                overflow-x: hidden;
+                overflow-y: auto;
+                flex-direction: column;
+                gap: 4px;
+                padding: 4px;
                 border-radius: 10px 10px 0 0;
                 box-shadow: 0 -12px 26px rgba(15, 23, 42, 0.24);
             }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb {
+                flex: 0 0 auto;
+                min-height: 42px;
+                padding: 5px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb .file-badge,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb img {
+                width: 30px;
+                height: 30px;
+                border-radius: 7px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb span:last-child {
+                -webkit-line-clamp: 1;
+            }
+            /* SOFTM-mobile-viewer-rail-compact 2026-05-16: 모바일 뷰어 파일 목록 높이를 줄이고 세로 스크롤로 전환 */
             .modal.modal--mobile-viewer-sheet .directory-viewer.is-rail-open .directory-viewer-rail {
                 display: flex;
             }
