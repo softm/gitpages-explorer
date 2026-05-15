@@ -940,6 +940,11 @@
             width: 18px;
             height: 18px;
         }
+        @media (max-width: 768px) {
+            .directory-item-open-button {
+                display: none !important;
+            }
+        }
         .directory-item:hover,
         .directory-item:focus {
             border-color: #b8c6dc;
@@ -2464,10 +2469,10 @@
 
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-parent-folder-up"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-parent-folder-up"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-hwp-pdf-fallback"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-zip-hwpx"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260513-viewer-actions"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-preview"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
@@ -2486,40 +2491,7 @@
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
-            const searchInput = document.getElementById('searchInput');
-            const titleOnly = document.getElementById('titleOnlyCheckbox');
-            const filterTypes = ['image', 'video', 'audio', 'document'];
-
-            const params = new URLSearchParams();
-            if (searchInput && searchInput.value.trim()) {
-                params.set('search', searchInput.value.trim());
-            }
-
-            if (titleOnly) {
-                params.set('titleOnly', titleOnly.checked ? '1' : '0');
-            }
-
-            filterTypes.forEach(type => {
-                const filterCheckbox = document.getElementById(`${type}Filter`);
-                if (filterCheckbox) {
-                    params.set(type, filterCheckbox.checked ? '1' : '0');
-
-                    if (filterCheckbox.checked) {
-                        const extensionContainer = document.getElementById(`${type}Extensions`);
-                        if (extensionContainer) {
-                            const checkedExtensions = Array.from(extensionContainer.querySelectorAll('input[type="checkbox"]:checked'))
-                                .map(input => input.value);
-                            if (checkedExtensions.length > 0) {
-                                params.set(`${type}_ext`, checkedExtensions.join(','));
-                            }
-                        }
-                    }
-                }
-            });
-
-            const query = params.toString();
-            const url = query ? `${target}?${query}` : target;
-            window.location.href = url;
+            window.location.href = target;
         }
     </script>
 </body>

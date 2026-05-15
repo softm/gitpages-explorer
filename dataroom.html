@@ -1449,47 +1449,13 @@
     </div>
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-generic-source"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260513-hwp-pdf-fallback"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-zip-hwpx"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260513-source-highlight"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260515-zip-hwpx"></script>
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
-            const searchInput = document.getElementById('searchInput');
-            const checkedScope = document.querySelector('input[name="searchScope"]:checked');
-            const filterTypes = ['image', 'video', 'audio', 'document'];
-
-            const params = new URLSearchParams();
-            if (searchInput && searchInput.value.trim()) {
-                params.set('search', searchInput.value.trim());
-            }
-
-            if (checkedScope) {
-                params.set('scope', checkedScope.value);
-                params.set('titleOnly', checkedScope.value === 'title' ? '1' : '0');
-            }
-
-            filterTypes.forEach(type => {
-                const filterCheckbox = document.getElementById(`${type}Filter`);
-                if (filterCheckbox) {
-                    params.set(type, filterCheckbox.checked ? '1' : '0');
-
-                    if (filterCheckbox.checked) {
-                        const extensionContainer = document.getElementById(`${type}Extensions`);
-                        if (extensionContainer) {
-                            const checkedExtensions = Array.from(extensionContainer.querySelectorAll('input[type="checkbox"]:checked'))
-                                .map(input => input.value);
-                            if (checkedExtensions.length > 0) {
-                                params.set(`${type}_ext`, checkedExtensions.join(','));
-                            }
-                        }
-                    }
-                }
-            });
-
-            const query = params.toString();
-            const url = query ? `${target}?${query}` : target;
-            window.location.href = url;
+            window.location.href = target;
         }
     </script>
 </body>
