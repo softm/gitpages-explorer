@@ -1969,6 +1969,52 @@
             .modal-title {
                 font-size: 1em;
             }
+            body.modal-viewer-sheet-open {
+                overflow: hidden;
+            }
+            .modal.modal--mobile-viewer-sheet {
+                z-index: 1100;
+                overflow: hidden;
+                background-color: rgba(15, 23, 42, 0.46);
+            }
+            .modal.modal--mobile-viewer-sheet .modal-content {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: min(88dvh, 760px);
+                margin: 0;
+                padding: 7px;
+                border: 0;
+                border-radius: 16px 16px 0 0;
+                box-sizing: border-box;
+                box-shadow: 0 -18px 44px rgba(15, 23, 42, 0.32);
+            }
+            .modal.modal--mobile-viewer-sheet .modal-header {
+                flex: 0 0 auto;
+                min-height: 34px;
+                padding: 3px 5px 7px;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-title {
+                min-width: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-body {
+                flex: 1 1 auto;
+                min-height: 0;
+                padding-top: 5px;
+                overflow: hidden;
+            }
+            .modal.modal--mobile-viewer-sheet .close {
+                flex: 0 0 auto;
+                font-size: 26px;
+                line-height: 1;
+                padding: 0 4px;
+            }
+            /* SOFTM-mobile-viewer-modal-sheet 2026-05-15: 모바일에서는 기존 뷰어 팝업을 하단 시트처럼 표시 */
             html {
                 height: auto;
             }
@@ -2537,7 +2583,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-pdf-inline-viewer"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-hwp-pdf-alternate"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-viewer-modal-sheet"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
