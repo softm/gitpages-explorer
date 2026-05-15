@@ -1631,6 +1631,22 @@
             opacity: 0.45;
             cursor: default;
         }
+        .directory-viewer-icon-button,
+        .document-viewer-zoom-button,
+        .directory-viewer-fullscreen-button,
+        .document-viewer-fullscreen-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .directory-viewer-icon-button svg,
+        .document-viewer-zoom-button svg,
+        .directory-viewer-fullscreen-button svg,
+        .document-viewer-fullscreen-button svg {
+            width: 17px;
+            height: 17px;
+            flex: 0 0 auto;
+        }
         .directory-viewer-rail-toggle {
             display: none;
         }
@@ -1638,6 +1654,10 @@
         .document-viewer-fullscreen-button {
             font-weight: 700;
             white-space: nowrap;
+        }
+        .document-viewer-toolbar svg {
+            width: 16px;
+            height: 16px;
         }
         .directory-viewer:fullscreen,
         .directory-viewer.is-pseudo-fullscreen,
@@ -2428,17 +2448,60 @@
                 min-height: 0;
             }
             .modal.modal--mobile-viewer-sheet .directory-viewer-nav {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-wrap: wrap;
                 gap: 4px;
+                align-items: center;
+                justify-content: center;
                 padding-bottom: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav-spacer {
+                display: none;
             }
             .modal.modal--mobile-viewer-sheet .directory-viewer-nav-controls,
             .modal.modal--mobile-viewer-sheet .directory-viewer-nav-actions {
                 gap: 4px;
+                flex-wrap: nowrap;
+                justify-content: center;
             }
             .modal.modal--mobile-viewer-sheet .directory-viewer-rail-toggle {
                 display: inline-flex;
             }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-icon-button,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-fullscreen-button,
+            .modal.modal--mobile-viewer-sheet .share-toggle-button {
+                width: 28px;
+                height: 28px;
+                min-height: 28px;
+                padding: 0;
+                border-radius: 999px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-counter {
+                min-width: 38px;
+                font-size: 0.78em;
+            }
+            .modal.modal--mobile-viewer-sheet .share-toggle-button svg,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-icon-button svg,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-fullscreen-button svg {
+                width: 15px;
+                height: 15px;
+            }
+            .modal.modal--mobile-viewer-sheet .document-viewer-toolbar {
+                min-height: 0;
+                padding: 2px 3px !important;
+                gap: 3px !important;
+            }
+            .modal.modal--mobile-viewer-sheet .document-viewer-zoom-button {
+                width: 24px !important;
+                height: 24px !important;
+                min-height: 24px;
+                border-radius: 6px !important;
+            }
+            .modal.modal--mobile-viewer-sheet .document-viewer-zoom-button svg {
+                width: 14px;
+                height: 14px;
+            }
+            /* SOFTM-compact-viewer-toolbar 2026-05-16: 모바일 뷰어 주요 액션을 아이콘형으로 압축해 본문 영역을 우선 확보 */
             .modal.modal--mobile-viewer-sheet .directory-viewer-rail {
                 display: none;
                 position: absolute;
@@ -2624,10 +2687,10 @@
 
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-parent-folder-up"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-parent-folder-up"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-pdf-inline-viewer"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-viewer-rail-toggle"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
