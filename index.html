@@ -1151,6 +1151,9 @@
             padding: 12px;
             color: #1f2937;
         }
+        .directory-mobile-sheet-bar {
+            display: none;
+        }
         .directory-preview[role="button"] {
             cursor: pointer;
         }
@@ -2229,12 +2232,67 @@
             }
             .directory-preview-mount,
             .directory-browser[data-view-mode="gallery"] .directory-preview-mount {
+                display: none;
+            }
+            body.directory-preview-sheet-open {
+                overflow: hidden;
+            }
+            body.directory-preview-sheet-open::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                z-index: 998;
+                background: rgba(15, 23, 42, 0.42);
+            }
+            .directory-browser.is-mobile-preview-sheet-open .directory-preview-mount {
+                display: block;
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 999;
+                height: min(82dvh, 720px);
+                max-height: 82dvh;
+                overflow: hidden;
                 border-left: 0;
-                border-top: 1px solid #e5e9f0;
-                max-height: none;
-                overflow: visible;
+                border-top: 1px solid #d8dee9;
+                border-radius: 16px 16px 0 0;
+                background: #fff;
+                box-shadow: 0 -18px 42px rgba(15, 23, 42, 0.28);
+            }
+            .directory-mobile-sheet-bar {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto;
+                align-items: center;
+                gap: 8px;
+                min-height: 42px;
+                padding: 7px 10px;
+                border-bottom: 1px solid #e5e9f0;
+                background: #f8fafc;
+            }
+            .directory-mobile-sheet-bar strong {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 0.9em;
+            }
+            .directory-mobile-sheet-actions {
+                display: inline-flex;
+                gap: 5px;
+            }
+            .directory-mobile-sheet-actions button {
+                min-height: 28px;
+                padding: 0 9px;
+                border: 1px solid #cbd5e1;
+                border-radius: 999px;
+                background: #fff;
+                color: #1f2a44;
+                font-weight: 700;
+                font-size: 0.78em;
             }
             .directory-preview {
+                height: calc(100% - 42px);
+                overflow: auto;
                 padding: 6px;
             }
             .directory-preview-visual {
@@ -2472,7 +2530,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260515-hwp-hwpx-restore"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-preview2"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260515-mobile-sheet"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
