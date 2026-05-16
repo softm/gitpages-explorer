@@ -1027,6 +1027,113 @@
             .modal-title {
                 font-size: 1em;
             }
+            /* SOFTM-dataroom-mobile-sheet 2026-05-16: 자료실 모바일 파일 뷰어를 메인과 동일한 하단 시트 모달로 표시 시작 */
+            body.modal-viewer-sheet-open {
+                overflow: hidden;
+            }
+            .modal.modal--mobile-viewer-sheet {
+                z-index: 1100;
+                overflow: hidden;
+                background-color: rgba(15, 23, 42, 0.46);
+            }
+            .modal.modal--mobile-viewer-sheet .modal-content {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: min(88dvh, 760px);
+                margin: 0;
+                padding: 7px;
+                border: 0;
+                border-radius: 16px 16px 0 0;
+                box-sizing: border-box;
+                box-shadow: 0 -18px 44px rgba(15, 23, 42, 0.32);
+            }
+            .modal.modal--mobile-viewer-sheet .modal-header {
+                flex: 0 0 auto;
+                min-height: 34px;
+                padding: 3px 5px 7px;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-title-group {
+                min-width: 0;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-title {
+                min-width: 0;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-meta {
+                display: none;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-controls {
+                flex: 0 0 auto;
+                gap: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-nav-button {
+                width: 30px;
+                height: 30px;
+                border-radius: 999px;
+                font-size: 1em;
+            }
+            .modal.modal--mobile-viewer-sheet .modal-body {
+                flex: 1 1 auto;
+                min-height: 0;
+                padding-top: 5px;
+                overflow: hidden;
+            }
+            .modal.modal--mobile-viewer-sheet .close {
+                flex: 0 0 auto;
+                font-size: 26px;
+                line-height: 1;
+                padding: 0 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer {
+                height: 100%;
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-main,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-content,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-pane {
+                min-height: 0;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav {
+                gap: 4px;
+                padding-bottom: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-nav button {
+                min-height: 30px;
+                padding: 3px 8px;
+                font-size: 0.9em;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-counter {
+                min-width: 38px;
+                font-size: 0.78em;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-rail {
+                max-height: min(18dvh, 112px);
+                overflow-x: auto;
+                overflow-y: hidden;
+                gap: 4px;
+                padding: 4px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb {
+                flex: 0 0 104px;
+                padding: 5px;
+                gap: 5px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb .file-badge,
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb img {
+                width: 30px;
+                height: 30px;
+                border-radius: 7px;
+            }
+            .modal.modal--mobile-viewer-sheet .directory-viewer-thumb span:last-child {
+                -webkit-line-clamp: 1;
+            }
+            /* SOFTM-dataroom-mobile-sheet-END */
             body {
                 line-height: 1.42;
                 font-size: 14px;
@@ -1451,7 +1558,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260515-hwp-pdf-alternate"></script>
+    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260516-mobile-sheet"></script><!-- SOFTM-dataroom-script-cache 2026-05-16: 자료실 모바일 하단 시트 적용 스크립트 캐시 갱신 -->
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
