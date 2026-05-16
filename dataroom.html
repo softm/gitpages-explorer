@@ -224,47 +224,128 @@
         }
         .dataroom-workspace {
             display: grid;
-            grid-template-columns: minmax(260px, 34%) minmax(0, 1fr);
-            gap: 14px;
+            grid-template-columns: minmax(280px, 32%) minmax(0, 1fr);
+            gap: 0;
             min-height: 560px;
-        }
-        #file-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin: 0;
-            min-height: 0;
-            max-height: calc(100vh - 250px);
-            overflow: auto;
             border: 1px solid #d8dee4;
             border-radius: 10px;
             background: #fff;
+            overflow: hidden;
+            box-shadow: 0 10px 28px rgba(27, 31, 36, 0.06);
+        }
+        .dataroom-results-panel {
+            min-width: 0;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #d8dee4;
+            background: #f8fafc;
+        }
+        .dataroom-results-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            min-height: 42px;
+            padding: 8px 10px;
+            border-bottom: 1px solid #e5e9f0;
+            background: #f7f9fc;
+        }
+        .dataroom-results-head strong {
+            color: #1f2937;
+            font-size: 0.94em;
+        }
+        .dataroom-results-hint {
+            color: #667085;
+            font-size: 0.78em;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        #file-list {
+            list-style-type: none;
+            padding: 6px;
+            margin: 0;
+            flex: 1 1 auto;
+            min-height: 0;
+            max-height: calc(100vh - 250px);
+            overflow: auto;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
         }
         #file-list li {
             display: flex;
             align-items: center;
+            min-width: 0;
             margin: 0;
-            border-bottom: 1px solid #eee;
-            padding: 12px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            padding: 7px 8px;
             cursor: pointer;
+            background: transparent;
+            transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
         }
         #file-list li:hover,
         #file-list li.is-selected {
             background: #eef4ff;
+            border-color: #c9d8f0;
         }
         #file-list li.is-selected {
             box-shadow: inset 3px 0 0 #0969da;
         }
-        #file-list img, #file-list .file-badge, #file-list .attachment-preview .attachment-thumb, #file-list .attachment-row .attachment-badge { width: 80px; height: 80px; margin-right: 15px; flex-shrink: 0; }
+        /* SOFTM-dataroom-explorer-style 2026-05-16: 자료실 왼쪽 목록을 메인 탐색기와 같은 압축형 사이드바 목록으로 정리 시작 */
+        #file-list img,
+        #file-list .file-badge,
+        #file-list .attachment-preview .attachment-thumb,
+        #file-list .attachment-row .attachment-badge {
+            width: 36px;
+            height: 36px;
+            margin-right: 0;
+            flex-shrink: 0;
+            border-radius: 8px;
+            font-size: 0.68em;
+        }
         .attachment-preview { display: inline-flex; align-items: center; gap: 12px; margin-right: 15px; text-decoration: none; color: inherit; cursor: pointer; }
         .attachment-preview .attachment-thumb { display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 12px; overflow: hidden; background: #f2f2f2; }
         .attachment-preview img { width: 100%; height: 100%; object-fit: cover; }
         .attachment-preview.video .attachment-thumb { background: #ffe8ea; }
-        .attachment-preview .attachment-name { font-weight: 600; }
-        .attachment-row { display: flex; align-items: center; gap: 12px; }
+        .attachment-preview .attachment-name { font-weight: 700; }
+        #file-list .attachment-preview {
+            gap: 8px;
+            margin-right: 0;
+        }
+        #file-list .attachment-preview .attachment-name,
+        #file-list .file-info .attach-file {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #1f2937;
+            font-size: 0.9em;
+            line-height: 1.25;
+        }
+        .attachment-row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+        #file-list .attachment-row {
+            gap: 8px;
+        }
         .attachment-row .attachment-badge { display: inline-flex; align-items: center; justify-content: center; border-radius: 16px; background: #f0f0f0; }
-        .file-info { display: flex; flex-direction: column; }
-        .file-info .html-file { font-size: 0.9em; color: #586069; }
-        .file-info .attach-file { font-weight: bold; }
+        .file-info { display: flex; flex-direction: column; min-width: 0; width: 100%; gap: 3px; }
+        .file-info .html-file {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 0.76em;
+            color: #667085;
+        }
+        .file-info .html-file a {
+            color: inherit;
+        }
+        .file-info .attach-file { font-weight: 800; }
+        #file-list .document-download-link {
+            display: none;
+        }
+        /* SOFTM-dataroom-explorer-style-END */
         .dataroom-directory-link {
             border: 0;
             background: transparent;
@@ -277,9 +358,9 @@
         .dataroom-explorer {
             min-width: 0;
             min-height: 560px;
-            border: 1px solid #d8dee4;
-            border-radius: 10px;
-            background: #f8fafc;
+            border: 0;
+            border-radius: 0;
+            background: #fff;
             overflow: hidden;
         }
         .dataroom-explorer-empty {
@@ -292,11 +373,89 @@
             padding: 24px;
             text-align: center;
         }
+        /* SOFTM-dataroom-explorer-surface 2026-05-16: 오른쪽 자료실 탐색 영역에 메인 탐색기형 상단 바와 본문 분할 레이아웃 적용 시작 */
+        .dataroom-explorer-shell {
+            height: calc(100vh - 250px);
+            min-height: 560px;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            min-height: 0;
+            background: #fff;
+        }
+        .dataroom-explorer-toolbar {
+            flex: 0 0 auto;
+            min-height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 7px 10px;
+            border-bottom: 1px solid #e5e9f0;
+            background: #f7f9fc;
+        }
+        .dataroom-explorer-title {
+            min-width: 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .dataroom-explorer-title strong {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #1f2937;
+            font-size: 0.96em;
+        }
+        .dataroom-explorer-title span {
+            flex: 0 0 auto;
+            color: #667085;
+            font-size: 0.8em;
+            font-weight: 700;
+        }
+        .dataroom-explorer-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .dataroom-explorer-action {
+            min-height: 28px;
+            border: 1px solid #ccd3df;
+            border-radius: 999px;
+            background: #fff;
+            color: #344054;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10px;
+            font: inherit;
+            font-size: 0.82em;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dataroom-explorer-action:hover,
+        .dataroom-explorer-action:focus-visible {
+            background: #eef4ff;
+            border-color: #9db7dc;
+            color: #0b63ce;
+            outline: none;
+            text-decoration: none;
+        }
+        .dataroom-explorer-body {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+        /* SOFTM-dataroom-explorer-surface-END */
         .dataroom-file-preview {
             display: grid;
             grid-template-rows: minmax(0, 1fr) auto;
-            min-height: 560px;
-            height: calc(100vh - 250px);
+            min-height: 0;
+            height: 100%;
         }
         .dataroom-file-preview-pane {
             min-height: 0;
@@ -323,10 +482,18 @@
             font-size: 0.9em;
         }
         .dataroom-directory-browser {
+            height: 100%;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            background: #fff;
+        }
+        .dataroom-directory-split {
             display: grid;
             grid-template-columns: minmax(0, 1fr) minmax(300px, 36%);
-            min-height: 560px;
-            height: calc(100vh - 250px);
+            flex: 1 1 auto;
+            min-height: 0;
         }
         .dataroom-directory-columns {
             display: flex;
@@ -1189,13 +1356,40 @@
                 overflow-y: auto;
                 border-radius: 8px;
             }
+            .dataroom-results-panel {
+                max-height: 42vh;
+            }
             .dataroom-workspace,
-            .dataroom-directory-browser {
+            .dataroom-directory-split {
                 grid-template-columns: 1fr;
                 gap: 8px;
                 min-height: 0;
             }
-            #file-list,
+            .dataroom-workspace {
+                border-radius: 9px;
+            }
+            .dataroom-results-panel {
+                border-right: 0;
+                border-bottom: 1px solid #d8dee4;
+            }
+            .dataroom-results-head,
+            .dataroom-explorer-toolbar {
+                min-height: 36px;
+                padding: 6px 8px;
+            }
+            .dataroom-explorer-title {
+                align-items: center;
+                gap: 6px;
+            }
+            .dataroom-explorer-title span {
+                display: none;
+            }
+            .dataroom-explorer-action {
+                min-height: 26px;
+                padding: 0 8px;
+                font-size: 0.78em;
+            }
+            .dataroom-explorer-shell,
             .dataroom-file-preview,
             .dataroom-directory-browser {
                 height: auto;
@@ -1527,7 +1721,15 @@
             </div>
         </div>
         <div class="dataroom-workspace">
-            <ul id="file-list"></ul>
+            <!-- SOFTM-dataroom-explorer-style 2026-05-16: 자료실 결과 목록을 탐색기 사이드바 패널로 감싸기 시작 -->
+            <aside class="dataroom-results-panel" aria-label="자료실 검색 결과">
+                <div class="dataroom-results-head">
+                    <strong>검색 결과</strong>
+                    <span class="dataroom-results-hint">선택 후 Enter</span>
+                </div>
+                <ul id="file-list"></ul>
+            </aside>
+            <!-- SOFTM-dataroom-explorer-style-END -->
             <section id="dataroom-explorer" class="dataroom-explorer" aria-label="자료실 탐색기">
                 <div class="dataroom-explorer-empty">자료실 목록에서 파일 또는 디렉토리를 선택하세요.</div>
             </section>
@@ -1558,7 +1760,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260516-mobile-sheet"></script><!-- SOFTM-dataroom-script-cache 2026-05-16: 자료실 모바일 하단 시트 적용 스크립트 캐시 갱신 -->
+    <script src="https://softm.github.io/gitpages-explorer/lib/dataroom-page.js?v=20260516-explorer-style"></script><!-- SOFTM-dataroom-script-cache 2026-05-16: 자료실 탐색기 스타일 적용 스크립트 캐시 갱신 -->
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
