@@ -18,6 +18,7 @@
 - 자료실 탐색기 결과 목록에 메인 탐색기 기준의 멀티 선택 상태를 추가.
 - 자료실 결과 목록 키보드 제어 추가: Ctrl/Cmd+A 전체 선택, Esc 선택 해제, Shift+방향/Home/End 범위 선택, Ctrl/Cmd+Space 토글, ContextMenu/Shift+F10 메뉴 열기.
 - 수정 코드에는 `SOFTM-dataroom-multi-select` 주석을 사용해 변경 구간을 표시.
+- 자료실 결과 목록 드래그 선택을 추가하고, 메인/자료실 탐색기 모두 드래그 선택 영역 박스를 표시.
 
 ## 공통
 - 중요한 내용으로 판단한 경우, AGENTS.md에 내용 추가

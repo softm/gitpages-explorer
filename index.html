@@ -1381,6 +1381,15 @@
             cursor: crosshair;
             user-select: none;
         }
+        .directory-drag-selection-box {
+            position: fixed;
+            z-index: 1800;
+            display: none;
+            pointer-events: none;
+            border: 1px solid rgba(9, 105, 218, 0.78);
+            background: rgba(9, 105, 218, 0.16);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.42) inset;
+        } /* SOFTM-main-drag-select-feedback 2026-05-17: 메인 탐색기 드래그 선택 영역을 시각적으로 표시 */
         .directory-browser[data-view-mode="gallery"] .directory-browser-layout {
             display: grid;
             grid-template-columns: 1fr;
@@ -2727,7 +2736,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/index-page.js?v=20260516-share-mode-simple"></script>
+    <script src="lib/index-page.js?v=20260517-drag-select"></script><!-- SOFTM-main-local-script 2026-05-17: 메인 탐색기 드래그 선택 수정이 현재 프로젝트 스크립트에서 바로 반영되도록 변경 -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>

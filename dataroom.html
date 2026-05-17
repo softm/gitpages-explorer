@@ -325,6 +325,20 @@
             background: rgba(255, 255, 255, 0.18);
             color: #fff;
         }
+        #file-list.is-drag-selecting,
+        #file-list.is-drag-selecting * {
+            cursor: crosshair;
+            user-select: none;
+        }
+        .dataroom-drag-selection-box {
+            position: fixed;
+            z-index: 1800;
+            display: none;
+            pointer-events: none;
+            border: 1px solid rgba(9, 105, 218, 0.78);
+            background: rgba(9, 105, 218, 0.16);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.42) inset;
+        } /* SOFTM-dataroom-drag-select 2026-05-17: 자료실 드래그 선택 중 선택 영역과 커서를 표시 */
         /* SOFTM-dataroom-explorer-style 2026-05-16: 자료실 왼쪽 목록을 메인 탐색기와 같은 압축형 사이드바 목록으로 정리 시작 */
         #file-list img,
         #file-list .file-badge,
@@ -2117,7 +2131,7 @@
     <script src="lib/files-index-utils.js?v=20260513-generic-source"></script>
     <script src="lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
-    <script src="lib/dataroom-page.js?v=20260516-explorer-style-local"></script><!-- SOFTM-dataroom-local-script 2026-05-16: 자료실이 원격 배포본이 아닌 현재 프로젝트 스크립트를 읽도록 수정 -->
+    <script src="lib/dataroom-page.js?v=20260517-drag-select"></script><!-- SOFTM-dataroom-drag-select 2026-05-17: 자료실 드래그 선택 스크립트 캐시 버전 갱신 -->
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
