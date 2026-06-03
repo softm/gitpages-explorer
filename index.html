@@ -426,6 +426,7 @@
             background-color: #f0f0f0;
             color: #555;
         }
+        /* SOFTM-share-url-box 2026-06-03: SNS 아이콘 행과 URL 복사 입력형 공유 패널 시작 */
         .share-section {
             position: relative;
             display: inline-flex;
@@ -433,18 +434,20 @@
             justify-content: flex-end;
         }
         .share-toggle-button,
-        .share-button {
+        .share-button,
+        .share-url-copy {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            border: none;
+            cursor: pointer;
+            font: inherit;
+            transition: background-color 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+        }
+        .share-toggle-button {
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-        }
-        .share-toggle-button {
             background-color: #1f2937;
             color: #fff;
             box-shadow: 0 4px 10px rgba(15, 23, 42, 0.16);
@@ -461,10 +464,11 @@
         .share-panel {
             position: fixed;
             z-index: 3000;
-            min-width: 232px;
-            padding: 8px;
-            border: 1px solid #dde3ed;
-            border-radius: 12px;
+            box-sizing: border-box;
+            width: min(424px, calc(100vw - 24px));
+            padding: 14px;
+            border: 1px solid #cfd6e1;
+            border-radius: 8px;
             background-color: #fff;
             box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
         }
@@ -474,15 +478,18 @@
         .share-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-            justify-content: flex-end;
-            margin-bottom: 6px;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 12px;
         }
         .share-variant-buttons {
-            display: inline-flex;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 2px;
-            margin-bottom: 7px;
+            width: max-content;
+            max-width: 100%;
+            margin: 0 auto 12px;
             padding: 2px;
             border: 1px solid #d8e0ec;
             border-radius: 999px;
@@ -508,17 +515,21 @@
             background: #4b5563;
             color: #fff;
         }
-        /* SOFTM-share-mode-simple 2026-05-16: 기본/전체 공유 선택을 작은 세그먼트 토글로 단순화 */
         .share-button {
-            background-color: #e6edf8;
-            color: #1d3b70;
+            width: 54px;
+            height: 54px;
+            padding: 0;
+            border-radius: 10px;
+            color: #fff;
         }
         .share-button svg {
-            width: 16px;
-            height: 16px;
+            width: 38px;
+            height: 38px;
         }
         .share-toggle-button:focus-visible,
-        .share-button:focus-visible {
+        .share-button:focus-visible,
+        .share-url-copy:focus-visible,
+        .share-url-input:focus-visible {
             outline: 3px solid rgba(3, 102, 214, 0.45);
             outline-offset: 2px;
         }
@@ -528,70 +539,69 @@
             justify-content: center;
         }
         .share-button:hover {
-            background-color: #d6e3f5;
+            filter: brightness(0.96);
             transform: translateY(-1px);
-        }
-        .share-button[data-network="facebook"] {
-            background-color: #1877f2;
-            color: #fff;
-        }
-        .share-button[data-network="facebook"]:hover {
-            background-color: #0f5dc8;
-        }
-        .share-button[data-network="x"] {
-            background-color: #111;
-            color: #fff;
-        }
-        .share-button[data-network="x"]:hover {
-            background-color: #333;
-        }
-        .share-button[data-network="linkedin"] {
-            background-color: #0a66c2;
-            color: #fff;
-        }
-        .share-button[data-network="linkedin"]:hover {
-            background-color: #084f97;
-        }
-        .share-button[data-network="threads"] {
-            background-color: #111;
-            color: #fff;
-        }
-        .share-button[data-network="threads"]:hover {
-            background-color: #333;
         }
         .share-button[data-network="kakao"] {
             background-color: #fee500;
-            color: #371d1e;
+            color: #3c1e1e;
         }
-        .share-button[data-network="kakao"]:hover {
-            background-color: #f2d900;
+        .share-button[data-network="line"] {
+            background-color: #06c755;
         }
-        .share-button[data-network="email"] {
-            background-color: #f97316;
-            color: #fff;
+        .share-button[data-network="facebook"] {
+            background-color: #1877f2;
         }
-        .share-button[data-network="email"]:hover {
-            background-color: #ea580c;
+        .share-button[data-network="twitter"] {
+            background-color: #55acee;
         }
-        .share-button[data-network="native"],
-        .share-button[data-network="copy"] {
-            background-color: #efefef;
-            color: #333;
+        .share-button[data-network="band"] {
+            background-color: #37b24d;
         }
-        .share-button[data-network="native"]:hover,
-        .share-button[data-network="copy"]:hover {
-            background-color: #e0e0e0;
+        .share-url-row {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+        .share-url-input {
+            flex: 1 1 auto;
+            min-width: 0;
+            height: 42px;
+            border: 0;
+            border-right: 1px solid #cbd5e1;
+            padding: 0 12px;
+            background-color: #eef2f7;
+            color: #202a37;
+            font: inherit;
+            font-size: 1em;
+        }
+        .share-url-copy {
+            flex: 0 0 auto;
+            min-width: 96px;
+            height: 42px;
+            padding: 0 14px;
+            background-color: #fff;
+            color: #475569;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        .share-url-copy:hover {
+            background-color: #f8fafc;
         }
         .share-feedback {
             min-height: 18px;
+            margin-top: 6px;
+            text-align: right;
             font-size: 0.85em;
             color: #1d3b70;
         }
         .share-feedback.share-feedback--error {
             color: #a11;
         }
-        .directory-viewer-nav .share-section--viewer .share-toggle-button,
-        .directory-viewer-nav .share-section--viewer .share-button {
+        .directory-viewer-nav .share-section--viewer .share-toggle-button {
             width: 32px;
             height: 32px;
             padding: 0;
@@ -601,6 +611,7 @@
             min-width: 48px;
             padding: 4px 10px;
         }
+        /* SOFTM-share-url-box 2026-06-03: SNS 아이콘 행과 URL 복사 입력형 공유 패널 끝 */
         #content {
             flex: 1 1 auto;
             min-height: 0;
@@ -2188,12 +2199,13 @@
             }
             .share-buttons {
                 justify-content: flex-start;
-                gap: 5px;
+                gap: 8px;
             }
             .share-button {
-                width: 32px;
-                min-height: 30px;
-            }
+                width: 48px;
+                height: 48px;
+                min-height: 48px;
+            } /* SOFTM-share-url-box 2026-06-03: 모바일 공유 패널에서도 SNS 아이콘 크기를 복사형 레이아웃에 맞춤 */
             .directory-browser-toolbar {
                 position: sticky;
                 top: 0;
@@ -2736,7 +2748,7 @@
     <script src="https://softm.github.io/gitpages-explorer/lib/document-viewer.js?v=20260516-compact-viewer-toolbar"></script>
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="lib/index-page.js?v=20260517-directory-download"></script><!-- SOFTM-main-directory-download 2026-05-17: 디렉토리 포함 선택 다운로드 스크립트 캐시 버전 갱신 -->
+    <script src="lib/index-page.js?v=20260603-share-url-box"></script><!-- SOFTM-share-url-box 2026-06-03: 공유 URL 입력형 패널 변경사항 반영을 위한 스크립트 캐시 버전 갱신 -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
