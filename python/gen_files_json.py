@@ -33,7 +33,7 @@ EXCLUDED_PATHS = {"lib", "lib/baguetteBox", "python", PREVIEW_DIRNAME}
 OUTPUT_ALIASES = ("json", "html")
 GRANT_FILENAME = "grant.json"
 GRANT_OUTPUT = ROOT / GRANT_FILENAME
-GRANT_RULES: dict[str, Any] = {"private_paths": []}
+GRANT_RULES: dict[str, Any] = {"private_paths": [], "public_paths": []}
 PREVIEWABLE_EXTENSIONS = {"hwp", "hwpx", "pptx"}
 
 
@@ -169,46 +169,83 @@ def is_private_name(name: str) -> bool:
 def load_grant_rules(root: Path) -> dict[str, Any]:
     grant_path = root / GRANT_FILENAME
     if not grant_path.exists():
-        return {"schema_version": 1, "private_paths": []}
+        return {"schema_version": 1, "private_paths": [], "public_paths": []}
     try:
         data = json.loads(grant_path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
-        return {"schema_version": 1, "private_paths": []}
-    paths = data.get("private_paths", [])
-    if not isinstance(paths, list):
-        paths = []
+        return {"schema_version": 1, "private_paths": [], "public_paths": []}
+    private_paths = data.get("private_paths", [])
+    public_paths = data.get("public_paths", [])
+    if not isinstance(private_paths, list):
+        private_paths = []
+    if not isinstance(public_paths, list):
+        public_paths = []
     return {
-        "schema_version": 1,
-        "private_paths": sorted({str(path) for path in paths if str(path).strip()}),
+        "schema_version": int(data.get("schema_version", 1) or 1),
+        "private_paths": sorted({str(path) for path in private_paths if str(path).strip()}),
+        "public_paths": sorted({str(path) for path in public_paths if str(path).strip()}),
     }
 
 
 def write_grant_rules(root: Path, rules: dict[str, Any]) -> Path:
     grant_path = root / GRANT_FILENAME
+    private_paths = sorted({str(path) for path in rules.get("private_paths", []) if str(path).strip()})
+    public_paths = sorted({str(path) for path in rules.get("public_paths", []) if str(path).strip()})
     grant_path.write_text(
         json.dumps({
-            "schema_version": 1,
-            "private_paths": sorted({str(path) for path in rules.get("private_paths", []) if str(path).strip()}),
+            "schema_version": 2 if public_paths else int(rules.get("schema_version", 1) or 1),
+            "private_paths": private_paths,
+            "public_paths": public_paths,
         }, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
     return grant_path
 
 
+def grant_path_matches(rel_path: str, grant_path: str) -> bool:
+    normalized = str(rel_path or ".").strip("/")
+    configured = str(grant_path or ".").strip("/")
+    return bool(configured and configured != "." and (normalized == configured or normalized.startswith(f"{configured}/")))
+
+
+def grant_path_score(path: str) -> int:
+    normalized = str(path or ".").strip("/")
+    return len([part for part in normalized.split("/") if part]) * 10000 + len(normalized)
+
+
+def find_matching_grant_path(rel_path: str, paths: list[str]) -> str:
+    matches = [path for path in paths if grant_path_matches(rel_path, path)]
+    return sorted(matches, key=grant_path_score, reverse=True)[0] if matches else ""
+
+
+def grant_visibility(rel_path: str) -> tuple[bool, str]:
+    private_match = find_matching_grant_path(str(rel_path or "."), GRANT_RULES.get("private_paths", []))
+    public_match = find_matching_grant_path(str(rel_path or "."), GRANT_RULES.get("public_paths", []))
+    if public_match and (not private_match or grant_path_score(public_match) > grant_path_score(private_match)):
+        return False, "public-grant"
+    if private_match:
+        return True, "grant"
+    return False, "public"
+
+
 def is_private_path(rel_path: str) -> bool:
     normalized = str(rel_path or ".")
-    configured = set(GRANT_RULES.get("private_paths", []))
-    if any(normalized == path or normalized.startswith(f"{path}/") for path in configured if path and path != "."):  # SOFTM-publishing-github 2026-07-09: 디렉터리 퍼블리싱 OFF 시 하위 경로까지 비공개 처리
-        return True
     parts = [part for part in normalized.split("/") if part and part != "."]
-    return any(is_private_name(part) for part in parts)
+    if any(is_private_name(part) for part in parts):
+        return True
+    private, _source = grant_visibility(normalized)
+    return private  # SOFTM-publishing-public-exception 2026-07-10: public_paths가 더 구체적이면 부모 미게시 아래 파일도 게시 처리
 
 
 def security_meta(rel_path: str) -> dict[str, Any]:
-    private = is_private_path(rel_path)
+    normalized = str(rel_path or ".")
+    parts = [part for part in normalized.split("/") if part and part != "."]
+    suffix_private = any(is_private_name(part) for part in parts)
+    grant_private, grant_source = grant_visibility(normalized)
+    private = suffix_private or grant_private
     return {
         "private": private,
-        "source": "suffix-or-grant" if private else "public",
+        "source": "suffix" if suffix_private else (grant_source if grant_source != "public" else "public"),
     }
 
 
@@ -582,22 +619,46 @@ def iter_target_roots(targets: list[Path], recursive_targets: bool) -> list[Path
     return roots
 
 
-def update_grant_for_root(root: Path, add_paths: list[str], remove_paths: list[str], list_only: bool) -> bool:
+def update_grant_for_root(
+    root: Path,
+    add_paths: list[str],
+    remove_paths: list[str],
+    public_add_paths: list[str],
+    public_remove_paths: list[str],
+    list_only: bool
+) -> bool:
     rules = load_grant_rules(root)
     paths = {str(path) for path in rules.get("private_paths", []) if str(path).strip()}
+    public_paths = {str(path) for path in rules.get("public_paths", []) if str(path).strip()}
     for path in add_paths:
-        paths.add(str(Path(path).as_posix()).strip())
+        value = str(Path(path).as_posix()).strip()
+        paths.add(value)
+        public_paths.discard(value)
     for path in remove_paths:
         paths.discard(str(Path(path).as_posix()).strip())
-    changed = bool(add_paths or remove_paths)
+    for path in public_add_paths:
+        value = str(Path(path).as_posix()).strip()
+        public_paths.add(value)
+        paths.discard(value)
+    for path in public_remove_paths:
+        public_paths.discard(str(Path(path).as_posix()).strip())
+    changed = bool(add_paths or remove_paths or public_add_paths or public_remove_paths)
     rules["private_paths"] = sorted(path for path in paths if path)
+    rules["public_paths"] = sorted(path for path in public_paths if path)
     if changed:
         written = write_grant_rules(root, rules)
         print(f"Grant updated: {written}")
     if list_only or changed:
         print(f"\nGrant: {root / GRANT_FILENAME}")
+        print("Private paths:")
         if rules["private_paths"]:
             for path in rules["private_paths"]:
+                print(f"- {path}")
+        else:
+            print("(empty)")
+        print("Public paths:")
+        if rules["public_paths"]:
+            for path in rules["public_paths"]:
                 print(f"- {path}")
         else:
             print("(empty)")
@@ -666,6 +727,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--grant-list", action="store_true", help="List private paths from grant.json and exit.")
     parser.add_argument("--grant-add", action="append", default=[], help="Add a private path to grant.json.")
     parser.add_argument("--grant-remove", action="append", default=[], help="Remove a private path from grant.json.")
+    parser.add_argument("--grant-public-add", action="append", default=[], help="Add a public exception path to grant.json.")  # SOFTM-publishing-public-exception 2026-07-10: 부모 미게시 아래 개별 게시 경로 CLI 지원
+    parser.add_argument("--grant-public-remove", action="append", default=[], help="Remove a public exception path from grant.json.")  # SOFTM-publishing-public-exception 2026-07-10: 공개 예외 제거 CLI 지원
     return parser.parse_args()
 
 
@@ -678,8 +741,8 @@ def main() -> None:
 
     print(f"Targets: {len(target_roots):,}")
     for target_root in target_roots:
-        if update_grant_for_root(target_root, args.grant_add, args.grant_remove, args.grant_list):
-            if args.grant_list and not args.grant_add and not args.grant_remove:
+        if update_grant_for_root(target_root, args.grant_add, args.grant_remove, args.grant_public_add, args.grant_public_remove, args.grant_list):
+            if args.grant_list and not args.grant_add and not args.grant_remove and not args.grant_public_add and not args.grant_public_remove:
                 continue
         generate_for_root(target_root, outputs, args.recursive_targets)
 
