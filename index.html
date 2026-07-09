@@ -268,31 +268,32 @@
             border-radius: 10px;
             font: inherit;
         }
-        .publishing-condition-field {
-            display: inline-flex;
-            align-items: center;
+        .publishing-condition-row {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
             gap: 6px;
-            max-width: 100%;
+            align-items: center;
         }
-        .publishing-condition-field > span {
-            color: #555;
-            font-size: 0.8em;
-            font-weight: 700;
-            white-space: nowrap;
+        .publishing-condition-row > input {
+            min-width: 0;
+        }
+        .publishing-condition-field {
+            display: block;
+            min-width: 0;
         }
         .publishing-condition-select {
             width: 92px;
-            height: 30px;
+            height: 40px;
             box-sizing: border-box;
             border: 1px solid #d8e0ec;
-            border-radius: 999px;
+            border-radius: 10px;
             background: #fff;
             color: #24292f;
             font: inherit;
             font-size: 0.86em;
             font-weight: 700;
             padding: 0 24px 0 10px;
-        } /* SOFTM-publishing-filter-compact 2026-07-10: 메인/검색 게시 상태 조건을 한 줄 compact select로 축소 */
+        } /* SOFTM-publishing-filter-inline 2026-07-10: 게시 조건 row를 없애고 검색 입력 줄 오른쪽에 배치 */
         .list-header {
             position: sticky;
             top: 0;
@@ -2856,26 +2857,28 @@
                     <button type="button" class="left-menu-tab" data-left-tab="search" role="tab" aria-selected="false" aria-controls="searchPanel">검색</button>
                 </div>
                 <div id="mainDirectoryPanel" class="left-tab-panel" role="tabpanel">
-                    <input type="search" id="mainDirectorySearchInput" placeholder="디렉토리 검색" autocomplete="off">
-                    <label class="publishing-condition-field">
-                        <span>게시</span>
-                        <select id="mainPublishingFilter" class="publishing-condition-select" aria-label="메인 게시 상태 조건">
+                    <div class="publishing-condition-row">
+                        <input type="search" id="mainDirectorySearchInput" placeholder="디렉토리 검색" autocomplete="off">
+                        <label class="publishing-condition-field">
+                        <select id="mainPublishingFilter" class="publishing-condition-select" aria-label="메인 게시 상태 조건" title="게시 상태">
                             <option value="all">전체</option>
                             <option value="published">게시</option>
                             <option value="unpublished">미게시</option>
                         </select>
-                    </label><!-- SOFTM-publishing-condition-filter 2026-07-10: 메인 디렉토리 목록 게시 상태 조건 추가 -->
+                        </label>
+                    </div><!-- SOFTM-publishing-filter-inline 2026-07-10: 메인 게시 조건을 검색 입력 줄에 통합 -->
                 </div>
                 <div id="searchPanel" class="search-controls left-tab-panel left-hidden" role="tabpanel">
-                    <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="파일 검색...">
-                    <label class="publishing-condition-field">
-                        <span>게시</span>
-                        <select id="searchPublishingFilter" class="publishing-condition-select" aria-label="검색 게시 상태 조건">
+                    <div class="publishing-condition-row">
+                        <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="파일 검색...">
+                        <label class="publishing-condition-field">
+                        <select id="searchPublishingFilter" class="publishing-condition-select" aria-label="검색 게시 상태 조건" title="게시 상태">
                             <option value="all">전체</option>
                             <option value="published">게시</option>
                             <option value="unpublished">미게시</option>
                         </select>
-                    </label><!-- SOFTM-publishing-condition-filter 2026-07-10: 검색 게시 상태 조건 추가 -->
+                        </label>
+                    </div><!-- SOFTM-publishing-filter-inline 2026-07-10: 검색 게시 조건을 검색 입력 줄에 통합 -->
                     <label class="search-option">
                         <input type="checkbox" id="titleOnlyCheckbox" onchange="searchFiles()">
                         디렉토리만 검색
