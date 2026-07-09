@@ -188,7 +188,7 @@
             color: #067647;
         }
         .directory-item-publishing {
-            margin-left: auto;
+            margin-left: 0;
         }
         /* SOFTM-publishing-github 2026-07-09: 관리자 퍼블리싱 GitHub 반영 패널/토글 스타일 끝 */
         h1, h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
@@ -1037,6 +1037,19 @@
             width: 18px;
             height: 18px;
         }
+        .directory-item-actions {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-left: auto;
+            flex: 0 0 auto;
+            white-space: nowrap;
+        } /* SOFTM-publishing-state-label 2026-07-09: 게시 상태 버튼과 뷰어 아이콘을 같은 줄 끝 액션 영역으로 정렬 */
+        .directory-item-actions .directory-item-open-button {
+            margin-left: 0;
+            margin-right: 0;
+        }
         @media (max-width: 768px) {
             .directory-item-open-button {
                 display: none !important;
@@ -1164,6 +1177,10 @@
             padding: 10px 8px;
             text-align: center;
         }
+        .directory-browser[data-view-mode="grid"] .directory-item-actions {
+            margin-left: 0;
+            justify-content: center;
+        }
         .directory-browser[data-view-mode="grid"] .directory-item-icon {
             width: 58px;
             height: 58px;
@@ -1186,10 +1203,13 @@
         }
         .directory-browser[data-view-mode="list"] .directory-item {
             display: grid;
-            grid-template-columns: 44px minmax(0, 1fr) 150px;
+            grid-template-columns: 44px minmax(0, 1fr) auto;
             align-items: center;
             gap: 12px;
             padding: 8px 10px;
+        }
+        .directory-browser[data-view-mode="list"] .directory-item-actions {
+            justify-self: end;
         }
         .directory-browser[data-view-mode="list"] .directory-item-meta {
             margin-top: 0;
@@ -1215,10 +1235,14 @@
         .directory-column .directory-item {
             width: 100%;
             display: grid;
-            grid-template-columns: 38px minmax(0, 1fr) 18px;
+            grid-template-columns: 38px minmax(0, 1fr) auto;
             align-items: center;
             gap: 10px;
             padding: 7px 8px;
+        }
+        .directory-column .directory-item-actions {
+            gap: 4px;
+            justify-self: end;
         }
         .directory-column .directory-item-icon {
             width: 32px;
@@ -1401,6 +1425,10 @@
             padding: 7px 6px;
             text-align: center;
             scroll-snap-align: start;
+        }
+        .directory-browser[data-view-mode="gallery"] .directory-item-actions {
+            margin-left: 0;
+            justify-content: center;
         }
         .directory-browser[data-view-mode="gallery"] .directory-item-icon {
             width: 50px;
@@ -2336,7 +2364,7 @@
                 font-size: 0.78em;
             }
             .directory-browser[data-view-mode="list"] .directory-item {
-                grid-template-columns: 34px minmax(0, 1fr);
+                grid-template-columns: 34px minmax(0, 1fr) auto;
                 gap: 8px;
                 padding: 6px 7px;
             }
@@ -2399,7 +2427,7 @@
                 padding: 5px;
             }
             .directory-column .directory-item {
-                grid-template-columns: 30px minmax(0, 1fr) 16px;
+                grid-template-columns: 30px minmax(0, 1fr) auto;
                 gap: 7px;
                 padding: 6px;
             }
@@ -2829,8 +2857,8 @@
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 반영 및 로컬 검증을 위해 공통 뷰어 로컬 경로 사용 -->
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="lib/publishing-utils.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: GitHub API 기반 퍼블리싱 저장 유틸 추가 -->
-    <script src="lib/index-page.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: 메인 퍼블리싱 토글 반영을 위한 스크립트 캐시 버전 갱신 -->
+    <script src="lib/publishing-utils.js?v=20260709-publishing-state"></script><!-- SOFTM-publishing-state-label 2026-07-09: 게시/미게시 현재 상태 표시 반영을 위한 캐시 버전 갱신 -->
+    <script src="lib/index-page.js?v=20260709-publishing-state"></script><!-- SOFTM-publishing-state-label 2026-07-09: 메인 파일 행 액션 정렬 반영을 위한 스크립트 캐시 버전 갱신 -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>
