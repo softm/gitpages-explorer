@@ -45,10 +45,10 @@
         h1 { margin: 0 0 12px; font-size: 28px; letter-spacing: 0; }
         .controls {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 180px;
+            grid-template-columns: minmax(0, 1fr) 180px 180px;
             gap: 10px;
             align-items: center;
-        }
+        } /* SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 조건 select 공간 추가 */
         input, select {
             height: 40px;
             border: 1px solid var(--line);
@@ -140,6 +140,11 @@
                     <option value="120" selected>120개</option>
                     <option value="200">200개</option>
                 </select>
+                <select id="publishingFilter" aria-label="게시 상태 조건">
+                    <option value="all">전체</option>
+                    <option value="published">게시</option>
+                    <option value="unpublished">미게시</option>
+                </select><!-- SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 조건 추가 -->
             </div>
         </div>
         <div id="meta"></div>
@@ -154,8 +159,9 @@
             </section>
         </div>
     </main>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-generic-source"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/wordcloud-page.js?v=20260513-generic-source"></script>
+    <script src="lib/files-index-utils.js?v=20260710-publishing-condition-filter"></script><!-- SOFTM-publishing-condition-filter 2026-07-10: 게시 상태 조건으로 워드클라우드 집계 필터링 -->
+    <script src="lib/publishing-utils.js?v=20260710-publishing-condition-filter"></script><!-- SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 판정 공통 유틸 로드 -->
+    <script src="lib/wordcloud-page.js?v=20260710-publishing-condition-filter"></script><!-- SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 조건 필터 캐시 갱신 -->
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
@@ -164,6 +170,10 @@
             if (searchInput && searchInput.value.trim()) {
                 params.set('search', searchInput.value.trim());
             }
+            const publishingFilter = document.getElementById('publishingFilter');
+            if (publishingFilter && publishingFilter.value && publishingFilter.value !== 'all') {
+                params.set('publish', publishingFilter.value);
+            } // SOFTM-publishing-condition-filter 2026-07-10: 메뉴 이동 시 워드클라우드 게시 상태 조건 유지
             const query = params.toString();
             window.location.href = query ? `${target}?${query}` : target;
         }
