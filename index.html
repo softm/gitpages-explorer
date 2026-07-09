@@ -735,6 +735,7 @@
         }
         .markdown-viewer {
             width: 100%;
+            box-sizing: border-box; /* SOFTM-markdown-viewer-sizing 2026-07-10: 좁은 미리보기 패널에서 padding 포함 폭으로 계산 */
             min-height: 500px;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -1488,11 +1489,14 @@
             background: #eef2f7;
             border-color: #ccd3df;
         }
+        /* SOFTM-directory-splitter-fill 2026-07-10: 스플릿터 조정 후 미리보기 컬럼이 남은 폭을 채우도록 조정 시작 */
         .directory-browser-layout {
             display: grid;
-            grid-template-columns: minmax(180px, var(--directory-list-width, 1fr)) 6px minmax(240px, 30%);
+            grid-template-columns: minmax(180px, var(--directory-list-width, 70%)) 6px minmax(280px, 1fr);
+            width: 100%;
             min-height: 0;
         }
+        /* SOFTM-directory-splitter-fill 2026-07-10: 스플릿터 조정 후 미리보기 컬럼이 남은 폭을 채우도록 조정 끝 */
         .directory-items {
             grid-column: 1;
         }
@@ -1517,7 +1521,7 @@
             display: block;
             min-width: 0;
             min-height: 0;
-            overflow-y: auto;
+            overflow: auto; /* SOFTM-directory-splitter-fill 2026-07-10: 미리보기 내용이 좁은 폭에서 잘릴 때 가로/세로 스크롤 허용 */
             border-left: 1px solid #e5e9f0;
             background: #fbfcff;
             overscroll-behavior: contain;
