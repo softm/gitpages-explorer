@@ -4,12 +4,12 @@
   "summary": {
     "root": "/home/runner/work/gitpages-explorer/gitpages-explorer",
     "path": ".",
-    "generated_at": "2026-07-09T17:36:29+00:00",
-    "file_count": 23,
+    "generated_at": "2026-07-09T17:39:21+00:00",
+    "file_count": 24,
     "directory_count": 7,
-    "direct_file_count": 2,
+    "direct_file_count": 3,
     "direct_directory_count": 2,
-    "total_size": 24116664,
+    "total_size": 24136743,
     "total_size_human": "23.0 MB"
   },
   "tree": {
@@ -17,14 +17,14 @@
     "name": "gitpages-explorer",
     "path": ".",
     "index": "files.json",
-    "modified": "2026-07-09T17:36:24+00:00",
+    "modified": "2026-07-09T17:39:20+00:00",
     "children": [
       {
         "type": "directory",
         "name": "교육",
         "path": "교육",
         "index": "교육/files.json",
-        "modified": "2026-07-09T17:36:24+00:00",
+        "modified": "2026-07-09T17:39:20+00:00",
         "file_count": 3,
         "directory_count": 2,
         "total_size": 4730097,
@@ -39,11 +39,26 @@
         "name": "교육신청",
         "path": "교육신청",
         "index": "교육신청/files.json",
-        "modified": "2026-07-09T17:36:24+00:00",
+        "modified": "2026-07-09T17:39:20+00:00",
         "file_count": 18,
         "directory_count": 3,
         "total_size": 19361872,
         "total_size_human": "18.5 MB",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "20260513_신한은행_부지점장_ISA·ETF·IRP 상담 내용 정리 보고서 복사본.md",
+        "path": "20260513_신한은행_부지점장_ISA·ETF·IRP 상담 내용 정리 보고서 복사본.md",
+        "extension": "md",
+        "group": "text",
+        "mime_type": "text/markdown",
+        "size": 20079,
+        "size_human": "19.6 KB",
+        "modified": "2026-07-09T17:39:20+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -58,7 +73,7 @@
         "mime_type": "text/markdown",
         "size": 20079,
         "size_human": "19.6 KB",
-        "modified": "2026-07-09T17:36:24+00:00",
+        "modified": "2026-07-09T17:39:20+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -73,16 +88,16 @@
         "mime_type": "text/markdown",
         "size": 4616,
         "size_human": "4.5 KB",
-        "modified": "2026-07-09T17:36:24+00:00",
+        "modified": "2026-07-09T17:39:20+00:00",
         "security": {
           "private": true,
           "source": "grant"
         }
       }
     ],
-    "file_count": 23,
+    "file_count": 24,
     "directory_count": 7,
-    "total_size": 24116664,
+    "total_size": 24136743,
     "total_size_human": "23.0 MB",
     "security": {
       "private": false,
@@ -92,6 +107,21 @@
   "files": [
     {
       "type": "file",
+      "name": "20260513_신한은행_부지점장_ISA·ETF·IRP 상담 내용 정리 보고서 복사본.md",
+      "path": "20260513_신한은행_부지점장_ISA·ETF·IRP 상담 내용 정리 보고서 복사본.md",
+      "extension": "md",
+      "group": "text",
+      "mime_type": "text/markdown",
+      "size": 20079,
+      "size_human": "19.6 KB",
+      "modified": "2026-07-09T17:39:20+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
       "name": "20260513_신한은행_부지점장_ISA·ETF·IRP 상담 내용 정리 보고서.md",
       "path": "20260513_신한은행_부지점장_ISA·ETF·IRP 상담 내용 정리 보고서.md",
       "extension": "md",
@@ -99,7 +129,7 @@
       "mime_type": "text/markdown",
       "size": 20079,
       "size_human": "19.6 KB",
-      "modified": "2026-07-09T17:36:24+00:00",
+      "modified": "2026-07-09T17:39:20+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -114,7 +144,7 @@
       "mime_type": "text/markdown",
       "size": 4616,
       "size_human": "4.5 KB",
-      "modified": "2026-07-09T17:36:24+00:00",
+      "modified": "2026-07-09T17:39:20+00:00",
       "security": {
         "private": true,
         "source": "grant"
@@ -127,7 +157,7 @@
       "name": "교육",
       "path": "교육",
       "index": "교육/files.json",
-      "modified": "2026-07-09T17:36:24+00:00",
+      "modified": "2026-07-09T17:39:20+00:00",
       "file_count": 3,
       "directory_count": 2,
       "total_size": 4730097,
@@ -142,7 +172,7 @@
       "name": "교육신청",
       "path": "교육신청",
       "index": "교육신청/files.json",
-      "modified": "2026-07-09T17:36:24+00:00",
+      "modified": "2026-07-09T17:39:20+00:00",
       "file_count": 18,
       "directory_count": 3,
       "total_size": 19361872,
