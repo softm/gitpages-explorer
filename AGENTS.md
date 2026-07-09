@@ -31,6 +31,7 @@
 
 ## 2026-07-09
 - 메인/자료실 퍼블리싱 ON/OFF는 `grant.json.private_paths`를 GitHub API로 커밋하는 방식으로 처리하고, 디렉터리 OFF는 하위 전체 미게시로 본다.
+- GitHub 토큰이 있으면 UI는 원격 `grant.json`을 API로 다시 읽어 로컬 `grant.json`보다 우선 반영하고, 전체 git pull 대신 `grant.json`만 다시 불러오는 흐름을 사용한다.
 
 ## 공통
 - 중요한 내용으로 판단한 경우, AGENTS.md에 내용 추가
