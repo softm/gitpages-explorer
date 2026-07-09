@@ -107,6 +107,87 @@
             color: #57606a;
             font-size: 0.9em;
         }
+        /* SOFTM-publishing-github 2026-07-09: 자료실 퍼블리싱 GitHub 반영 패널/토글 스타일 시작 */
+        .publishing-panel {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #d8e0ec;
+            border-radius: 8px;
+            background: #f8fafc;
+            padding: 8px;
+            margin-bottom: 10px;
+            color: #334155;
+            font-size: 0.88em;
+        }
+        .publishing-token-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 800;
+        }
+        .publishing-token-input {
+            width: min(280px, 42vw);
+            min-height: 32px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            padding: 0 8px;
+            font: inherit;
+        }
+        .publishing-save-button,
+        .publishing-toggle {
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            background: #fff;
+            color: #1f2937;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 800;
+        }
+        .publishing-save-button {
+            min-height: 32px;
+            padding: 0 10px;
+        }
+        .publishing-save-button:not(:disabled):hover,
+        .publishing-toggle:hover {
+            border-color: #0969da;
+            color: #0969da;
+        }
+        .publishing-save-button:disabled {
+            cursor: default;
+            opacity: 0.55;
+        }
+        .publishing-toggle {
+            flex: 0 0 auto;
+            min-height: 26px;
+            padding: 0 8px;
+            font-size: 0.78em;
+        }
+        .publishing-toggle[data-published="false"] {
+            border-color: #f1b8b8;
+            background: #fff7ed;
+            color: #b42318;
+        }
+        .publishing-meta {
+            font-weight: 800;
+            color: #64748b;
+        }
+        .publishing-status {
+            flex: 1 1 180px;
+            min-width: 160px;
+            color: #64748b;
+        }
+        .publishing-status[data-type="error"] {
+            color: #b42318;
+        }
+        .publishing-status[data-type="success"] {
+            color: #067647;
+        }
+        .dataroom-publishing-slot {
+            margin-left: auto;
+        }
+        /* SOFTM-publishing-github 2026-07-09: 자료실 퍼블리싱 GitHub 반영 패널/토글 스타일 끝 */
         .search-options-panel {
             /* SOFTM-dataroom-filter-popover 2026-05-16: 필터 패널이 탐색기 본문을 아래로 밀지 않도록 팝오버화 시작 */
             position: absolute;
@@ -2128,11 +2209,12 @@
       </div>
     </div>
     <script src="lib/attachment-utils.js?v=20260513-generic-source"></script>
-    <script src="lib/files-index-utils.js?v=20260513-generic-source"></script>
+    <script src="lib/files-index-utils.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: security 메타 전달 반영을 위해 공통 인덱스 유틸 캐시 갱신 -->
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 캐시 버전 갱신 -->
     <script src="lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><!-- SOFTM-dataroom-multi-actions 2026-05-17: 자료실 선택 파일 ZIP 다운로드를 위해 JSZip 로드 -->
-    <script src="lib/dataroom-page.js?v=20260517-directory-download"></script><!-- SOFTM-dataroom-directory-download 2026-05-17: 디렉토리 포함 선택 다운로드 스크립트 캐시 버전 갱신 -->
+    <script src="lib/publishing-utils.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: GitHub API 기반 퍼블리싱 저장 유틸 추가 -->
+    <script src="lib/dataroom-page.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: 자료실 퍼블리싱 토글 반영을 위한 스크립트 캐시 버전 갱신 -->
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();

@@ -110,6 +110,87 @@
         .loaded-filter-panel.is-collapsed .loaded-filter-chips {
             display: none;
         }
+        /* SOFTM-publishing-github 2026-07-09: 관리자 퍼블리싱 GitHub 반영 패널/토글 스타일 시작 */
+        .publishing-panel {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #d8e0ec;
+            border-radius: 8px;
+            background: #f8fafc;
+            padding: 8px;
+            margin-bottom: 8px;
+            color: #334155;
+            font-size: 0.86em;
+        }
+        .publishing-token-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 800;
+        }
+        .publishing-token-input {
+            width: min(280px, 42vw);
+            min-height: 32px;
+            border: 1px solid #cbd5e1;
+            border-radius: 7px;
+            padding: 0 8px;
+            font: inherit;
+        }
+        .publishing-save-button,
+        .publishing-toggle {
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            background: #fff;
+            color: #1f2937;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 800;
+        }
+        .publishing-save-button {
+            min-height: 32px;
+            padding: 0 10px;
+        }
+        .publishing-save-button:not(:disabled):hover,
+        .publishing-toggle:hover {
+            border-color: #0b63d1;
+            color: #0b63d1;
+        }
+        .publishing-save-button:disabled {
+            cursor: default;
+            opacity: 0.55;
+        }
+        .publishing-toggle {
+            flex: 0 0 auto;
+            min-height: 26px;
+            padding: 0 8px;
+            font-size: 0.78em;
+        }
+        .publishing-toggle[data-published="false"] {
+            border-color: #f1b8b8;
+            background: #fff7ed;
+            color: #b42318;
+        }
+        .publishing-meta {
+            font-weight: 800;
+            color: #64748b;
+        }
+        .publishing-status {
+            flex: 1 1 180px;
+            min-width: 160px;
+            color: #64748b;
+        }
+        .publishing-status[data-type="error"] {
+            color: #b42318;
+        }
+        .publishing-status[data-type="success"] {
+            color: #067647;
+        }
+        .directory-item-publishing {
+            margin-left: auto;
+        }
+        /* SOFTM-publishing-github 2026-07-09: 관리자 퍼블리싱 GitHub 반영 패널/토글 스타일 끝 */
         h1, h2 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
         ul { list-style-type: none; padding-left: 0; }
         li {
@@ -2744,11 +2825,12 @@
     </div>
 
     <script src="https://softm.github.io/gitpages-explorer/lib/attachment-utils.js?v=20260513-parent-folder-up"></script>
-    <script src="https://softm.github.io/gitpages-explorer/lib/files-index-utils.js?v=20260513-parent-folder-up"></script>
+    <script src="lib/files-index-utils.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: security 메타 전달 반영을 위해 로컬 공통 인덱스 유틸 사용 -->
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 반영 및 로컬 검증을 위해 공통 뷰어 로컬 경로 사용 -->
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="lib/index-page.js?v=20260709-default-root-url"></script><!-- SOFTM-default-root-content 2026-07-09: 기본 접속 URL 보존 로직 반영을 위한 스크립트 캐시 버전 갱신 -->
+    <script src="lib/publishing-utils.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: GitHub API 기반 퍼블리싱 저장 유틸 추가 -->
+    <script src="lib/index-page.js?v=20260709-publishing-github"></script><!-- SOFTM-publishing-github 2026-07-09: 메인 퍼블리싱 토글 반영을 위한 스크립트 캐시 버전 갱신 -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
     <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">TOP</button>

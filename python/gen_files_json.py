@@ -198,7 +198,7 @@ def write_grant_rules(root: Path, rules: dict[str, Any]) -> Path:
 def is_private_path(rel_path: str) -> bool:
     normalized = str(rel_path or ".")
     configured = set(GRANT_RULES.get("private_paths", []))
-    if normalized in configured:
+    if any(normalized == path or normalized.startswith(f"{path}/") for path in configured if path and path != "."):  # SOFTM-publishing-github 2026-07-09: 디렉터리 퍼블리싱 OFF 시 하위 경로까지 비공개 처리
         return True
     parts = [part for part in normalized.split("/") if part and part != "."]
     return any(is_private_name(part) for part in parts)
