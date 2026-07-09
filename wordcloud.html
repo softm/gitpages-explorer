@@ -166,8 +166,8 @@
         </div>
     </main>
     <script src="lib/files-index-utils.js?v=20260710-publishing-condition-filter"></script><!-- SOFTM-publishing-condition-filter 2026-07-10: 게시 상태 조건으로 워드클라우드 집계 필터링 -->
-    <script src="lib/publishing-utils.js?v=20260710-publishing-index-sync"></script><!-- SOFTM-publishing-index-sync 2026-07-10: 게시 설정 동기화와 인덱스 pull 필요 상태 분리 캐시 갱신 -->
-    <script src="lib/wordcloud-page.js?v=20260710-publishing-condition-filter"></script><!-- SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 조건 필터 캐시 갱신 -->
+    <script src="lib/publishing-utils.js?v=20260710-publishing-filter-local-only"></script><!-- SOFTM-publishing-filter-local-only 2026-07-10: 게시 상태 검색 조건을 로컬 전용으로 제한하는 공통 유틸 캐시 갱신 -->
+    <script src="lib/wordcloud-page.js?v=20260710-publishing-filter-local-only"></script><!-- SOFTM-publishing-filter-local-only 2026-07-10: 워드클라우드 게시 상태 조건 로컬 전용 처리 캐시 갱신 -->
     <script>
         function navigateWithSearch(event, target) {
             event.preventDefault();
@@ -176,10 +176,11 @@
             if (searchInput && searchInput.value.trim()) {
                 params.set('search', searchInput.value.trim());
             }
+            const publishingFilterEnabled = window.PublishingUtils && typeof window.PublishingUtils.isPublishingFilterEnabled === 'function' && window.PublishingUtils.isPublishingFilterEnabled();
             const publishingFilter = document.getElementById('publishingFilter');
-            if (publishingFilter && publishingFilter.value && publishingFilter.value !== 'all') {
+            if (publishingFilterEnabled && publishingFilter && publishingFilter.value && publishingFilter.value !== 'all') {
                 params.set('publish', publishingFilter.value);
-            } // SOFTM-publishing-condition-filter 2026-07-10: 메뉴 이동 시 워드클라우드 게시 상태 조건 유지
+            } // SOFTM-publishing-filter-local-only 2026-07-10: 로컬 점검 환경에서만 워드클라우드 게시 조건 URL 유지
             const query = params.toString();
             window.location.href = query ? `${target}?${query}` : target;
         }

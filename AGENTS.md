@@ -42,7 +42,7 @@
 - `GitHub에 반영` 저장 성공 후에는 저장 커밋 SHA 이후 원격 `main` HEAD가 전진하는지 짧게 폴링해 Actions 생성 커밋을 확인하고 최신 정보를 자동으로 다시 불러온다.
 - 퍼블리싱 패널의 동기화 표시는 `게시 설정(grant.json)`과 `인덱스(files.json)`를 분리하고, 원격 `files.json`과 로컬 `files.json`이 다르면 `git pull 필요`를 표시한다.
 - 메인 탐색기 스플릿터는 목록 폭만 고정하고 미리보기 컬럼은 남은 폭을 채우게 유지한다.
-- 게시 상태 조건 필터는 `PublishingUtils.matchesPublishingFilter`를 기준으로 메인/자료실/워드클라우드가 같은 공개 예외 규칙을 사용한다.
+- 게시 상태 조건 필터는 로컬 점검 환경(`localhost`, `127.0.0.1`, `file:`)에서만 표시/적용하고, `PublishingUtils.matchesPublishingFilter`를 기준으로 메인/자료실/워드클라우드가 같은 공개 예외 규칙을 사용한다.
 
 ## 공통
 - 중요한 내용으로 판단한 경우, AGENTS.md에 내용 추가
