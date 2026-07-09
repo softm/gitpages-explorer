@@ -264,6 +264,13 @@
             font: inherit;
             padding: 0 10px;
         }
+        .filter-select.publishing-filter-select {
+            min-width: 104px;
+            min-height: 32px;
+            border-radius: 999px;
+            font-weight: 700;
+            padding: 0 24px 0 10px;
+        } /* SOFTM-publishing-filter-compact 2026-07-10: 자료실 게시 상태 조건 select 폭 축소 */
         .segmented-filter {
             display: inline-flex;
             flex-wrap: wrap;
@@ -2159,8 +2166,8 @@
                         </select>
                     </div>
                     <div class="search-option-group">
-                        <span class="search-option-title">게시 상태</span>
-                        <select id="publishingFilter" class="filter-select" aria-label="게시 상태 조건">
+                        <span class="search-option-title">게시</span>
+                        <select id="publishingFilter" class="filter-select publishing-filter-select" aria-label="게시 상태 조건">
                             <option value="all">전체</option>
                             <option value="published">게시</option>
                             <option value="unpublished">미게시</option>

@@ -260,8 +260,7 @@
         a:hover { text-decoration: underline; }
         img { max-width: 100%; height: auto; }
         #searchInput,
-        #mainDirectorySearchInput,
-        .publishing-condition-select {
+        #mainDirectorySearchInput {
             width: 100%;
             padding: 9px 10px;
             box-sizing: border-box;
@@ -270,15 +269,30 @@
             font: inherit;
         }
         .publishing-condition-field {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            max-width: 100%;
         }
         .publishing-condition-field > span {
             color: #555;
-            font-size: 0.84em;
+            font-size: 0.8em;
             font-weight: 700;
-        } /* SOFTM-publishing-condition-filter 2026-07-10: 메인/검색 게시 상태 조건 UI 스타일 */
+            white-space: nowrap;
+        }
+        .publishing-condition-select {
+            width: 92px;
+            height: 30px;
+            box-sizing: border-box;
+            border: 1px solid #d8e0ec;
+            border-radius: 999px;
+            background: #fff;
+            color: #24292f;
+            font: inherit;
+            font-size: 0.86em;
+            font-weight: 700;
+            padding: 0 24px 0 10px;
+        } /* SOFTM-publishing-filter-compact 2026-07-10: 메인/검색 게시 상태 조건을 한 줄 compact select로 축소 */
         .list-header {
             position: sticky;
             top: 0;
@@ -2844,7 +2858,7 @@
                 <div id="mainDirectoryPanel" class="left-tab-panel" role="tabpanel">
                     <input type="search" id="mainDirectorySearchInput" placeholder="디렉토리 검색" autocomplete="off">
                     <label class="publishing-condition-field">
-                        <span>게시 상태</span>
+                        <span>게시</span>
                         <select id="mainPublishingFilter" class="publishing-condition-select" aria-label="메인 게시 상태 조건">
                             <option value="all">전체</option>
                             <option value="published">게시</option>
@@ -2855,7 +2869,7 @@
                 <div id="searchPanel" class="search-controls left-tab-panel left-hidden" role="tabpanel">
                     <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="파일 검색...">
                     <label class="publishing-condition-field">
-                        <span>게시 상태</span>
+                        <span>게시</span>
                         <select id="searchPublishingFilter" class="publishing-condition-select" aria-label="검색 게시 상태 조건">
                             <option value="all">전체</option>
                             <option value="published">게시</option>

@@ -45,10 +45,15 @@
         h1 { margin: 0 0 12px; font-size: 28px; letter-spacing: 0; }
         .controls {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 180px 180px;
+            grid-template-columns: minmax(0, 1fr) auto auto;
             gap: 10px;
             align-items: center;
-        } /* SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 조건 select 공간 추가 */
+        } /* SOFTM-publishing-filter-compact 2026-07-10: 워드클라우드 select 고정폭을 내용 기준 compact 폭으로 축소 */
+        .controls input { min-width: 0; }
+        .controls select {
+            width: 96px;
+            min-width: 0;
+        }
         input, select {
             height: 40px;
             border: 1px solid var(--line);
@@ -119,7 +124,8 @@
         @media (max-width: 900px) {
             main { padding: 16px; }
             .layout { grid-template-columns: 1fr; }
-            .controls { grid-template-columns: 1fr; }
+            .controls { grid-template-columns: minmax(0, 1fr) auto auto; }
+            .controls input { grid-column: 1 / -1; }
             .header { top: 43px; }
         }
     </style>
