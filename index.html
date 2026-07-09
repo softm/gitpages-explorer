@@ -2859,25 +2859,25 @@
                 <div id="mainDirectoryPanel" class="left-tab-panel" role="tabpanel">
                     <div class="publishing-condition-row">
                         <input type="search" id="mainDirectorySearchInput" placeholder="디렉토리 검색" autocomplete="off">
-                        <label class="publishing-condition-field">
+                        <label class="publishing-condition-field" hidden>
                         <select id="mainPublishingFilter" class="publishing-condition-select" aria-label="메인 게시 상태 조건" title="게시 상태">
                             <option value="all">전체</option>
                             <option value="published">게시</option>
                             <option value="unpublished">미게시</option>
                         </select>
-                        </label>
+                        </label><!-- SOFTM-publishing-filter-server-hide 2026-07-10: 서버에서는 게시 상태 조건을 기본 숨김 처리하고 localhost/127.0.0.1에서만 JS로 표시 -->
                     </div><!-- SOFTM-publishing-filter-inline 2026-07-10: 메인 게시 조건을 검색 입력 줄에 통합 -->
                 </div>
                 <div id="searchPanel" class="search-controls left-tab-panel left-hidden" role="tabpanel">
                     <div class="publishing-condition-row">
                         <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="파일 검색...">
-                        <label class="publishing-condition-field">
+                        <label class="publishing-condition-field" hidden>
                         <select id="searchPublishingFilter" class="publishing-condition-select" aria-label="검색 게시 상태 조건" title="게시 상태">
                             <option value="all">전체</option>
                             <option value="published">게시</option>
                             <option value="unpublished">미게시</option>
                         </select>
-                        </label>
+                        </label><!-- SOFTM-publishing-filter-server-hide 2026-07-10: 서버에서는 검색 게시 상태 조건을 기본 숨김 처리하고 localhost/127.0.0.1에서만 JS로 표시 -->
                     </div><!-- SOFTM-publishing-filter-inline 2026-07-10: 검색 게시 조건을 검색 입력 줄에 통합 -->
                     <label class="search-option">
                         <input type="checkbox" id="titleOnlyCheckbox" onchange="searchFiles()">

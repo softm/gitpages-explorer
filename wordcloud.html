@@ -146,11 +146,11 @@
                     <option value="120" selected>120개</option>
                     <option value="200">200개</option>
                 </select>
-                <select id="publishingFilter" aria-label="게시 상태 조건">
+                <select id="publishingFilter" aria-label="게시 상태 조건" hidden>
                     <option value="all">전체</option>
                     <option value="published">게시</option>
                     <option value="unpublished">미게시</option>
-                </select><!-- SOFTM-publishing-condition-filter 2026-07-10: 워드클라우드 게시 상태 조건 추가 -->
+                </select><!-- SOFTM-publishing-filter-server-hide 2026-07-10: 서버에서는 워드클라우드 게시 상태 조건을 기본 숨김 처리하고 localhost/127.0.0.1에서만 JS로 표시 -->
             </div>
         </div>
         <div id="meta"></div>

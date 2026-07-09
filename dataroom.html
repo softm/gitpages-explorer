@@ -2167,11 +2167,11 @@
                         <select id="loadedTypeFilter" class="filter-select" aria-label="결과 유형">
                             <option value="all">전체</option>
                         </select>
-                        <select id="publishingFilter" class="filter-select publishing-filter-select" aria-label="게시 상태 조건" title="게시 상태">
+                        <select id="publishingFilter" class="filter-select publishing-filter-select" aria-label="게시 상태 조건" title="게시 상태" hidden>
                             <option value="all">전체</option>
                             <option value="published">게시</option>
                             <option value="unpublished">미게시</option>
-                        </select>
+                        </select><!-- SOFTM-publishing-filter-server-hide 2026-07-10: 서버에서는 자료실 게시 상태 조건을 기본 숨김 처리하고 localhost/127.0.0.1에서만 JS로 표시 -->
                     </div><!-- SOFTM-publishing-filter-inline 2026-07-10: 자료실 게시 조건을 결과 유형 row에 통합 -->
                     <div class="search-option-group">
                         <span class="search-option-title">파일 종류</span>
