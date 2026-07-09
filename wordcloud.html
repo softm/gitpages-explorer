@@ -54,6 +54,9 @@
             width: 96px;
             min-width: 0;
         }
+        .controls select[hidden] {
+            display: none !important;
+        } /* SOFTM-publishing-filter-server-hide 2026-07-10: 서버 공개 화면에서 hidden 게시 조건 select가 CSS display로 다시 보이지 않게 고정 */
         input, select {
             height: 40px;
             border: 1px solid var(--line);
