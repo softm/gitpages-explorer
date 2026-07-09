@@ -30,6 +30,19 @@ PREVIEW_DIRNAME = ".viewer-previews"
 GENERATED_NAMES = {"files.json", "files_info.json", "attach_files.json", "wordcloud.json", "files.html", "grant.json", "admin.json"}
 EXCLUDED_NAMES = {".DS_Store", ".git", ".github", "__pycache__", *GENERATED_NAMES}
 EXCLUDED_PATHS = {"lib", "lib/baguetteBox", "python", PREVIEW_DIRNAME}
+ROOT_OPERATION_FILES = {
+    ".gitignore",
+    "AGENTS.md",
+    "GEMINI.md",
+    "IMPLEMENTATION_SUMMARY.md",
+    "admin.html",
+    "attach.js",
+    "dataroom.html",
+    "index.html",
+    "play.md",
+    "wordcloud.html",
+    "work.md",
+}  # SOFTM-root-operational-hide 2026-07-10: 루트의 앱 구동/관리 파일은 탐색 목록에서 제외
 OUTPUT_ALIASES = ("json", "html")
 GRANT_FILENAME = "grant.json"
 GRANT_OUTPUT = ROOT / GRANT_FILENAME
@@ -285,6 +298,8 @@ def scan_directory(path: Path, root: Path, errors: list[dict[str, str]]) -> dict
             continue
 
         child_rel = entry.relative_to(root).as_posix()
+        if path == root and entry.is_file() and entry.name in ROOT_OPERATION_FILES:
+            continue  # SOFTM-root-operational-hide 2026-07-10: 루트 운영 파일만 숨기고 하위 콘텐츠 파일은 유지
         if child_rel in EXCLUDED_PATHS or any(child_rel.startswith(f"{excluded}/") for excluded in EXCLUDED_PATHS):
             continue
         try:
