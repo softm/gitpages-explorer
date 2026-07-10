@@ -211,8 +211,11 @@
             color: #b42318;
         } /* SOFTM-publishing-sync-notice 2026-07-10: 자료실 퍼블리싱 원격 동기화 상태 chip 스타일 추가 */
         .publishing-status {
-            flex: 1 1 180px;
+            flex: 1 1 240px;
             min-width: 160px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
             color: #64748b;
         }
         .publishing-status[data-type="error"] {
@@ -221,6 +224,44 @@
         .publishing-status[data-type="success"] {
             color: #067647;
         }
+        .publishing-status-row {
+            display: flex;
+            align-items: center;
+            min-width: 0;
+            gap: 6px;
+            line-height: 1.35;
+        }
+        .publishing-status-row-label {
+            flex: 0 0 auto;
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            padding: 0 6px;
+            background: #fff;
+            color: #475467;
+            font-size: 0.78em;
+            font-weight: 800;
+        }
+        .publishing-status-row-text {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .publishing-status-row[data-type="success"] .publishing-status-row-label {
+            border-color: #abefc6;
+            background: #ecfdf3;
+            color: #067647;
+        }
+        .publishing-status-row[data-type="pending"] .publishing-status-row-label {
+            border-color: #fedf89;
+            background: #fffaeb;
+            color: #b54708;
+        }
+        .publishing-status-row[data-type="error"] .publishing-status-row-label {
+            border-color: #fecdca;
+            background: #fef3f2;
+            color: #b42318;
+        } /* SOFTM-publishing-status-rows 2026-07-10: 자료실 퍼블리싱 상태 메시지를 row와 색상 label로 분리 */
         .dataroom-publishing-slot {
             margin-left: auto;
         }
@@ -2265,7 +2306,7 @@
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 캐시 버전 갱신 -->
     <script src="lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><!-- SOFTM-dataroom-multi-actions 2026-05-17: 자료실 선택 파일 ZIP 다운로드를 위해 JSZip 로드 -->
-    <script src="lib/publishing-utils.js?v=20260710-publishing-badge-labels"></script><!-- SOFTM-publishing-badge-labels 2026-07-10: 게시/인덱스 동기화 상태를 고정 라벨과 색상으로 표시 -->
+    <script src="lib/publishing-utils.js?v=20260710-publishing-status-rows"></script><!-- SOFTM-publishing-status-rows 2026-07-10: 퍼블리싱 활동 문구와 상태 메시지 row 표시 반영 -->
     <script src="lib/dataroom-page.js?v=20260710-publishing-filter-localhost-only"></script><!-- SOFTM-publishing-filter-localhost-only 2026-07-10: 자료실 게시 상태 조건 localhost/127.0.0.1 전용 처리 -->
     <script>
         function navigateWithSearch(event, target) {
