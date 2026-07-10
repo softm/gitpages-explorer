@@ -216,12 +216,19 @@
             color: #b42318;
         } /* SOFTM-publishing-sync-notice 2026-07-10: 자료실 퍼블리싱 원격 동기화 상태 chip 스타일 추가 */
         .publishing-status {
-            flex: 1 1 240px;
-            min-width: 160px;
+            flex: 1 0 100%;
+            width: 100%;
+            min-width: 100%;
             display: flex;
             flex-direction: column;
             gap: 4px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2px;
+            padding-top: 6px;
             color: #64748b;
+        }
+        .publishing-status[hidden] {
+            display: none !important;
         }
         .publishing-status[data-type="error"] {
             color: #b42318;
@@ -2311,7 +2318,7 @@
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 캐시 버전 갱신 -->
     <script src="lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><!-- SOFTM-dataroom-multi-actions 2026-05-17: 자료실 선택 파일 ZIP 다운로드를 위해 JSZip 로드 -->
-    <script src="lib/publishing-utils.js?v=20260710-publishing-deploy-link"></script><!-- SOFTM-publishing-deploy-link 2026-07-10: 퍼블리싱 패널에 softm.github.io 배포 보기 링크 추가 -->
+    <script src="lib/publishing-utils.js?v=20260710-publishing-status-below"></script><!-- SOFTM-publishing-status-below 2026-07-10: 퍼블리싱 상태 메시지를 토큰 입력 row 아래로 분리 -->
     <script src="lib/dataroom-page.js?v=20260710-publishing-filter-localhost-only"></script><!-- SOFTM-publishing-filter-localhost-only 2026-07-10: 자료실 게시 상태 조건 localhost/127.0.0.1 전용 처리 -->
     <script>
         function navigateWithSearch(event, target) {
