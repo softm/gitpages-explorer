@@ -114,7 +114,7 @@
         .publishing-panel {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
+            align-items: stretch;
             gap: 8px;
             border: 1px solid #d8e0ec;
             border-radius: 8px;
@@ -124,6 +124,22 @@
             color: #334155;
             font-size: 0.86em;
         }
+        .publishing-controls-row {
+            display: flex;
+            flex: 1 0 100%;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+            width: 100%;
+        }
+        .publishing-state-chip-row {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+            margin-left: auto;
+        } /* SOFTM-publishing-control-rows 2026-07-10: 퍼블리싱 상단 입력/액션 row와 상태 chip 그룹 분리 */
         .publishing-token-label {
             display: inline-flex;
             align-items: center;
@@ -2995,7 +3011,7 @@
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 반영 및 로컬 검증을 위해 공통 뷰어 로컬 경로 사용 -->
     <script src="https://softm.github.io/gitpages-explorer/lib/source-viewer-utils.js?v=20260513-file-actions2"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-    <script src="lib/publishing-utils.js?v=20260710-publishing-status-below"></script><!-- SOFTM-publishing-status-below 2026-07-10: 퍼블리싱 상태 메시지를 토큰 입력 row 아래로 분리 -->
+    <script src="lib/publishing-utils.js?v=20260710-publishing-control-rows"></script><!-- SOFTM-publishing-control-rows 2026-07-10: 퍼블리싱 토큰/액션 row와 상태 메시지 row 구조 분리 -->
     <script src="lib/index-page.js?v=20260710-publishing-filter-localhost-only"></script><!-- SOFTM-publishing-filter-localhost-only 2026-07-10: 메인/검색 게시 상태 조건 localhost/127.0.0.1 전용 처리 -->
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
