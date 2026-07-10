@@ -149,8 +149,13 @@
             font-weight: 800;
         }
         .publishing-save-button {
+            display: inline-flex;
+            align-items: center;
             min-height: 32px;
             padding: 0 10px;
+        }
+        .publishing-deploy-link {
+            text-decoration: none;
         }
         .publishing-save-button:not(:disabled):hover,
         .publishing-toggle:hover {
@@ -2306,7 +2311,7 @@
     <script src="lib/document-viewer.js?v=20260604-mobile-pdf-viewer"></script><!-- SOFTM-mobile-pdf-viewer 2026-06-04: 모바일 PDF.js 렌더러 캐시 버전 갱신 -->
     <script src="lib/source-viewer-utils.js?v=20260513-source-highlight"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script><!-- SOFTM-dataroom-multi-actions 2026-05-17: 자료실 선택 파일 ZIP 다운로드를 위해 JSZip 로드 -->
-    <script src="lib/publishing-utils.js?v=20260710-publishing-status-rows"></script><!-- SOFTM-publishing-status-rows 2026-07-10: 퍼블리싱 활동 문구와 상태 메시지 row 표시 반영 -->
+    <script src="lib/publishing-utils.js?v=20260710-publishing-deploy-link"></script><!-- SOFTM-publishing-deploy-link 2026-07-10: 퍼블리싱 패널에 softm.github.io 배포 보기 링크 추가 -->
     <script src="lib/dataroom-page.js?v=20260710-publishing-filter-localhost-only"></script><!-- SOFTM-publishing-filter-localhost-only 2026-07-10: 자료실 게시 상태 조건 localhost/127.0.0.1 전용 처리 -->
     <script>
         function navigateWithSearch(event, target) {
