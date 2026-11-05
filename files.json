@@ -4,12 +4,12 @@
   "summary": {
     "root": "/home/runner/work/gitpages-explorer/gitpages-explorer",
     "path": ".",
-    "generated_at": "2026-07-10T07:38:29+00:00",
-    "file_count": 24,
+    "generated_at": "2026-11-05T14:59:09+00:00",
+    "file_count": 25,
     "directory_count": 7,
-    "direct_file_count": 3,
+    "direct_file_count": 4,
     "direct_directory_count": 2,
-    "total_size": 24136743,
+    "total_size": 24136801,
     "total_size_human": "23.0 MB"
   },
   "tree": {
@@ -17,14 +17,14 @@
     "name": "gitpages-explorer",
     "path": ".",
     "index": "files.json",
-    "modified": "2026-07-10T07:38:27+00:00",
+    "modified": "2026-11-05T14:59:08+00:00",
     "children": [
       {
         "type": "directory",
         "name": "교육",
         "path": "교육",
         "index": "교육/files.json",
-        "modified": "2026-07-10T07:38:27+00:00",
+        "modified": "2026-11-05T14:59:08+00:00",
         "file_count": 3,
         "directory_count": 2,
         "total_size": 4730097,
@@ -39,7 +39,7 @@
         "name": "교육신청",
         "path": "교육신청",
         "index": "교육신청/files.json",
-        "modified": "2026-07-10T07:38:27+00:00",
+        "modified": "2026-11-05T14:59:08+00:00",
         "file_count": 18,
         "directory_count": 3,
         "total_size": 19361872,
@@ -58,7 +58,7 @@
         "mime_type": "text/markdown",
         "size": 20079,
         "size_human": "19.6 KB",
-        "modified": "2026-07-10T07:38:27+00:00",
+        "modified": "2026-11-05T14:59:08+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -73,7 +73,22 @@
         "mime_type": "text/markdown",
         "size": 20079,
         "size_human": "19.6 KB",
-        "modified": "2026-07-10T07:38:27+00:00",
+        "modified": "2026-11-05T14:59:08+00:00",
+        "security": {
+          "private": false,
+          "source": "public"
+        }
+      },
+      {
+        "type": "file",
+        "name": "app-ads.txt",
+        "path": "app-ads.txt",
+        "extension": "txt",
+        "group": "text",
+        "mime_type": "text/plain",
+        "size": 58,
+        "size_human": "58 B",
+        "modified": "2026-11-05T14:59:08+00:00",
         "security": {
           "private": false,
           "source": "public"
@@ -88,16 +103,16 @@
         "mime_type": "text/markdown",
         "size": 4616,
         "size_human": "4.5 KB",
-        "modified": "2026-07-10T07:38:27+00:00",
+        "modified": "2026-11-05T14:59:08+00:00",
         "security": {
           "private": false,
           "source": "public"
         }
       }
     ],
-    "file_count": 24,
+    "file_count": 25,
     "directory_count": 7,
-    "total_size": 24136743,
+    "total_size": 24136801,
     "total_size_human": "23.0 MB",
     "security": {
       "private": false,
@@ -114,7 +129,7 @@
       "mime_type": "text/markdown",
       "size": 20079,
       "size_human": "19.6 KB",
-      "modified": "2026-07-10T07:38:27+00:00",
+      "modified": "2026-11-05T14:59:08+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -129,7 +144,22 @@
       "mime_type": "text/markdown",
       "size": 20079,
       "size_human": "19.6 KB",
-      "modified": "2026-07-10T07:38:27+00:00",
+      "modified": "2026-11-05T14:59:08+00:00",
+      "security": {
+        "private": false,
+        "source": "public"
+      }
+    },
+    {
+      "type": "file",
+      "name": "app-ads.txt",
+      "path": "app-ads.txt",
+      "extension": "txt",
+      "group": "text",
+      "mime_type": "text/plain",
+      "size": 58,
+      "size_human": "58 B",
+      "modified": "2026-11-05T14:59:08+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -144,7 +174,7 @@
       "mime_type": "text/markdown",
       "size": 4616,
       "size_human": "4.5 KB",
-      "modified": "2026-07-10T07:38:27+00:00",
+      "modified": "2026-11-05T14:59:08+00:00",
       "security": {
         "private": false,
         "source": "public"
@@ -157,7 +187,7 @@
       "name": "교육",
       "path": "교육",
       "index": "교육/files.json",
-      "modified": "2026-07-10T07:38:27+00:00",
+      "modified": "2026-11-05T14:59:08+00:00",
       "file_count": 3,
       "directory_count": 2,
       "total_size": 4730097,
@@ -172,7 +202,7 @@
       "name": "교육신청",
       "path": "교육신청",
       "index": "교육신청/files.json",
-      "modified": "2026-07-10T07:38:27+00:00",
+      "modified": "2026-11-05T14:59:08+00:00",
       "file_count": 18,
       "directory_count": 3,
       "total_size": 19361872,
